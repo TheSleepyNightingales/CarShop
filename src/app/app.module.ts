@@ -6,13 +6,16 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { AngularFireModule } from "angularfire2";
+import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { UserComponent } from './user/user.component';
 import { MechanicComponent } from './mechanic/mechanic.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { AsideComponent } from './shared/aside/aside.component';
+import { MainComponent } from './shared/main/main.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { HeaderComponent } from './shared/header/header.component';
     AppComponent,
     MechanicComponent,
     UserComponent,
-    HeaderComponent
+    HeaderComponent,
+    AsideComponent,
+    MainComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +44,10 @@ import { HeaderComponent } from './shared/header/header.component';
       {
         path: 'user',
         component: UserComponent
+      },
+      {
+        path: '',
+        component: HomeComponent
       },
     ])
   ],

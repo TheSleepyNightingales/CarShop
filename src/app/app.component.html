@@ -1,13 +1,7 @@
 <app-header></app-header>
-<ul>
-	Test
-	<li class="text" *ngFor="let item of items | async">
-		{{item.name}}
-	</li>
-</ul>
-
-<a routerLink="/user">Users</a>
-<a routerLink="/mechanic">Mechanics</a>
-<br>
-
-<router-outlet></router-outlet>
+<div class="container-fluid">
+  <div class="row">
+<app-aside></app-aside>
+<app-main></app-main>
+  </div>
+</div>
