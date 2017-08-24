@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AuthService } from './../auth.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../../user/user.service';
+import { User } from '../../user/models/User';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +16,13 @@ export class SignupComponent implements OnInit {
   alert: IAlert;
   anAlert: boolean;
   email: string;
-  constructor(private AuthService: AuthService, private Router: Router) { }
+
+  users: FirebaseListObservable<any[]>;
+
+  user: User;
+  constructor(private UserService: UserService, private Router: Router, db: AngularFireDatabase) {
+    this.users = db.list('/users');
+   }
     ngOnInit() {
       this.anAlert = false;
       this.alert = {
@@ -25,7 +34,7 @@ export class SignupComponent implements OnInit {
     onSignUp(form: NgForm) {
       this.email = form.value.email;
       const password = form.value.password;
-      this.AuthService.createUserWithEmailAndPassword(this.email, password).catch((error: any) => {
+      this.UserService.createUser(this.email, password).catch((error: any) => {
         // Handle Errors here.
         const errorCode: string = error.code;
         const errorMessage = error.message;
@@ -36,6 +45,9 @@ export class SignupComponent implements OnInit {
         }
         console.log(error);
       });
+
+      this.UserService.addUser(this.user);
+
       this.Router.navigate(['/']);
     }
     public closeAlert(alert: IAlert) {
