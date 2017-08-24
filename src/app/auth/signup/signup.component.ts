@@ -17,12 +17,8 @@ export class SignupComponent implements OnInit {
   anAlert: boolean;
   email: string;
 
-  users: FirebaseListObservable<any[]>;
-
   user: User;
-  constructor(private UserService: UserService, private Router: Router, db: AngularFireDatabase) {
-    this.users = db.list('/users');
-   }
+  constructor(private UserService: UserService, private Router: Router) { }
     ngOnInit() {
       this.anAlert = false;
       this.alert = {
