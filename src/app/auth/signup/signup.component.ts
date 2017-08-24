@@ -32,7 +32,14 @@ export class SignupComponent implements OnInit {
       const lastName = form.value.lastName;
       const shortIntro = form.value.intro;
 
-      this.UserService.createUser(email, password).catch((error: any) => {
+      this.UserService.createUser(email, password)
+      .then((success) => {
+        const user = new User(email, firstName, lastName, shortIntro);
+        this.UserService.addUser(user);
+
+        this.Router.navigate(['/']);
+      })
+      .catch((error: any) => {
         // Handle Errors here.
         const errorCode: string = error.code;
         const errorMessage = error.message;
@@ -41,13 +48,8 @@ export class SignupComponent implements OnInit {
           this.alert.message = errorMessage;
           this.alert.type = 'danger';
         }
-        console.log(error);
+        // console.log(error);
       });
-
-      const user = new User(email, firstName, lastName, shortIntro);
-      this.UserService.addUser(user);
-
-      this.Router.navigate(['/']);
     }
     public closeAlert(alert: IAlert) {
       alert.message = '';
