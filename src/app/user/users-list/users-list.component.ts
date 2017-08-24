@@ -1,3 +1,5 @@
+import { UserService } from './../user.service';
+import { FirebaseListObservable } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersListComponent implements OnInit {
 
-  constructor() { }
+  users: FirebaseListObservable<any>;
+
+  constructor(private UserService: UserService) { }
 
   ngOnInit() {
+    this.users = this.UserService.getAll();
   }
 
 }

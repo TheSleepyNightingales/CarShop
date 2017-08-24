@@ -1,4 +1,14 @@
-<h1>Top Users</h1>
-<p>
-  user works!
-</p>
+<h1>All users</h1>
+
+<div class="row">
+  <div *ngFor="let user of users | async" class="card col-xs-4" style="width: 20rem;">
+    <img class="card-img-top" [src]="user.photoUrl" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">{{ user.firstName }} {{ user.lastName }}</h4>
+      <p class="card-text fa fa-envelope-o">{{ user.email }}</p>
+      <p class="card-text">{{ user.shortIntro }}</p>
+      <a href="#" class="btn btn-primary">View profile</a>
+    </div>
+  </div> 
+</div>
+
