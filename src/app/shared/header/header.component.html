@@ -28,7 +28,7 @@
       </ng-template>
       <ng-template #logout>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/signin">{{currentUser().email}}</a>
+          <a class="nav-link" routerLink="/">{{currentUser().email}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="#" (click)="logOut()">Logout</a>

@@ -16,7 +16,7 @@
           <div class="form-top">
             <div class="form-top-left">
               <h3>Register in our System</h3>
-              <p>Enter your username and password to sign up</p>
+              <p>Enter your email and password to sign up</p>
             </div>
             <div class="form-top-right">
               <i class="fa fa-key"></i>
@@ -25,12 +25,24 @@
           <div class="form-bottom">
             <form (ngSubmit)="onSignUp(f)" #f="ngForm">
               <div class="form-group">
-                <label class="sr-only" for="form-username">Username</label>
-                <input type="email" id="email" name="email" required email ngModel class="form-control" placeholder="Username..." class="form-username form-control" id="form-username">
+                <label class="sr-only" for="form-username">Email</label>
+                <input type="email" id="email" name="email" required email ngModel class="form-control" placeholder="Email..." class="form-username form-control" id="form-username">
               </div>
               <div class="form-group">
                 <label class="sr-only" for="form-password">Password</label>
                 <input type="password" id="password" name="password" required ngModel class="form-control" placeholder="Password..." class="form-password form-control" id="form-password">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-firstName">First name</label>
+                <input type="text" id="firstName" name="firstName" required ngModel class="form-control" placeholder="First name..." class="form-firstName form-control" id="form-firstName">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-lastName">Last name</label>
+                <input type="text" id="lastName" name="lastName" required ngModel class="form-control" placeholder="Last name..." class="form-lastName form-control" id="form-lastName">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-intro">Short intro</label>
+                <input type="text" id="intro" name="intro" required ngModel class="form-control" placeholder="Short intro..." class="form-intro form-control" id="form-intro">
               </div>
               <button type="submit" class="btn" [disabled]="!f.valid">Sign Up</button>
             </form>

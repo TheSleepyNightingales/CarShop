@@ -11,19 +11,25 @@ import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
-    path: 'mechanic',
-    component: MechanicComponent
+    path: 'mechanics',
+    loadChildren: './mechanic/mechanic.module#MechanicModule'
   },
   {
-    path: 'user',
-    component: UserComponent
+    path: 'users',
+    loadChildren: './user/user.module#UserModule'
   },
   {
     path: '',
     component: HomeComponent, canActivate: [AuthGuard]
   },
-  { path: 'signin', component: SigninComponent },
-  { path: 'signup', component: SignupComponent },
+  {
+    path: 'signin',
+    component: SigninComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
+  },
 ];
 
 @NgModule({

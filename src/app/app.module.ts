@@ -1,3 +1,5 @@
+import { UserService } from './user/user.service';
+import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -25,6 +27,7 @@ import { UserComponent } from './user/user.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -32,9 +35,6 @@ import { SignupComponent } from './auth/signup/signup.component';
     AppComponent,
     MechanicComponent,
     UserComponent,
-    HeaderComponent,
-    AsideComponent,
-    MainComponent,
     HomeComponent,
     SigninComponent,
     SignupComponent,
@@ -48,6 +48,8 @@ import { SignupComponent } from './auth/signup/signup.component';
     HttpModule,
     NgbModule.forRoot(),
     AppRoutingModule,
+    SharedModule,
+    CoreModule
   ],
   providers: [AngularFireAuth, AuthService, AuthGuard],
   bootstrap: [AppComponent]

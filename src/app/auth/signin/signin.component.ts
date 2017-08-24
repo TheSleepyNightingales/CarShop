@@ -24,7 +24,8 @@ export class SigninComponent implements OnInit {
     onSignIn(form: NgForm) {
       this.email = form.value.email;
       const password = form.value.password;
-      this.AuthService.signInWithEmailAndPassword(this.email, password).then(userInfo => {
+      this.AuthService.signInWithEmailAndPassword(this.email, password)
+      .then(userInfo => {
         console.log(userInfo);
       }).catch((error: any) => {
         // Handle Errors here.
@@ -35,7 +36,7 @@ export class SigninComponent implements OnInit {
           this.alert.message = errorMessage;
           this.alert.type = 'danger';
         }
-        console.log(error);
+        // console.log(error);
       });
     }
     public closeAlert(alert: IAlert) {
