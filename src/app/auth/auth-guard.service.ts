@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor(private _router: Router, private authService: AuthService) { }
+  constructor(private _router: Router, private authService: AuthService) {  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> | Observable<boolean> | boolean {
     if (this.authService.currentUser()) {
