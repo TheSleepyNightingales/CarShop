@@ -17,12 +17,23 @@
       </li>
     </ul>
     <ul class="navbar-nav float-right">
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/signin">Sign In</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/signup">Sign Up</a>
-      </li>
+      <div *ngIf="!currentUser();then login else logout"></div>
+      <ng-template #login>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/signin">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/signup">Sign Up</a>
+        </li>
+      </ng-template>
+      <ng-template #logout>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/signin">{{currentUser().email}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="#" (click)="logOut()">Logout</a>
+        </li>
+      </ng-template>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">

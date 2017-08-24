@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../auth/auth.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
@@ -9,8 +10,10 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 export class HomeComponent implements OnInit {
 
   items: FirebaseListObservable<any[]>;
-  constructor(db: AngularFireDatabase) {
+  user: string;
+  constructor(db: AngularFireDatabase, private AuthService: AuthService) {
     this.items = db.list('/items');
+    this.user =  this.AuthService.currentUser().email;
   }
 
   ngOnInit() {
