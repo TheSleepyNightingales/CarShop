@@ -5,7 +5,7 @@ import { AuthService } from './../auth.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../user/user.service';
-import { User } from '../../user/models/User';
+import { User } from '../../shared/models/User';
 
 @Component({
   selector: 'app-signup',
@@ -15,9 +15,7 @@ import { User } from '../../user/models/User';
 export class SignupComponent implements OnInit {
   alert: IAlert;
   anAlert: boolean;
-  email: string;
 
-  user: User;
   constructor(private UserService: UserService, private Router: Router) { }
     ngOnInit() {
       this.anAlert = false;
@@ -28,9 +26,13 @@ export class SignupComponent implements OnInit {
     }
 
     onSignUp(form: NgForm) {
-      this.email = form.value.email;
+      const email = form.value.email;
       const password = form.value.password;
-      this.UserService.createUser(this.email, password).catch((error: any) => {
+      const firstName = form.value.firstName;
+      const lastName = form.value.lastName;
+      const shortIntro = form.value.intro;
+
+      this.UserService.createUser(email, password).catch((error: any) => {
         // Handle Errors here.
         const errorCode: string = error.code;
         const errorMessage = error.message;
@@ -42,7 +44,8 @@ export class SignupComponent implements OnInit {
         console.log(error);
       });
 
-      this.UserService.addUser(this.user);
+      const user = new User(email, firstName, lastName, shortIntro);
+      this.UserService.addUser(user);
 
       this.Router.navigate(['/']);
     }
