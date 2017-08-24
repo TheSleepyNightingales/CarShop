@@ -1,10 +1,15 @@
+import { MechanicRoutingModule } from './mechanic-routing.module';
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MechanicsListComponent } from './mechanics-list/mechanics-list.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule,
+    MechanicRoutingModule
   ],
-  declarations: []
+  declarations: [MechanicsListComponent],
+  providers: []
 })
 export class MechanicModule { }

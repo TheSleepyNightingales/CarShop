@@ -33,8 +33,6 @@ import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent,
-    MechanicComponent,
-    UserComponent,
     HomeComponent,
     SigninComponent,
     SignupComponent,

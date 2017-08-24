@@ -1,4 +1,4 @@
-import { UsersListComponent } from './users-list/users-list.component';
+import { MechanicsListComponent } from './mechanics-list/mechanics-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -7,7 +7,7 @@ const routes: Routes = [
          path: '', redirectTo: 'all', pathMatch: 'full'
     },
     {
-        path: 'all', component: UsersListComponent
+        path: 'all', component: MechanicsListComponent
     }
 ];
 
@@ -16,4 +16,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 
-export class UserRoutingModule { }
+export class MechanicRoutingModule { }
