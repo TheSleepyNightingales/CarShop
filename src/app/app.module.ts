@@ -21,8 +21,6 @@ import { AsideComponent } from './shared/aside/aside.component';
 import { MainComponent } from './shared/main/main.component';
 
 import { HomeComponent } from './home/home.component';
-import { MechanicComponent } from './mechanic/mechanic.component';
-import { UserComponent } from './user/user.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SigninComponent } from './auth/signin/signin.component';

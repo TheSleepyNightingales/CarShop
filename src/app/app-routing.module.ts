@@ -5,17 +5,14 @@ import { NgModule } from '@angular/core';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { HomeComponent } from './home/home.component';
-import { MechanicComponent } from './mechanic/mechanic.component';
-import { UserComponent } from './user/user.component';
-
 
 const routes: Routes = [
   {
-    path: 'mechanic',
+    path: 'mechanics',
     loadChildren: './mechanic/mechanic.module#MechanicModule'
   },
   {
-    path: 'user',
+    path: 'users',
     loadChildren: './user/user.module#UserModule'
   },
   {
