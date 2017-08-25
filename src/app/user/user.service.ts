@@ -13,13 +13,17 @@ export class UserService {
 
   constructor(db: AngularFireDatabase, private AuthService: AuthService) {
     this.users = db.list('users');
+    if (this.AuthService.currentUser()) {
+      this.user = db.list('/users',  {
+        query: {
+          orderByChild: 'email',
+          equalTo: this.AuthService.currentUser().email,
+        }
+      });
+    } else {
+      this.user = db.list('users');
+    }
     this.mechanics = db.list('/mechanics');
-    this.user = db.list('/users', {
-      query: {
-        orderByChild: 'email',
-        equalTo: this.AuthService.currentUser().email,
-      }
-    });
   }
 
   createUser(email: string, password: string) {
@@ -32,8 +36,6 @@ export class UserService {
 
 
   listUser(email: string) {
-    console.log(email);
-    console.log(this.user)
     return this.user;
   }
     getAll() {
