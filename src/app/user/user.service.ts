@@ -20,8 +20,6 @@ export class UserService {
           equalTo: this.AuthService.currentUser().email,
         }
       });
-    } else {
-      this.user = db.list('users');
     }
     this.mechanics = db.list('/mechanics');
   }
