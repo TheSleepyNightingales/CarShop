@@ -30,9 +30,13 @@ export class UserService {
     this.users.push(user);
   }
 
+
   listUser(email: string) {
     console.log(email);
     console.log(this.user)
     return this.user;
   }
-}
+    getAll() {
+      return this.users;
+    }
+  }
