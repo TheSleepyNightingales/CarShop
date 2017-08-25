@@ -6,12 +6,20 @@ import { User } from '../shared/models/User';
 @Injectable()
 export class UserService {
   users: FirebaseListObservable<any[]>;
-
+  user: FirebaseListObservable<any[]>;
   mechanics: FirebaseListObservable<any[]>;
 
+  userByEmail: FirebaseListObservable<any[]>;
+
   constructor(db: AngularFireDatabase, private AuthService: AuthService) {
-    this.users = db.list('/users');
+    this.users = db.list('users');
     this.mechanics = db.list('/mechanics');
+    this.user = db.list('/users', {
+      query: {
+        orderByChild: 'email',
+        equalTo: this.AuthService.currentUser().email,
+      }
+    });
   }
 
   createUser(email: string, password: string) {
@@ -20,5 +28,11 @@ export class UserService {
 
   addUser(user: User) {
     this.users.push(user);
+  }
+
+  listUser(email: string) {
+    console.log(email);
+    console.log(this.user)
+    return this.user;
   }
 }

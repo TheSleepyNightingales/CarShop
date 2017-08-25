@@ -1,0 +1,26 @@
+<h1>Dashboard</h1>
+<div *ngFor="let user of users | async" >
+<div class="rela-block container">
+  <div class="rela-block profile-card">
+    <div class="rela-block profile-name-container">
+      <img id="profile_pic" class="profile-pic" [src]="user.photoUrl" alt="Card image cap">
+      <div class="rela-block user-name" id="user_name">{{ user.firstName }} {{ user.lastName }}</div>
+      <div class="rela-block user-desc" id="user_description">{{ user.shortIntro }}</div>
+    </div>
+    <div class="rela-block profile-card-stats">
+      <div class="floated profile-stat works" id="num_works">{{user.rating}}<br></div>
+      <div class="floated profile-stat followers" id="num_followers">{{user.myMechanics}}<br></div>
+      <div class="floated profile-stat following" id="num_following">{{user.myFriends}}<br></div>
+    </div>
+  </div>
+<br>
+  <app-user-car></app-user-car>
+</div>
+  <div class="rela-block container">
+    <div class="rela-block profile-card">
+      <div class="rela-block profile-name-container">
+        <a class="btn btn-success" href="user/addcar"><i class="fa fa-plus" aria-hidden="true"></i> ADD A CAR</a>
+      </div>
+    </div>
+  </div>
+</div>

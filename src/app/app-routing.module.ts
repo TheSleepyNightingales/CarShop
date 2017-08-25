@@ -11,11 +11,11 @@ import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
-    path: 'mechanics',
+    path: 'mechanic',
     loadChildren: './mechanic/mechanic.module#MechanicModule'
   },
   {
-    path: 'users',
+    path: 'user',
     loadChildren: './user/user.module#UserModule'
   },
   {
