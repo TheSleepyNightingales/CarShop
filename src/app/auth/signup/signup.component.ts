@@ -33,8 +33,9 @@ export class SignupComponent implements OnInit {
       const shortIntro = form.value.intro;
 
       this.UserService.createUser(email, password)
-      .then((success) => {
-        const user = new User(email, firstName, lastName, shortIntro);
+      .then((createdUser) => {
+        // console.log(success);
+        const user = new User(createdUser.uid, email, firstName, lastName, shortIntro);
         this.UserService.addUser(user);
 
         this.Router.navigate(['/']);

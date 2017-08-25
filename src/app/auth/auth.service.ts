@@ -21,7 +21,7 @@ export class AuthService {
   }
 
   currentUser() {
-    console.log(this.AngularFA.auth.currentUser);
+    //console.log(this.AngularFA.auth.currentUser);
     return this.AngularFA.auth.currentUser;
   }
 

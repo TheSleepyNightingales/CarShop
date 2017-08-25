@@ -41,8 +41,8 @@ export class User {
 
     isBanned: boolean;
 
-    constructor(email: string, firstName: string, lastName: string, shortIntro: string) {
-        this.id = getNextId();
+    constructor(id: number, email: string, firstName: string, lastName: string, shortIntro: string) {
+        this.id = id;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
