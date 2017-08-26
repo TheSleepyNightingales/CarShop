@@ -1,14 +1,14 @@
 
-<div *ngFor="let user of users | async" >
+<div *ngFor="let car of users | async" >
 <div class="rela-block profile-card">
-  <img  class="profile-pic" [src]="user.cars.photoUrl" alt="Card image cap">
+  <img  class="profile-pic" [src]="car.photoUrl" alt="Card image cap">
   <div class="rela-block profile-name-container">
-    <div class="rela-block user-name" id="user_name">{{ user.cars.model }}</div>
-    <div class="rela-block user-desc" id="user_description">{{ user.cars.description }}</div>
+    <div class="rela-block user-name" id="user_name">{{ car.model }} {{ car.make }}</div>
+    <div class="rela-block user-desc" id="user_description">{{ car.year }}</div>
   </div>
   <div class="rela-block profile-card-stats">
-    <div class="floated profile-stat works" id="num_works">250 bhp<br></div>
-    <div class="floated profile-stat followers" id="num_followers">{{user.cars.km}}<br></div>
+    <div class="floated profile-stat works" id="num_works">{{car.power}} bhp<br></div>
+    <div class="floated profile-stat followers" id="num_followers">{{car.km}}<br></div>
     <div class="floated profile-stat following" id="num_following">14.1s<br></div>
   </div>
 </div>

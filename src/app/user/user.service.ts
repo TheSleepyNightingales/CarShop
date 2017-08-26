@@ -2,25 +2,30 @@ import { Injectable } from '@angular/core';
 import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../shared/models/User';
+import { Car } from '../shared/models/Car';
 
 @Injectable()
 export class UserService {
   users: FirebaseListObservable<any[]>;
   user: FirebaseListObservable<any[]>;
   mechanics: FirebaseListObservable<any[]>;
-
+  meme: FirebaseListObservable<any[]>;
   userByEmail: FirebaseListObservable<any[]>;
 
+   // TO DO - Needs a better implementation, doesn't load every time
   constructor(db: AngularFireDatabase, private AuthService: AuthService) {
     this.users = db.list('users');
     if (this.AuthService.currentUser()) {
-      this.user = db.list('/users',  {
+      const currentUser = this.AuthService.currentUser().uid;
+      this.meme = db.list('/users/' + currentUser + '/mycars');
+      this.user = db.list('/users', {
         query: {
-          orderByChild: 'email',
-          equalTo: this.AuthService.currentUser().email,
+          orderByChild: 'id',
+          equalTo: this.AuthService.currentUser().uid,
         }
       });
     }
+
     this.mechanics = db.list('/mechanics');
   }
 
@@ -29,11 +34,17 @@ export class UserService {
   }
 
   addUser(user: User) {
-    this.users.push(user);
+    this.users.set(user.id, user);
   }
 
-
+  addCar(car: Car) {
+    this.meme.set(car.make, car);
+  }
+  listCars() {
+    return this.meme;
+  }
   listUser(email: string) {
+    this.user.forEach( element => {console.log(element); });
     return this.user;
   }
     getAll() {

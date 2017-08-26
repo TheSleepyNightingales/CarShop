@@ -26,6 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { CoreModule } from './core/core.module';
+import { UserModule } from './user/user.module';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { CoreModule } from './core/core.module';
     AppComponent,
     HomeComponent,
     SigninComponent,
-    SignupComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +46,8 @@ import { CoreModule } from './core/core.module';
     NgbModule.forRoot(),
     AppRoutingModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    UserModule
   ],
   providers: [AngularFireAuth, AuthService, AuthGuard],
   bootstrap: [AppComponent]
