@@ -36,6 +36,7 @@ export class UserCreateCarComponent implements OnInit {
     console.log(make);
     const car = new Car(km, make, model, year, photoUrl, power, lastOilChange);
     this.UserService.addCar(car);
+    this.Router.navigate(['/users/dashboard']);
     console.log(make.toString());
   }
 }

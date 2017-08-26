@@ -15,7 +15,7 @@ export class AuthService {
 
   signInWithEmailAndPassword(email: string, password: string): firebase.Promise<any> {
     return this.AngularFA.auth.signInWithEmailAndPassword(email, password).then((userInfo) => {
-      this.Router.navigate(['/']);
+      this.Router.navigate(['/users/dashboard']);
       return userInfo;
     });
   }

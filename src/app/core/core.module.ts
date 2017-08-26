@@ -1,9 +1,10 @@
 import { MechanicService } from './../mechanic/mechanic.service';
 import { UserService } from './../user/user.service';
+import { UserServicePubService} from '../user/user-service-pub.service';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 
 @NgModule({
-  providers: [UserService, MechanicService]
+  providers: [UserService, UserServicePubService, MechanicService]
 })
 export class CoreModule {
 
