@@ -17,6 +17,6 @@ export class UserCarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.users = this.UserService.listUser('meninblack@gmail.com');
+    this.users = this.UserService.listCars();
   }
 }

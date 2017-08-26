@@ -5,7 +5,7 @@
     <div class="rela-block profile-name-container">
       <img id="profile_pic" class="profile-pic" [src]="user.photoUrl" alt="Card image cap">
       <div class="rela-block user-name" id="user_name">{{ user.firstName }} {{ user.lastName }}</div>
-      <div class="rela-block user-desc" id="user_description">{{ user.shortIntro }}</div>
+      <div class="rela-block user-desc" id="user_description">{{ user.shortIntro}}</div>
     </div>
     <div class="rela-block profile-card-stats">
       <div class="floated profile-stat works" id="num_works">{{user.rating}}<br></div>
@@ -14,12 +14,14 @@
     </div>
   </div>
 <br>
+  <div *ngIf="user.mycars">
   <app-user-car></app-user-car>
+  </div>
 </div>
   <div class="rela-block container">
     <div class="rela-block profile-card">
       <div class="rela-block profile-name-container">
-        <a class="btn btn-success" href="user/addcar"><i class="fa fa-plus" aria-hidden="true"></i> ADD A CAR</a>
+        <a class="btn btn-success" routerLink="register-car"><i class="fa fa-plus" aria-hidden="true"></i> ADD A CAR</a>
       </div>
     </div>
   </div>

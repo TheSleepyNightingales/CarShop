@@ -10,7 +10,7 @@ const getNextId = (function() {
 })();
 
 export class User {
-    id: number;
+    id: string;
     email: string;
 
     firstName: string;
@@ -41,7 +41,7 @@ export class User {
 
     isBanned: boolean;
 
-    constructor(id: number, email: string, firstName: string, lastName: string, shortIntro: string) {
+    constructor(id: string, email: string, firstName: string, lastName: string, shortIntro: string) {
         this.id = id;
         this.email = email;
         this.firstName = firstName;

@@ -34,7 +34,7 @@ import { UserModule } from './user/user.module';
     AppComponent,
     HomeComponent,
     SigninComponent,
-    SignupComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +47,7 @@ import { UserModule } from './user/user.module';
     AppRoutingModule,
     SharedModule,
     CoreModule,
+    UserModule
   ],
   providers: [AngularFireAuth, AuthService, AuthGuard],
   bootstrap: [AppComponent]
