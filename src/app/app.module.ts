@@ -1,3 +1,4 @@
+import { UserSignupComponent } from './user/user-signup/user-signup.component';
 import { UserService } from './user/user.service';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -26,7 +27,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { CoreModule } from './core/core.module';
-
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { CoreModule } from './core/core.module';
     NgbModule.forRoot(),
     AppRoutingModule,
     SharedModule,
-    CoreModule
+    CoreModule,
   ],
   providers: [AngularFireAuth, AuthService, AuthGuard],
   bootstrap: [AppComponent]
