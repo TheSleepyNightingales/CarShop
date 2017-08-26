@@ -1,4 +1,6 @@
-
+<div *ngFor="let ourRole of wantedUser | async" >
+<div *ngIf="ourRole.role=='user';then isUser else notUser"></div>
+<ng-template #isUser>
     <nav class="col-sm-12 col-md-25 hidden-xs-down bg-faded sidebar sidebar">
       <ul class="nav nav-pills flex-column">
 
@@ -16,4 +18,15 @@
         </li>
       </ul>
     </nav>
+</ng-template>
+<ng-template #notUser>
+  <nav class="col-sm-12 col-md-25 hidden-xs-down bg-faded sidebar sidebar">
+    <ul class="nav nav-pills flex-column">
+      <li class="nav-item">
+        tuk si pravish drugi direktivi i si izpulnqvash gorniqt statement {{ourRole.role}}
+      </li>
+    </ul>
+  </nav>
+</ng-template>
+</div>
 

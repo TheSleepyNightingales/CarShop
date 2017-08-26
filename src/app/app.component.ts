@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
@@ -9,7 +10,11 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 export class AppComponent {
   title = 'app';
   items: FirebaseListObservable<any[]>;
-  constructor(db: AngularFireDatabase) {
+  constructor(db: AngularFireDatabase, private AuthService: AuthService) {
     this.items = db.list('/items');
+  }
+
+  currentUser() {
+    return this.AuthService.currentUser();
   }
 }
