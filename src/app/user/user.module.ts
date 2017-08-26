@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './../shared/shared.module';
 import { UserService } from './user.service';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
+    NgbModule,
     SharedModule,
     UserRoutingModule,
     FormsModule,

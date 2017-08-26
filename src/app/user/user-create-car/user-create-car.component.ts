@@ -4,8 +4,8 @@ import { AuthService } from '../../auth/auth.service';
 import {FormsModule, NgForm} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
-import {Car} from '../../shared/models/Car';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Car } from '../../shared/models/Car';
 
 
 

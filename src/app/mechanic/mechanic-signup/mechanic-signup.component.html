@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-6 col-sm-offset-8 text">
-          <h1><strong>Join our community of car drivers</strong></h1>
+          <h1><strong>Join our community of mechanics</strong></h1>
           <div class="description">
             <p>
             </p>
@@ -14,7 +14,7 @@
         <div class="col-sm-6 col-sm-offset-3 form-box">
           <div class="form-top">
             <div class="form-top-left">
-              <h3>Register in our System as a User</h3>
+              <h3>Register in our System as a Mechanic </h3>
               <p>Enter your email and password to sign up</p>
             </div>
             <div class="form-top-right">
@@ -23,7 +23,7 @@
           </div>
           <div class="form-bottom">
             <form (ngSubmit)="onSignUp(f)" #f="ngForm">
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label class="sr-only" for="form-username">Email</label>
                 <input type="email" id="email" name="email" required email ngModel class="form-control" placeholder="Email..." class="form-username form-control" id="form-username">
               </div>
@@ -42,7 +42,7 @@
               <div class="form-group">
                 <label class="sr-only" for="form-intro">Short intro</label>
                 <input type="text" id="intro" name="intro" required ngModel class="form-control" placeholder="Short intro..." class="form-intro form-control" id="form-intro">
-              </div>
+              </div> -->
               <button type="submit" class="btn" [disabled]="!f.valid">Sign Up</button>
             </form>
             <div class="pt-4" *ngIf="anAlert">
@@ -55,8 +55,3 @@
   </div>
   <br><br><br>
 </div>
-  
-<!-- 
-  <div>
-    works
-  </div> -->

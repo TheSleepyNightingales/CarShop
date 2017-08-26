@@ -28,13 +28,15 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
+import { ServiceSignupComponent } from './service/service-signup/service-signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    ServiceSignupComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ import { UserModule } from './user/user.module';
     AppRoutingModule,
     SharedModule,
     CoreModule,
-    UserModule
+    // UserModule
   ],
   providers: [AngularFireAuth, AuthService, AuthGuard],
   bootstrap: [AppComponent]

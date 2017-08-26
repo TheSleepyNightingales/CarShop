@@ -1,3 +1,4 @@
+import { MechanicSignupComponent } from './mechanic-signup/mechanic-signup.component';
 import { MechanicsListComponent } from './mechanics-list/mechanics-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -6,6 +7,7 @@ const routes: Routes = [
     {
          path: '', redirectTo: 'all', pathMatch: 'full'
     },
+    { path: 'signup', component: MechanicSignupComponent },
     {
         path: 'all', component: MechanicsListComponent
     }
