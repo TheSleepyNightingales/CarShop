@@ -49,7 +49,7 @@ import { ServiceSignupComponent } from './service/service-signup/service-signup.
     AppRoutingModule,
     SharedModule,
     CoreModule,
-    // UserModule
+    UserModule
   ],
   providers: [AngularFireAuth, AuthService, AuthGuard],
   bootstrap: [AppComponent]
