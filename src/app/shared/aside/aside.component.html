@@ -1,6 +1,6 @@
 <div *ngFor="let ourRole of wantedUser | async" >
-<div *ngIf="ourRole.role=='user';then isUser else notUser"></div>
-<ng-template #isUser>
+  <div *ngIf="ourRole.role=='user';then isUser"></div>
+  <ng-template #isUser>
     <nav class="col-sm-12 col-md-25 hidden-xs-down bg-faded sidebar sidebar">
       <ul class="nav nav-pills flex-column">
 
@@ -8,7 +8,7 @@
           <a class="nav-link text-dark" routerLink="/users/dashboard"> <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" routerLink="users/reports"> <i class="fa fa-list" aria-hidden="true"></i> Repairs</a>
+          <a class="nav-link text-dark" routerLink="users/repairs"> <i class="fa fa-list" aria-hidden="true"></i> Repairs</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" routerLink="users/analytics"> <i class="fa fa-bar-chart" aria-hidden="true"></i> Analytics</a>
@@ -18,15 +18,43 @@
         </li>
       </ul>
     </nav>
-</ng-template>
-<ng-template #notUser>
-  <nav class="col-sm-12 col-md-25 hidden-xs-down bg-faded sidebar sidebar">
-    <ul class="nav nav-pills flex-column">
-      <li class="nav-item">
-        tuk si pravish drugi direktivi i si izpulnqvash gorniqt statement {{ourRole.role}}
-      </li>
-    </ul>
-  </nav>
-</ng-template>
+  </ng-template>
+  <div *ngIf="ourRole.role=='mechanic';then isMechanic"></div>
+  <ng-template #isMechanic>
+    <nav class="col-sm-12 col-md-25 hidden-xs-down bg-faded sidebar sidebar">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/mechanics/dashboard"> <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/mechanics"> <i class="fa fa-car" aria-hidden="true"></i> Item 1 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/mechanics"> <i class="fa fa-wrench" aria-hidden="true"></i> Item 2 </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/mechanics"> <i class="fa fa-home" aria-hidden="true"></i> Item 3 </a>
+        </li>
+      </ul>
+    </nav>
+  </ng-template>
+  <div *ngIf="ourRole.role=='service';then isService"></div>
+  <ng-template #isService>
+    <nav class="col-sm-12 col-md-25 hidden-xs-down bg-faded sidebar sidebar">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/service/dashboard"> <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/service"> <i class="fa fa-wrench" aria-hidden="true"></i> Mechanics <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/service"> <<i class="fa fa-user-o" aria-hidden="true"></i> Clients </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/service"> <i class="fa fa-home" aria-hidden="true"></i> Item 3 </a>
+        </li>
+      </ul>
+    </nav>
+  </ng-template>
 </div>
-
