@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { UploadFormComponent } from '../service/upload/upload-form/upload-form.component';
 import { Routes, RouterModule } from '@angular/router';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UsersListComponent } from './users-list/users-list.component';

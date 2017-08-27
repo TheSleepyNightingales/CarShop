@@ -1,5 +1,3 @@
-import { UserSignupComponent } from './user/user-signup/user-signup.component';
-import { UserService } from './user/user.service';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,10 +14,6 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-
-import { HeaderComponent } from './shared/header/header.component';
-import { AsideComponent } from './shared/aside/aside.component';
-import { MainComponent } from './shared/main/main.component';
 
 import { HomeComponent } from './home/home.component';
 

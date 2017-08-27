@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../../auth/auth.service';
-import { FirebaseListObservable, FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database';
+import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-aside',
@@ -46,11 +46,9 @@ export class AsideComponent implements OnInit {
 
     console.log(this.wantedUser);
   }
-
   myUser() {
     return this.wantedUser;
   }
   ngOnInit() {
   }
-
 }

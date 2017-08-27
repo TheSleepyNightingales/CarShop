@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { AuthService } from './../../auth/auth.service';
 import { FirebaseListObservable } from 'angularfire2/database';
-import {isViewDebugError} from "@angular/core/src/view/errors";
 
 @Component({
   selector: 'app-user-dashboard',

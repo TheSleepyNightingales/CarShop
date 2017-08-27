@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UploadService } from '../../service/upload/upload.service';
 import { Upload } from '../../service/upload/upload';
 import { UserService } from '../user.service';
-import * as _ from 'lodash';
 
 @Component({
   selector: 'app-user-upload-photo',
