@@ -10,7 +10,12 @@ export class UserServicePubService {
 
  // This is the Public Service
   constructor(db: AngularFireDatabase, private AuthService: AuthService) {
-    this.users = db.list('users');
+    this.users = db.list('/users', {
+      query: {
+        orderByChild: 'role',
+        equalTo: 'user',
+      }
+    });
     this.mechanics = db.list('/mechanics');
   }
 
