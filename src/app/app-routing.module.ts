@@ -19,6 +19,10 @@ const routes: Routes = [
   },
   { path: 'upload', component:  UploadFormComponent } ,
   {
+    path: 'services',
+    loadChildren: './service/service.module#ServiceModule'
+  },
+  {
     path: '',
     component: HomeComponent, canActivate: [AuthGuard]
   },

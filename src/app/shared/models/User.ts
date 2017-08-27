@@ -1,14 +1,6 @@
 import { Car } from './Car';
 import { Mechanic } from './Mechanic';
 
-const getNextId = (function() {
-    let counter = 0;
-    return function() {
-        counter += 1;
-        return counter;
-    };
-})();
-
 export class User {
     id: string;
     email: string;

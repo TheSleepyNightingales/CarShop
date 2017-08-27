@@ -1,3 +1,65 @@
-<p>
-  service-signup works!
-</p>
+  <div class="top-content">
+  <div class="inner-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-sm-offset-8 text">
+          <h1><strong>Join our community of car services</strong></h1>
+          <div class="description">
+            <p>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 form-box">
+          <div class="form-top">
+            <div class="form-top-left">
+              <h3>Register in our System as a Car Service</h3>
+              <p>Enter your email and password to sign up</p>
+            </div>
+            <div class="form-top-right">
+              <i class="fa fa-key"></i>
+            </div>
+          </div>
+          <div class="form-bottom">
+            <form (ngSubmit)="onSignUp(f)" #f="ngForm">
+              <div class="form-group">
+                <label class="sr-only" for="form-username">Email</label>
+                <input type="email" id="email" name="email" required email ngModel class="form-control" placeholder="Email..." class="form-username form-control" id="form-username">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-name">Name</label>
+                <input type="text" id="name" name="name" required ngModel class="form-control" placeholder="Service name..." class="form-name form-control" id="form-name">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-password">Password</label>
+                <input type="password" id="password" name="password" required ngModel class="form-control" placeholder="Password..." class="form-password form-control" id="form-password">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-owner">Owner</label>
+                <input type="text" id="owner" name="owner" required ngModel class="form-control" placeholder="Owner name..." class="form-owner form-control" id="form-owner">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-license">Owner</label>
+                <input type="text" id="license" name="license" required ngModel class="form-control" placeholder="License number..." class="form-license form-control" id="form-license">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-address">Address</label>
+                <input type="text" id="address" name="address" required ngModel class="form-control" placeholder="Address..." class="form-address form-control" id="form-address">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-activities">Activities</label>
+                <input type="text" id="activities" name="activities" required ngModel class="form-control" placeholder="Activities..." class="form-activities form-control" id="form-activities">
+              </div>
+              <button type="submit" class="btn" [disabled]="!f.valid">Sign Up</button>
+            </form>
+            <div class="pt-4" *ngIf="anAlert">
+              <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+</div>
