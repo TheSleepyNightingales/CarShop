@@ -1,0 +1,28 @@
+<h1>Dashboard</h1>
+<div *ngFor="let service of carService | async" >
+<div class="rela-block container">
+  <div class="rela-block profile-card">
+    <div class="rela-block profile-name-container">
+      <img id="profile_pic" class="profile-pic" [src]="service.photoUrl" alt="Card image cap">
+      <div class="rela-block service-name" id="service-name">{{ service.name }}</div>
+      <div class="rela-block service-owner" id="service-owner">Owner: {{ service.owner}}</div>
+      <div class="rela-block service-desc" id="service-desc">Activities: {{ service.activities}}</div>
+    </div>
+    <div class="rela-block profile-card-stats">
+      <div class="floated profile-stat rating" id="num_works">{{service.rating}}<br></div>
+      <!-- <div class="floated profile-stat mechanics" id="num_followers">{{service.myMechanics.length}}<br></div> -->
+    </div>
+  </div>
+<br>
+  <!-- <div *ngIf="user.mycars">
+  <app-user-car></app-user-car>
+  </div> -->
+</div>
+  <div class="rela-block container">
+    <div class="rela-block profile-card">
+      <div class="rela-block profile-name-container">
+        <a class="btn btn-success" routerLink="#"><i class="fa fa-plus" aria-hidden="true"></i> Add mechanic</a>
+      </div>
+    </div>
+  </div>
+</div>

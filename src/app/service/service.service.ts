@@ -8,7 +8,7 @@ export class ServiceService {
 
   carServices: FirebaseListObservable<any[]>;
 
-  constructor(db: AngularFireDatabase, private AuthService: AuthService) { 
+  constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
     this.carServices = db.list('services');
   }
 
@@ -22,6 +22,15 @@ export class ServiceService {
 
   getAll() {
     return this.carServices;
+  }
+
+  getService(id: string) {
+    return  this.db.list('services', {
+      query: {
+        orderByChild: 'id',
+        equalTo: id,
+      }
+    });
   }
 
 }

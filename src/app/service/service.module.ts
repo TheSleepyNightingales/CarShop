@@ -6,6 +6,7 @@ import { ServiceSignupComponent } from './service-signup/service-signup.componen
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ServicesListComponent } from './services-list/services-list.component';
+import { ServiceDashboardComponent } from './service-dashboard/service-dashboard.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ServicesListComponent } from './services-list/services-list.component';
     ReactiveFormsModule,
     ServiceRoutingModule
   ],
-  declarations: [ServiceSignupComponent, ServicesListComponent]
+  declarations: [ServiceSignupComponent, ServicesListComponent, ServiceDashboardComponent]
 })
 export class ServiceModule { }
