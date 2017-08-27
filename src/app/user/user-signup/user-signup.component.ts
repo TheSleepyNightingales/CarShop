@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms/src/forms';
-import { UserService } from '../user.service';
+import { UserServicePubService } from '../user-service-pub.service';
 import { User } from '../../shared/models/User';
 import { Router } from '@angular/router';
 
@@ -14,7 +14,7 @@ export class UserSignupComponent implements OnInit {
   alert: IAlert;
   anAlert: boolean;
 
-  constructor(private UserService: UserService, private Router: Router) { }
+  constructor(private UserService: UserServicePubService, private Router: Router) { }
     ngOnInit() {
       this.anAlert = false;
       this.alert = {

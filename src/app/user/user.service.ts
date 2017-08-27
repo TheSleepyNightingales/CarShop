@@ -12,7 +12,7 @@ export class UserService {
   meme: FirebaseListObservable<any[]>;
   userByEmail: FirebaseListObservable<any[]>;
 
-   // TO DO - Needs a better implementation, doesn't load every time
+   // Private services only !
   constructor(db: AngularFireDatabase, private AuthService: AuthService) {
     this.users = db.list('users');
     if (this.AuthService.currentUser()) {
@@ -36,7 +36,6 @@ export class UserService {
   addUser(user: User) {
     this.users.set(user.id, user);
   }
-
   addCar(car: Car) {
     this.meme.set(car.make, car);
   }

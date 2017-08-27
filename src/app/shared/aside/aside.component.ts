@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../../auth/auth.service';
+import { FirebaseListObservable, FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-aside',
@@ -7,8 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsideComponent implements OnInit {
 
-  constructor() { }
+  userId: string;
+  wantedUser: FirebaseListObservable<any>;
+  constructor(db: AngularFireDatabase, private AuthService: AuthService) {
+    this.userId = this.AuthService.currentUser().uid.toString();
+    this.wantedUser = db.list('/users', {
+      query: {
+        orderByChild: 'id',
+        equalTo: this.userId,
+      }
+    });
+  }
 
+  myUser() {
+    return this.wantedUser;
+  }
   ngOnInit() {
   }
 

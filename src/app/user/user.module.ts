@@ -11,6 +11,8 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
 import { UserCreateCarComponent } from './user-create-car/user-create-car.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {UserServicePubService} from './user-service-pub.service';
+import { UserCarRepairsComponent } from './user-car-repairs/user-car-repairs.component';
 
 @NgModule({
   imports: [
@@ -21,7 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule  // Add this!
   ],
 
-  declarations: [UserDashboardComponent, UserCarComponent, UsersListComponent, UserCreateCarComponent, UserSignupComponent],
+  declarations: [UserDashboardComponent, UserCarComponent, UserCarRepairsComponent, UsersListComponent, UserCreateCarComponent, UserSignupComponent, UserCarRepairsComponent],
   providers: []
 })
 export class UserModule { }

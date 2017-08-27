@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { AuthService } from './../auth.service';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../../user/user.service';
-import { User } from '../../shared/models/User';
 
 @Component({
   selector: 'app-signup',
@@ -13,5 +7,5 @@ import { User } from '../../shared/models/User';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  constructor(private UserService: UserService, private Router: Router) { }
+  constructor(private Router: Router) { }
 }
