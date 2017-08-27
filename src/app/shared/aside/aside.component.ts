@@ -13,12 +13,38 @@ export class AsideComponent implements OnInit {
   wantedUser: FirebaseListObservable<any>;
   constructor(db: AngularFireDatabase, private AuthService: AuthService) {
     this.userId = this.AuthService.currentUser().uid.toString();
+
+    // TODO - think of clever implementation
     this.wantedUser = db.list('/users', {
       query: {
         orderByChild: 'id',
         equalTo: this.userId,
       }
     });
+
+    this.wantedUser.subscribe(snapshot => {
+      if (snapshot.length === 0) {
+        this.wantedUser = db.list('/mechanics', {
+          query: {
+            orderByChild: 'id',
+            equalTo: this.userId,
+          }
+        });
+
+        this.wantedUser.subscribe((mechanicSnapshot) => {
+          if (snapshot.length === 0) {
+            this.wantedUser = db.list('/services', {
+              query: {
+                orderByChild: 'id',
+                equalTo: this.userId,
+              }
+            });
+          }
+        });
+      }
+    });
+
+    console.log(this.wantedUser);
   }
 
   myUser() {

@@ -1,3 +1,5 @@
+import { ServiceService } from './../service.service';
+import { FirebaseListObservable } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicesListComponent implements OnInit {
 
-  constructor() { }
+  carServices: FirebaseListObservable<any>;
+
+  constructor(private CarServiceService: ServiceService) { }
 
   ngOnInit() {
+    this.carServices = this.CarServiceService.getAll();
   }
 
 }

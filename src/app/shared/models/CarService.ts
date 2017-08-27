@@ -5,6 +5,8 @@ export class CarService {
     id: string;
     email: string;
 
+    name: string;
+
     owner: string;
 
     licenseNumber: string;
@@ -31,9 +33,10 @@ export class CarService {
 
     isDeleted: boolean;
 
-    constructor(id: string, email: string, owner: string, licenseNumber: string, address: string, activities: string) {
+    constructor(id: string, email: string, name: string, owner: string, licenseNumber: string, address: string, activities: string) {
         this.id = id;
         this.email = email;
+        this.name = name;
         this.owner = owner;
         this.licenseNumber = licenseNumber;
         this.address = address;

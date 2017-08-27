@@ -27,6 +27,7 @@ export class ServiceSignupComponent implements OnInit {
 
     onSignUp(form: NgForm) {
       const email = form.value.email;
+      const name = form.value.name;
       const password = form.value.password;
       const owner = form.value.owner;
       const licenseNumber = form.value.license;
@@ -35,7 +36,7 @@ export class ServiceSignupComponent implements OnInit {
 
       this.ServiceService.createCarService(email, password)
       .then((createdService) => {
-        const carService = new CarService(createdService.uid, email, owner, licenseNumber, address, activities);
+        const carService = new CarService(createdService.uid, email, name, owner, licenseNumber, address, activities);
         this.ServiceService.addCarService(carService);
 
         this.Router.navigate(['/']);
