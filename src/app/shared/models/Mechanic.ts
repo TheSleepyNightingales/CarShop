@@ -1,4 +1,4 @@
-import { User } from "./User";
+import { User } from './User';
 
 export class Mechanic {
 
@@ -28,7 +28,7 @@ export class Mechanic {
   }
 
   get photoUrl() {
-    return this._photoUrl
+    return this._photoUrl;
   }
 
   constructor(id: string, email: string, firstName: string, lastName: string, photoUrl: string,

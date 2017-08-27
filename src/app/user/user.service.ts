@@ -10,6 +10,7 @@ export class UserService {
   user: FirebaseListObservable<any[]>;
   mechanics: FirebaseListObservable<any[]>;
   meme: FirebaseListObservable<any[]>;
+  userImg: FirebaseListObservable<any[]>;
   userByEmail: FirebaseListObservable<any[]>;
 
    // Private services only !
@@ -18,6 +19,7 @@ export class UserService {
     if (this.AuthService.currentUser()) {
       const currentUser = this.AuthService.currentUser().uid;
       this.meme = db.list('/users/' + currentUser + '/mycars');
+      this.userImg = db.list('/users/' + currentUser);
       this.user = db.list('/users', {
         query: {
           orderByChild: 'id',
@@ -38,6 +40,9 @@ export class UserService {
   }
   addCar(car: Car) {
     this.meme.set(car.make, car);
+  }
+  updatePhoto(photoUrl: string) {
+    this.userImg.set('photoUrl', photoUrl);
   }
   listCars() {
     return this.meme;

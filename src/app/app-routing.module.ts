@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { UploadFormComponent } from './service/upload/upload-form/upload-form.component';
+
 
 const routes: Routes = [
   {
@@ -15,6 +17,7 @@ const routes: Routes = [
     path: 'users',
     loadChildren: './user/user.module#UserModule'
   },
+  { path: 'upload', component:  UploadFormComponent } ,
   {
     path: '',
     component: HomeComponent, canActivate: [AuthGuard]

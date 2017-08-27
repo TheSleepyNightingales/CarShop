@@ -13,6 +13,7 @@ import { UserCreateCarComponent } from './user-create-car/user-create-car.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {UserServicePubService} from './user-service-pub.service';
 import { UserCarRepairsComponent } from './user-car-repairs/user-car-repairs.component';
+import { UserUploadPhotoComponent } from './user-upload-photo/user-upload-photo.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,7 @@ import { UserCarRepairsComponent } from './user-car-repairs/user-car-repairs.com
     ReactiveFormsModule  // Add this!
   ],
 
-  declarations: [UserDashboardComponent, UserCarComponent, UserCarRepairsComponent, UsersListComponent, UserCreateCarComponent, UserSignupComponent, UserCarRepairsComponent],
+  declarations: [UserDashboardComponent, UserCarComponent, UserCarRepairsComponent, UsersListComponent, UserCreateCarComponent, UserSignupComponent, UserCarRepairsComponent, UserUploadPhotoComponent],
   providers: []
 })
 export class UserModule { }
