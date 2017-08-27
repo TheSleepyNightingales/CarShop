@@ -36,7 +36,6 @@ import { ServiceSignupComponent } from './service/service-signup/service-signup.
     HomeComponent,
     SigninComponent,
     SignupComponent,
-    ServiceSignupComponent
   ],
   imports: [
     BrowserModule,
