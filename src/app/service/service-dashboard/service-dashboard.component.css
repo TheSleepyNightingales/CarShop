@@ -384,7 +384,7 @@ body {
   padding: 10px;
   text-align: center;
 }
-.user-name {
+.service-name {
   font-family: "Montserrat";
   font-size: 24px;
   letter-spacing: 3px;
@@ -392,7 +392,7 @@ body {
   line-height: 30px;
   margin-bottom: 12px;
 }
-.user-desc {
+.service-owner, .service-desc {
   letter-spacing: 1px;
   color: #999;
 }
@@ -415,6 +415,17 @@ body {
 .mechanics::after {
   content: "mechanics";
 }
+
+.mechanics-title, .gallery-title, .comments-title {
+  margin-left: 5px;
+  font-family: "Montserrat";
+  font-size: 24px;
+  letter-spacing: 3px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 12px;
+}
+
 .image {
   width: 240px;
   height: 200px;
@@ -572,7 +583,7 @@ body {
     height: 0;
     padding: 0px;
   }
-  .profile-pic {
+  .profile-pic, .pic {
     height: 140px;
     width: 140px;
     top: -70px;

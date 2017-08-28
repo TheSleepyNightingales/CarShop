@@ -10,7 +10,6 @@
     </div>
     <div class="rela-block profile-card-stats">
       <div class="floated profile-stat rating" id="num_works">{{service.rating}}<br></div>
-      <!-- <div class="floated profile-stat mechanics" id="num_followers">{{service.myMechanics.length}}<br></div> -->
     </div>
   </div>
 <br>
@@ -21,7 +20,41 @@
   <div class="rela-block container">
     <div class="rela-block profile-card">
       <div class="rela-block profile-name-container">
-        <a class="btn btn-success" routerLink="#"><i class="fa fa-plus" aria-hidden="true"></i> Add mechanic</a>
+        <div class="row gallery-title"> Gallery </div>        
+        <div class="row">
+          <!-- <div *ngFor="let m of images" class="col-xs-4">
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rela-block container">
+    <div class="rela-block profile-card">
+      <div class="rela-block profile-name-container">
+        <div class="row mechanics-title"> Top mechanics </div>        
+        <div class="row">
+          <!-- <div *ngFor="let m of topMechanics" class="col-xs-4">
+            <div class="card" style="width: 20rem;">
+              <img class="card-img-top" src="..." alt="Card image cap">
+              <div class="card-block">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#">Go somewhere</a>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rela-block container">
+    <div class="rela-block profile-card">
+      <div class="rela-block profile-name-container">
+        <div class="row comments-title"> Comments </div>        
+        <div class="row">
+          <!-- <div *ngFor="let m of images" class="col-xs-4">
+          </div> -->
+        </div>
       </div>
     </div>
   </div>
