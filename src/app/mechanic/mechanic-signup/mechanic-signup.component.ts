@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MechanicService } from "../mechanic.service";
+import { MechanicPubService } from "../mechanic-pub.service";
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 import { passBoolean } from "protractor/built/util";
@@ -12,7 +12,7 @@ import { Mechanic } from "../../shared/models/Mechanic";
 })
 export class MechanicSignupComponent implements OnInit {
 
-  constructor(private MechanicService: MechanicService, private Router: Router) {
+  constructor(private MechanicPubService: MechanicPubService, private Router: Router) {
   }
 
   ngOnInit() {
@@ -29,11 +29,11 @@ export class MechanicSignupComponent implements OnInit {
     const workPlace = form.value.workPlace;
     const workExperience = form.value.workExperience;
 
-    this.MechanicService.createMechanic(email, password)
+    this.MechanicPubService.createMechanic(email, password)
       .then((Cmechanic) => {
         const mechanic = new Mechanic(Cmechanic.uid, email, firstName, lastName, photoUrl,
           position, workPlace, workExperience);
-        this.MechanicService.addMechanic(mechanic);
+        this.MechanicPubService.addMechanic(mechanic);
         console.log(mechanic);
         this.Router.navigate(['/']);
       })

@@ -19,17 +19,6 @@ export class Mechanic {
   joinDate: Date;
   isBanned: boolean;
 
-  set photoUrl(val) {
-    if (val) {
-      this._photoUrl = val;
-    } else {
-      this._photoUrl = 'www.timeshighereducation.com/sites/default/files/byline_photos/default-avatar.png';
-    }
-  }
-
-  get photoUrl() {
-    return this._photoUrl
-  }
 
   constructor(id: string, email: string, firstName: string, lastName: string, photoUrl: string,
               position: string, workPlace: string, workExperience: number) {
@@ -48,5 +37,17 @@ export class Mechanic {
     this.role = 'mechanic';
     this.joinDate = new Date();
     this.isBanned = false;
+  }
+
+  set photoUrl(val) {
+    if (val) {
+      this._photoUrl = val;
+    } else {
+      this._photoUrl = 'https://www.timeshighereducation.com/sites/default/files/byline_photos/default-avatar.png';
+    }
+  }
+
+  get photoUrl() {
+    return this._photoUrl
   }
 }
