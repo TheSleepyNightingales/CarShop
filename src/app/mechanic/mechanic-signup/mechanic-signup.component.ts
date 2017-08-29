@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MechanicPubService } from "../mechanic-pub.service";
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
-import { passBoolean } from "protractor/built/util";
 import { Mechanic } from "../../shared/models/Mechanic";
+import { IAlert } from "../../shared/models/IAlert";
 
 @Component({
   selector: 'app-mechanic-signup',
@@ -12,11 +12,18 @@ import { Mechanic } from "../../shared/models/Mechanic";
 })
 export class MechanicSignupComponent implements OnInit {
 
+  alert: IAlert;
+  anAlert: boolean;
+
   constructor(private MechanicPubService: MechanicPubService, private Router: Router) {
   }
 
   ngOnInit() {
-
+    this.anAlert = false;
+    this.alert = {
+      type: '',
+      message: '',
+    };
   }
 
   mechanicSingUp(form: NgForm) {
@@ -30,15 +37,22 @@ export class MechanicSignupComponent implements OnInit {
     const workExperience = form.value.workExperience;
 
     this.MechanicPubService.createMechanic(email, password)
-      .then((Cmechanic) => {
-        const mechanic = new Mechanic(Cmechanic.uid, email, firstName, lastName, photoUrl,
+      .then((createdMechanic) => {
+        const mechanic = new Mechanic(createdMechanic.uid, email, firstName, lastName, photoUrl,
           position, workPlace, workExperience);
         this.MechanicPubService.addMechanic(mechanic);
-        console.log(mechanic);
+
         this.Router.navigate(['/']);
       })
-      .catch((err) => {
-        console.log(err);
-      })
+      .catch((error: any) => {
+        // Handle Errors here.
+        const errorCode: string = error.code;
+        const errorMessage = error.message;
+        if (errorCode) {
+          this.anAlert = true;
+          this.alert.message = errorMessage;
+          this.alert.type = 'danger';
+        }
+      });
   }
 }

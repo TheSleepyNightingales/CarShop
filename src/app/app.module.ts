@@ -22,7 +22,6 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
-import { ServiceSignupComponent } from './service/service-signup/service-signup.component';
 import { UploadFormComponent } from './service/upload/upload-form/upload-form.component';
 
 @NgModule({
@@ -31,7 +30,6 @@ import { UploadFormComponent } from './service/upload/upload-form/upload-form.co
     HomeComponent,
     SigninComponent,
     SignupComponent,
-    ServiceSignupComponent,
     UploadFormComponent,
   ],
   imports: [

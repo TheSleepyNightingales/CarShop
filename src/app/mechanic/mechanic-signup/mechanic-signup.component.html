@@ -46,24 +46,27 @@
 									   placeholder="Last name..." class="form-lastName form-control" id="form-lastName">
 							</div>
 							<div class="form-group">
-								<label class="sr-only" for="form-intro">Photo url</label>
+								<label class="sr-only" for="form-photoUrl">Photo url</label>
 								<input type="text" id="photoUrl" name="photoUrl" ngModel class="form-control"
-									   placeholder="PhotoUrl(optional)..." class="form-intro form-control" id="form-intro">
+									   placeholder="PhotoUrl(optional)..." class="form-photoUrl form-control"
+									   id="form-photoUrl">
 							</div>
 							<div class="form-group">
-								<label class="sr-only" for="form-intro">Position</label>
-								<input type="text" id="position" name="position" ngModel class="form-control"
-									   placeholder="Position..." class="form-intro form-control" id="form-intro">
+								<label class="sr-only" for="form-position">Position</label>
+								<input type="text" id="position" name="position" required ngModel class="form-control"
+									   placeholder="Position..." class="form-position form-control" id="form-position">
 							</div>
 							<div class="form-group">
-								<label class="sr-only" for="form-intro">Work place</label>
-								<input type="text" id="workPlace" name="workPlace" ngModel class="form-control"
-									   placeholder="Work place..." class="form-intro form-control" id="form-intro">
+								<label class="sr-only" for="form-workPlace">Work place</label>
+								<input type="text" id="workPlace" name="workPlace" required ngModel class="form-control"
+									   placeholder="Work place..." class="form-workPlace form-control" id="form-workPlace">
 							</div>
 							<div class="form-group">
-								<label class="sr-only" for="form-intro">Work experience</label>
-								<input type="text" id="workExperience" name="workExperience" ngModel class="form-control"
-									   placeholder="Work experience..." class="form-intro form-control" id="form-intro">
+								<label class="sr-only" for="form-workExperience">Work experience</label>
+								<input type="text" id="workExperience" name="workExperience" required ngModel
+									   class="form-control"
+									   placeholder="Work experience..." class="form-workExperience form-control"
+									   id="form-workExperience">
 							</div>
 							<button type="submit" class="btn" [disabled]="!f.valid">Sign Up</button>
 						</form>
