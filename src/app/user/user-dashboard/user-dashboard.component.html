@@ -3,7 +3,11 @@
 <div class="rela-block container">
   <div class="rela-block profile-card">
     <div class="rela-block profile-name-container">
+      <div class="container-fluid">
       <img id="profile_pic" class="profile-pic" [src]="user.photoUrl" alt="Card image cap">
+        <app-user-upload-photo></app-user-upload-photo>
+      </div>
+
       <div class="rela-block user-name" id="user_name">{{ user.firstName }} {{ user.lastName }}</div>
       <div class="rela-block user-desc" id="user_description">{{ user.shortIntro}}</div>
     </div>

@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
-
   users: FirebaseListObservable<any>;
 
   constructor(private UserService: UserServicePubService) { }
@@ -16,5 +15,4 @@ export class UsersListComponent implements OnInit {
   ngOnInit() {
     this.users = this.UserService.getAll();
   }
-
 }

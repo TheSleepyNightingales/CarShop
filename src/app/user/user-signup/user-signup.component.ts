@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms/src/forms';
 import { UserServicePubService } from '../user-service-pub.service';
 import { User } from '../../shared/models/User';
 import { Router } from '@angular/router';
+import { IAlert } from '../../shared/models/IAlert';
 
 @Component({
   selector: 'app-user-signup',
@@ -56,10 +57,4 @@ export class UserSignupComponent implements OnInit {
       this.anAlert = false;
     }
 
-}
-
-// TODO move to a models folder
-export interface IAlert {
-  type: string;
-  message: string;
 }
