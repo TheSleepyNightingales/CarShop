@@ -1,5 +1,8 @@
+.mechanics-list {
+    margin-left: 15px;
+}
 .card {
-    margin: 10px;
+    margin: 15px;
 }
 .card-block {
     padding: 10px;

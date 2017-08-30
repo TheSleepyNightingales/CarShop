@@ -11,10 +11,11 @@ export class MechanicsListComponent implements OnInit {
 
   users: FirebaseListObservable<any>;
 
-  constructor(private MechanicPubService : MechanicPubService) { }
+  constructor(private MechanicService : MechanicPubService) {
 
-  ngOnInit() {
-    this.users = this.MechanicPubService.getAll()
   }
 
+  ngOnInit() {
+    this.users = this.MechanicService.getAll();
+  }
 }

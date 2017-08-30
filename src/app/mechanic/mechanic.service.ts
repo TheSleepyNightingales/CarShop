@@ -9,7 +9,7 @@ export class MechanicService {
   users: FirebaseListObservable<any[]>;
   mechanic: FirebaseListObservable<any[]>;
 
-  constructor(db: AngularFireDatabase, private AuthService: AuthService) {
+  constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
     this.users = db.list('users');
     if (this.AuthService.currentUser()) {
       const currentUser = this.AuthService.currentUser().uid;
@@ -33,4 +33,14 @@ export class MechanicService {
   getAll() {
 
   }
+
+  getCurrentUser(id) {
+    return this.db.list('users', {
+      query: {
+        orderByChild: 'id',
+        equalTo: id,
+      }
+    })
+  }
+
 }

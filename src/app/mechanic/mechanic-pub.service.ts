@@ -7,8 +7,9 @@ import { Mechanic } from "../shared/models/Mechanic";
 export class MechanicPubService {
 
   users: FirebaseListObservable<any[]>;
+  user: FirebaseListObservable<any[]>;
 
-  constructor(db: AngularFireDatabase, private AuthService: AuthService) {
+  constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
     this.users = db.list('/users', {
       query: {
         orderByChild: 'role',
@@ -27,5 +28,14 @@ export class MechanicPubService {
 
   getAll() {
     return this.users;
+  }
+
+  getById(id) {
+    return this.db.list('users', {
+      query: {
+        orderByChild: 'id',
+        equalTo: id,
+      }
+    });
   }
 }

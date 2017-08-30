@@ -1,11 +1,12 @@
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MechanicRoutingModule } from './mechanic-routing.module';
-import { SharedModule } from './../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MechanicsListComponent } from './mechanics-list/mechanics-list.component';
 import { MechanicSignupComponent } from './mechanic-signup/mechanic-signup.component';
+import { MechanicDashboardComponent } from './mechanic-dashboard/mechanic-dashboard.component';
+import { MechanicDetailsComponent } from './mechanic-details/mechanic-details.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,10 @@ import { MechanicSignupComponent } from './mechanic-signup/mechanic-signup.compo
     MechanicRoutingModule,
     FormsModule,
   ],
-  declarations: [MechanicsListComponent, MechanicSignupComponent],
-  providers: []
+  declarations: [
+    MechanicsListComponent,
+    MechanicSignupComponent,
+    MechanicDashboardComponent,
+    MechanicDetailsComponent],
 })
 export class MechanicModule { }
