@@ -38,3 +38,10 @@
         opacity: 1;
     }
 }
+
+.col-left {
+    margin-left: 50px;
+}
+.mechanic-date {
+    padding-left: 35px;
+}

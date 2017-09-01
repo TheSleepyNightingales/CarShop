@@ -97,3 +97,10 @@ body {
     content: "work expirience";
 }
 
+.col-left {
+    margin-left: 50px;
+}
+
+.no-margin {
+    margin-top: 0;
+}

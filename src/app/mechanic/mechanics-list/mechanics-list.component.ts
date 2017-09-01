@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MechanicPubService } from "../mechanic-pub.service";
-import { FirebaseListObservable } from "angularfire2/database";
+import { MechanicPubService } from '../mechanic-pub.service';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-mechanics-list',
@@ -12,7 +12,7 @@ export class MechanicsListComponent implements OnInit {
   users: FirebaseListObservable<any>;
 
   constructor(private MechanicService : MechanicPubService) {
-
+    // this.currentDate = new Date().getTime();
   }
 
   ngOnInit() {

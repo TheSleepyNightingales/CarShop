@@ -1,6 +1,12 @@
+<div class="row">
+	<div class="col col-left">
+		<ol class="breadcrumb" style="background-color: #039be5">
+			<li class="breadcrumb-item active" style="color: white">// All Mehanics</li>
+		</ol>
+	</div>
+</div>
 <div class="container">
-	<h1>// All mechanics</h1>
-	<div class="row mechanics-list">
+	<div class="row">
 		<div *ngFor="let mechanic of users | async" class="card col-xs-4" style="width: 20rem;">
 			<img class="img-mechanic" [src]="mechanic._photoUrl" alt="Card image cap">
 			<div class="card-block">
@@ -10,7 +16,7 @@
 				<a [routerLink]="['/mechanics', mechanic.id]" class="btn btn-primary">View profile</a>
 			</div>
 			<div class="card-footer">
-				<small class="text-muted">Last updated 3 mins ago</small>
+				<small class="text-muted mechanic-date">Joined on: {{mechanic.joinDate | dateFormat}}</small>
 			</div>
 		</div>
 	</div>

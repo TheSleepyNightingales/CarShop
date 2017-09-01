@@ -16,7 +16,7 @@ export class Mechanic {
   comments: Array<any>;
   reviews: Array<any>;
   role: string;
-  joinDate: Date;
+  joinDate: string;
   isBanned: boolean;
 
 
@@ -35,7 +35,7 @@ export class Mechanic {
     this.comments = [];
     this.reviews = [];
     this.role = 'mechanic';
-    this.joinDate = new Date();
+    this.joinDate = new Date().toString();
     this.isBanned = false;
   }
 

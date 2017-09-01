@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedRoutingModule } from './shared-routing.module';
+import { DateFormatPipe } from './date-format/date-format.pipe';
 
 @NgModule({
   imports: [
@@ -13,13 +14,15 @@ import { SharedRoutingModule } from './shared-routing.module';
   declarations: [
     HeaderComponent,
     AsideComponent,
-    MainComponent
+    MainComponent,
+    DateFormatPipe
   ],
   exports: [
     CommonModule,
     HeaderComponent,
     AsideComponent,
-    MainComponent
+    MainComponent,
+    DateFormatPipe
   ]
 })
 export class SharedModule { }

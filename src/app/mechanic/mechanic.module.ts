@@ -19,6 +19,6 @@ import { MechanicDetailsComponent } from './mechanic-details/mechanic-details.co
     MechanicsListComponent,
     MechanicSignupComponent,
     MechanicDashboardComponent,
-    MechanicDetailsComponent],
+    MechanicDetailsComponent]
 })
 export class MechanicModule { }
