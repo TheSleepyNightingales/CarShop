@@ -7,6 +7,7 @@ import { MechanicsListComponent } from './mechanics-list/mechanics-list.componen
 import { MechanicSignupComponent } from './mechanic-signup/mechanic-signup.component';
 import { MechanicDashboardComponent } from './mechanic-dashboard/mechanic-dashboard.component';
 import { MechanicDetailsComponent } from './mechanic-details/mechanic-details.component';
+import { MechanicCommentsComponent } from './mechanic-comments/mechanic-comments.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { MechanicDetailsComponent } from './mechanic-details/mechanic-details.co
     MechanicsListComponent,
     MechanicSignupComponent,
     MechanicDashboardComponent,
-    MechanicDetailsComponent]
+    MechanicDetailsComponent,
+    MechanicCommentsComponent]
 })
 export class MechanicModule { }

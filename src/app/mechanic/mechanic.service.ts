@@ -8,6 +8,7 @@ export class MechanicService {
 
   users: FirebaseListObservable<any[]>;
   mechanic: FirebaseListObservable<any[]>;
+  comments: FirebaseListObservable<any[]>;
 
   constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
     this.users = db.list('users');
@@ -30,8 +31,13 @@ export class MechanicService {
     this.users.set(mechanic.id, mechanic);
   }
 
-  getAll() {
+  addComment(comment: any, id: string) {
+    const comments = this.db.list('/users/' + id + '/comments');
+    comments.push(comment);
+  }
 
+  listComments() {
+    return this.comments;
   }
 
   getCurrentUser(id) {

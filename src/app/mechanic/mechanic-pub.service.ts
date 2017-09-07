@@ -7,7 +7,7 @@ import { Mechanic } from "../shared/models/Mechanic";
 export class MechanicPubService {
 
   users: FirebaseListObservable<any[]>;
-  user: FirebaseListObservable<any[]>;
+  comments: FirebaseListObservable<any[]>;
 
   constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
     this.users = db.list('/users', {

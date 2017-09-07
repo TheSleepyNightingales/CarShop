@@ -14,16 +14,19 @@
 						<div class="container-fluid">
 							<img id="profile_pic" class="profile-pic" [src]="mechanic._photoUrl" alt="Card image cap">
 						</div>
-						<div class="rela-block user-name" id="user_name">{{mechanic.firstName}} {{mechanic.lastName}}</div>
+						<div class="rela-block user-name" id="user_name">{{mechanic.firstName}} {{mechanic.lastName}}
+						</div>
 						<div class="rela-block user-desc" id="user_description">{{mechanic.position}}</div>
 					</div>
 					<div class="rela-block profile-card-stats">
 						<div class="floated profile-stat works" id="num_works">{{mechanic.rating}}<br></div>
 						<div class="floated profile-stat followers" id="num_followers">{{mechanic.workPlace}}<br></div>
-						<div class="floated profile-stat following" id="num_following">{{mechanic.workExperience}} yars<br></div>
+						<div class="floated profile-stat following" id="num_following">{{mechanic.workExperience}}
+							yars<br></div>
 					</div>
 				</div>
 				<br>
+				<app-mechanic-comments></app-mechanic-comments>
 			</div>
 		</div>
 	</div>
