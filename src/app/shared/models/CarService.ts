@@ -40,6 +40,7 @@ export class CarService {
         this.owner = owner;
         this.licenseNumber = licenseNumber;
         this.address = address;
+        this.activities = activities;
         this.photoUrl = 'https://www.timeshighereducation.com/sites/default/files/byline_photos/default-avatar.png';
         this.reviews = [];
         this.comments = [];

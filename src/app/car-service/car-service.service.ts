@@ -9,7 +9,12 @@ export class CarServiceService {
   carServices: FirebaseListObservable<any[]>;
 
   constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
-    this.carServices = db.list('services');
+    this.carServices = db.list('/users', {
+      query: {
+        orderByChild: 'role',
+        equalTo: 'service'
+      }
+    });
   }
 
   createCarService(email: string, password: string) {
@@ -25,7 +30,7 @@ export class CarServiceService {
   }
 
   getService(id: string) {
-    return  this.db.list('services', {
+    return  this.db.list('/users', {
       query: {
         orderByChild: 'id',
         equalTo: id,
