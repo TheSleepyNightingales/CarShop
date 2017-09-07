@@ -1,5 +1,5 @@
-import { User } from "./User";
-import { Mechanic } from "./Mechanic";
+import { User } from './User';
+import { Mechanic } from './Mechanic';
 
 export class CarService {
     id: string;

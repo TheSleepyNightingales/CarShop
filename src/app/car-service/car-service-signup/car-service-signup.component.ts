@@ -1,22 +1,22 @@
 import { CarService } from './../../shared/models/CarService';
-import { ServiceService } from './../service.service';
 import { Component, OnInit } from '@angular/core';
 import { UserServicePubService } from '../../user/user-service-pub.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms/src/forms';
 import { IAlert } from '../../shared/models/IAlert';
+import { CarServiceService } from '../car-service.service';
 
 @Component({
-  selector: 'app-service-signup',
-  templateUrl: './service-signup.component.html',
-  styleUrls: ['./service-signup.component.css']
+  selector: 'app-car-service-signup',
+  templateUrl: './car-service-signup.component.html',
+  styleUrls: ['./car-service-signup.component.css']
 })
-export class ServiceSignupComponent implements OnInit {
+export class CarServiceSignupComponent implements OnInit {
 
   alert: IAlert;
   anAlert: boolean;
 
-  constructor(private ServiceService: ServiceService, private Router: Router) { }
+  constructor(private CarServiceService: CarServiceService, private Router: Router) { }
     ngOnInit() {
       this.anAlert = false;
       this.alert = {
@@ -34,10 +34,10 @@ export class ServiceSignupComponent implements OnInit {
       const address = form.value.address;
       const activities = form.value.activities;
 
-      this.ServiceService.createCarService(email, password)
+      this.CarServiceService.createCarService(email, password)
       .then((createdService) => {
         const carService = new CarService(createdService.uid, email, name, owner, licenseNumber, address, activities);
-        this.ServiceService.addCarService(carService);
+        this.CarServiceService.addCarService(carService);
 
         this.Router.navigate(['/']);
       })

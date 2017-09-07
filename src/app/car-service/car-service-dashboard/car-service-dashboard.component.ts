@@ -1,21 +1,21 @@
+import { CarServiceService } from './../car-service.service';
 import { Observable } from 'rxjs/Observable';
 import { FirebaseObjectObservable } from 'angularfire2/database';
 import { AuthService } from './../../auth/auth.service';
-import { ServiceService } from './../service.service';
 import { CarService } from './../../shared/models/CarService';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-service-dashboard',
-  templateUrl: './service-dashboard.component.html',
-  styleUrls: ['./service-dashboard.component.css']
+  selector: 'app-car-service-dashboard',
+  templateUrl: './car-service-dashboard.component.html',
+  styleUrls: ['./car-service-dashboard.component.css']
 })
-export class ServiceDashboardComponent implements OnInit {
+export class CarServiceDashboardComponent implements OnInit {
 
   carService: FirebaseListObservable<any>;
 
-  constructor(private CarServiceService: ServiceService, private AuthService: AuthService) {
+  constructor(private CarServiceService: CarServiceService, private AuthService: AuthService) {
   }
 
   ngOnInit() {

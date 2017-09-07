@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UploadService } from '../../service/upload/upload.service';
-import { Upload } from '../../service/upload/upload';
+import { UploadService } from '../../car-service/upload/upload.service';
+import { Upload } from '../../car-service/upload/upload';
 import { UserService } from '../user.service';
 
 @Component({

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 
 @Injectable()
-export class ServiceService {
+export class CarServiceService {
 
   carServices: FirebaseListObservable<any[]>;
 
