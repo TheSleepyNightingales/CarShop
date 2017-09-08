@@ -19,7 +19,7 @@
         <a class="nav-link" routerLink="/users">All Users</a>
       </li>
     </ul>
-    <ul class="navbar-nav float-right">
+    <ul class="navbar-nav mr-lg-0 float-xl-right">
       <div *ngIf="!currentUser();then login else logout"></div>
       <ng-template #login>
         <li class="nav-item">
@@ -44,7 +44,7 @@
           </ng-template>
           <div *ngIf="getUserRole()=='service'; then isService"></div>
           <ng-template #isService>
-             <a class="nav-link" routerLink="/services/dashboard">{{currentUser().email}}</a> 
+             <a class="nav-link" routerLink="/services/dashboard">{{currentUser().email}}</a>
           </ng-template>
         </li>
         <li class="nav-item">

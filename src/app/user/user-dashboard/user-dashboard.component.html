@@ -1,17 +1,14 @@
-<h1>Dashboard</h1>
 <div *ngFor="let user of users | async" >
 <div  class="rela-block container">
   <div class="rela-block profile-card">
     <div class="rela-block profile-name-container">
       <div class="container-fluid">
-
       <img (click)="myEvent($event)"  id="profile_pic" class="profile-pic" [src]="user.photoUrl" alt="Card image cap" >
         <div *ngIf="hover">
           <app-upload-form [elementId] = 'elementId' [type]='type'></app-upload-form>
           <button class="btn btn-danger" (click)="myEventOut($event)"> X </button>
         </div>
       </div>
-
       <div class="rela-block user-name" id="user_name">{{ user.firstName }} {{ user.lastName }}</div>
       <div class="rela-block user-desc" id="user_description">{{ user.shortIntro}}</div>
     </div>

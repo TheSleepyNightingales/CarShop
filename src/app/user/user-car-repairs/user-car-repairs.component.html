@@ -1,7 +1,3 @@
-<h1>Repairs</h1>
-
-
-
 <div *ngFor="let car of users | async" >
   <div *ngIf="car.repair;then carCost else noRepair"></div>
   <ng-template #carCost>
@@ -39,6 +35,37 @@
   </div>
   </ng-template>
   <ng-template #noRepair>
-    <h1> You have no listed repairs !</h1>
+    <div class="rela-block profile-card">
+      <img  class="profile-pic" [src]="car.photoUrl" alt="Card image cap">
+      <div class="rela-block profile-name-container">
+        <div class="rela-block user-name" id="user_namer">{{ car.make }} {{ car.model }}</div>
+        <div class="rela-block user-desc" id="user_descriptionr">{{ car.year }}</div>
+        <br>
+        <div class="rela-block user-desc" >YOU HAVEN'T GOT ANY LISTED REPAIRS FOR THIS CAR</div>
+      </div>
+      <div >
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Mechanic</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Price</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr >
+            <td>N/A</td>
+            <td style="width: 50%">N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td >N/A BGN</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </ng-template>
 </div>

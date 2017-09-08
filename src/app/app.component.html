@@ -3,7 +3,6 @@
   <div *ngIf="!currentUser();then logged else notlogged"></div>
   <ng-template #logged>
   <div class="row">
-
     <div style="width: 100%">
       <app-main></app-main>
     </div>
@@ -11,10 +10,10 @@
   </ng-template>
   <ng-template #notlogged>
     <div class="row">
-      <div style="width: 10%" class="aside">`
+      <div class="aside">`
         <app-aside></app-aside>
       </div>
-      <div style="width: 90%">
+      <div class="main">
         <app-main></app-main>
       </div>
     </div>
