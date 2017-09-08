@@ -16,6 +16,7 @@ export class UserCreateCarComponent implements OnInit {
   }
   onSignUpS(form: NgForm) {
     const km = form.value.km;
+    const licensePlate = form.value.licensePlate;
     const make = form.value.make;
     const model = form.value.model;
     const year = form.value.year;
@@ -24,7 +25,7 @@ export class UserCreateCarComponent implements OnInit {
     const lastOilChange = form.value.lastOilChange;
     console.log(km);
     console.log(make);
-    const car = new Car(km, make, model, year, power, lastOilChange);
+    const car = new Car(km, licensePlate, make, model, year, power, lastOilChange);
     this.UserService.addCar(car);
     this.Router.navigate(['/users/dashboard']);
     console.log(make.toString());

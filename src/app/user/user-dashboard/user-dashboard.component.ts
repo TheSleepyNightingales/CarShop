@@ -9,9 +9,14 @@ import { FirebaseListObservable } from 'angularfire2/database';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
+  elementId: string;
+  type: string;
   isVisible: false;
   users: FirebaseListObservable<any[]>;
-  constructor(private UserService: UserService, private AuthService: AuthService) { }
+  constructor(private UserService: UserService, private AuthService: AuthService) {
+    this.elementId = this.currentUser().uid;
+    this.type = 'user';
+  }
 
   currentUser() {
     return this.AuthService.currentUser();

@@ -5,7 +5,7 @@
     <div class="rela-block profile-name-container">
       <div class="container-fluid">
       <img id="profile_pic" class="profile-pic" [src]="user.photoUrl" alt="Card image cap">
-        <app-user-upload-photo></app-user-upload-photo>
+        <app-upload-form [elementId] = 'elementId' [type]='type' ></app-upload-form>
       </div>
 
       <div class="rela-block user-name" id="user_name">{{ user.firstName }} {{ user.lastName }}</div>

@@ -2,6 +2,7 @@
 <div *ngFor="let car of users | async" >
 <div class="rela-block profile-card">
   <img  class="profile-pic" [src]="car.photoUrl" alt="Card image cap">
+  <app-upload-form [elementId] = "car.licensePlate" [type] = "type"></app-upload-form>
   <div class="rela-block profile-name-container">
     <div class="rela-block user-name" id="user_name">{{ car.model }} {{ car.make }}</div>
     <div class="rela-block user-desc" id="user_description">{{ car.year }}</div>

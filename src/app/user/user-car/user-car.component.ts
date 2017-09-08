@@ -10,7 +10,11 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class UserCarComponent implements OnInit {
   users: FirebaseListObservable<any[]>;
-  constructor(private UserService: UserService, private AuthService: AuthService) { }
+  elemtId: string;
+  type: string;
+  constructor(private UserService: UserService, private AuthService: AuthService) {
+    this.type = 'car';
+  }
 
   currentUser() {
     return this.AuthService.currentUser();

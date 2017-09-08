@@ -29,7 +29,9 @@ export class UploadService {
         // upload success
         upload.url = this.uploadTask.snapshot.downloadURL;
         this.imgUrl = this.uploadTask.snapshot.downloadURL;
+        console.log(this.imgUrl);
         upload.name = upload.file.name;
+        console.log(upload.name);
         this.saveFileData(upload);
       }
     );

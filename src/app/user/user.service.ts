@@ -10,16 +10,19 @@ export class UserService {
   user: FirebaseListObservable<any[]>;
   mechanics: FirebaseListObservable<any[]>;
   meme: FirebaseListObservable<any[]>;
+  cars: FirebaseListObservable<any[]>;
   userImg: FirebaseListObservable<any[]>;
   userByEmail: FirebaseListObservable<any[]>;
+  currentUser: string;
 
    // Private services only !
   constructor(db: AngularFireDatabase, private AuthService: AuthService) {
     this.users = db.list('users');
     if (this.AuthService.currentUser()) {
-      const currentUser = this.AuthService.currentUser().uid;
-      this.meme = db.list('/users/' + currentUser + '/mycars');
-      this.userImg = db.list('/users/' + currentUser);
+      this.currentUser = this.AuthService.currentUser().uid;
+      this.cars = db.list('/users/' + this.currentUser + '/mycars');
+      this.meme = db.list('/users/' + this.currentUser + '/mycars');
+      this.userImg = db.list('/users/' + this.currentUser);
       this.user = db.list('/users', {
         query: {
           orderByChild: 'id',
@@ -39,10 +42,13 @@ export class UserService {
     this.users.set(user.id, user);
   }
   addCar(car: Car) {
-    this.meme.set(car.make, car);
+    this.meme.set(car.licensePlate, car);
   }
   updatePhoto(photoUrl: string) {
     this.userImg.set('photoUrl', photoUrl);
+  }
+  updateCarPhoto(car: string, photoUrl: string) {
+    this.cars.set(car + '/photoUrl', photoUrl);
   }
   listCars() {
     return this.meme;
@@ -51,6 +57,7 @@ export class UserService {
     this.user.forEach( element => {console.log(element); });
     return this.user;
   }
+
     getAll() {
       return this.users;
     }
