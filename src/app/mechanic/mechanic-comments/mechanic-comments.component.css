@@ -9,3 +9,17 @@
 .comments-container {
     margin: 50px 50px;
 }
+
+.author-photo {
+    width: 130px;
+}
+
+.time-pipe {
+    font-style: italic;
+    color: #039be5;
+}
+
+.author-name {
+    font-style: italic;
+    font-weight: bold;
+}

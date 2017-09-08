@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedRoutingModule } from './shared-routing.module';
 import { DateFormatPipe } from './date-format/date-format.pipe';
+import { TimeAgoPipe } from "time-ago-pipe";
 
 @NgModule({
   imports: [
@@ -15,14 +16,16 @@ import { DateFormatPipe } from './date-format/date-format.pipe';
     HeaderComponent,
     AsideComponent,
     MainComponent,
-    DateFormatPipe
+    DateFormatPipe,
+    TimeAgoPipe
   ],
   exports: [
     CommonModule,
     HeaderComponent,
     AsideComponent,
     MainComponent,
-    DateFormatPipe
+    DateFormatPipe,
+    TimeAgoPipe
   ]
 })
 export class SharedModule { }

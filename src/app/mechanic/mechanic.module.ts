@@ -21,6 +21,8 @@ import { MechanicCommentsComponent } from './mechanic-comments/mechanic-comments
     MechanicSignupComponent,
     MechanicDashboardComponent,
     MechanicDetailsComponent,
-    MechanicCommentsComponent]
+    MechanicCommentsComponent
+  ]
 })
-export class MechanicModule { }
+export class MechanicModule {
+}
