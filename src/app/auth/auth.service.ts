@@ -1,3 +1,4 @@
+import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService {
 
-  constructor(private AngularFA: AngularFireAuth, private Router: Router) { }
+  constructor(private db: AngularFireDatabase, private AngularFA: AngularFireAuth, private Router: Router) { }
 
   createUserWithEmailAndPassword(email: string, password: string): firebase.Promise<any> {
     return this.AngularFA.auth.createUserWithEmailAndPassword(email, password);
