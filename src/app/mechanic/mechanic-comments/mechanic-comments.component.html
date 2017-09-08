@@ -1,4 +1,4 @@
-<div *ngIf="isSingIn; else isSingOut">
+<div *ngIf="isSingIn && !itsMe; else isSingOut">
 	<div class="add-comment">
 		<form (ngSubmit)="createComment(f)" #f="ngForm">
 					<textarea class="form-control" name="comments" cols="10" rows="5"
@@ -9,13 +9,13 @@
 		</form>
 	</div>
 
-	<div *ngFor="let comment of comments | async" class="comments-container">
+	<div *ngFor="let comment of comments | async"  class="comments-container">
 		<div class="media">
-			<img class="d-flex align-self-start mr-3 author-photo"
-				 src="https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/mercedes-benz-cls_1_0.jpg"
+			<img *ngFor="let commentAuthor of hack(comment.author)" class="d-flex align-self-start mr-3 author-photo"
+				 [src]="commentAuthor[1]._photoUrl"
 				 alt="Profile Image">
 			<div class="media-body">
-				<p class="mt-0 author-name">{{comment.author}}</p>
+				<p *ngFor="let commentAuthor of hack(comment.author)" class="mt-0 author-name">{{commentAuthor[1].firstName}}</p>
 				<p class="text-justify">{{comment.content}}</p>
 				<p class="text-right time-pipe">posted {{comment.createdOn | timeAgo}}</p>
 			</div>
@@ -27,11 +27,11 @@
 <ng-template #isSingOut>
 	<div *ngFor="let comment of comments | async" class="comments-container">
 		<div class="media">
-			<img class="d-flex align-self-start mr-3 author-photo"
-				 src="https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/mercedes-benz-cls_1_0.jpg"
+			<img *ngFor="let commentAuthor of hack(comment.author)" class="d-flex align-self-start mr-3 author-photo"
+				 [src]="commentAuthor[1]._photoUrl"
 				 alt="Profile Image">
 			<div class="media-body">
-				<p class="mt-0 author-name">{{comment.author}}</p>
+				<p *ngFor="let commentAuthor of hack(comment.author)" class="mt-0 author-name">{{commentAuthor[1].firstName}}</p>
 				<p class="text-justify">{{comment.content}}</p>
 				<p class="text-right time-pipe">posted {{comment.createdOn | timeAgo}}</p>
 			</div>
