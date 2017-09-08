@@ -14,10 +14,12 @@ import { ActivatedRoute } from "@angular/router";
 export class MechanicCommentsComponent implements OnInit {
 
   isSingIn;
+  itsMe: boolean = false;
   comments: FirebaseListObservable<any>;
+  mechanic: FirebaseListObservable<any>;
 
   constructor(private MechanicService: MechanicService, private AuthService: AuthService,
-  private ActivatedRoute: ActivatedRoute) {
+              private ActivatedRoute: ActivatedRoute) {
   }
 
 
@@ -25,17 +27,39 @@ export class MechanicCommentsComponent implements OnInit {
     this.isSingIn = this.AuthService.currentUser();
     const id = this.ActivatedRoute.snapshot.params['id'];
     this.comments = this.MechanicService.listComments(id);
+    this.checkIsMyProfile();
+  }
+
+  checkIsMyProfile() {
+    const currentUserId = this.AuthService.currentUser().uid;
+    const wantedId = this.ActivatedRoute.snapshot.params['id'];
+    if (currentUserId === wantedId) {
+      this.itsMe = true;
+    }
+    return this.itsMe;
+  }
+
+  hack(val) {
+
+    const result = Object.keys(val).map(function (key) {
+      return [Number(key), val[key]];
+    });
+
+    return result;
   }
 
   createComment(form: NgForm) {
     const comments = form.value.comments;
-    const author = this.AuthService.currentUser().email;
-    const comment = {
-      author: author,
-      content: comments,
-      createdOn: new Date().toString(),
-    };
-    const id = this.ActivatedRoute.snapshot.params['id'];
-    this.MechanicService.addComment(comment, id);
+    const authorId = this.AuthService.currentUser().uid;
+    this.MechanicService.getCurrentUser(authorId)
+      .subscribe((data) => {
+        const comment = {
+          author: data,
+          content: comments,
+          createdOn: new Date().toString(),
+        };
+        const id = this.ActivatedRoute.snapshot.params['id'];
+        this.MechanicService.addComment(comment, id);
+      });
   }
 }

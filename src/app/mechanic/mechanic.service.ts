@@ -37,7 +37,7 @@ export class MechanicService {
   }
 
   listComments(id) {
-    return this.db.list('/users/' + id + '/comments')
+    return this.db.list('/users/' + id + '/comments');
   }
 
   getCurrentUser(id) {
