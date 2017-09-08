@@ -13,16 +13,15 @@ export class UserService {
   cars: FirebaseListObservable<any[]>;
   userImg: FirebaseListObservable<any[]>;
   userByEmail: FirebaseListObservable<any[]>;
-  currentUser: string;
 
    // Private services only !
   constructor(db: AngularFireDatabase, private AuthService: AuthService) {
     this.users = db.list('users');
     if (this.AuthService.currentUser()) {
-      this.currentUser = this.AuthService.currentUser().uid;
-      this.cars = db.list('/users/' + this.currentUser + '/mycars');
-      this.meme = db.list('/users/' + this.currentUser + '/mycars');
-      this.userImg = db.list('/users/' + this.currentUser);
+      const currentUser = this.AuthService.currentUser().uid;
+      this.cars = db.list('/users/' + currentUser + '/mycars');
+      this.meme = db.list('/users/' + currentUser + '/mycars');
+      this.userImg = db.list('/users/' + currentUser);
       this.user = db.list('/users', {
         query: {
           orderByChild: 'id',

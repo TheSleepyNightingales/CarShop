@@ -11,13 +11,19 @@ import { FirebaseListObservable } from 'angularfire2/database';
 export class UserDashboardComponent implements OnInit {
   elementId: string;
   type: string;
+  hover: boolean;
   isVisible: false;
   users: FirebaseListObservable<any[]>;
   constructor(private UserService: UserService, private AuthService: AuthService) {
     this.elementId = this.currentUser().uid;
     this.type = 'user';
   }
-
+  myEvent($event) {
+    this.hover = true;
+  }
+  myEventOut($event) {
+    this.hover = false;
+  }
   currentUser() {
     return this.AuthService.currentUser();
   }

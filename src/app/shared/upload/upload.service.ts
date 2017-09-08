@@ -10,7 +10,7 @@ export class UploadService {
   constructor(private db: AngularFireDatabase) { }
   imgUrl: string;
   private basePath = '/uploads';
-  private uploadTask: firebase.storage.UploadTask;
+  public uploadTask: firebase.storage.UploadTask;
   upload: FirebaseListObservable<Upload[]>;
   pushUpload(upload: Upload) {
     const storageRef = firebase.storage().ref();
@@ -29,6 +29,7 @@ export class UploadService {
         // upload success
         upload.url = this.uploadTask.snapshot.downloadURL;
         this.imgUrl = this.uploadTask.snapshot.downloadURL;
+        console.log(this.imgUrl);
         console.log(this.imgUrl);
         upload.name = upload.file.name;
         console.log(upload.name);
