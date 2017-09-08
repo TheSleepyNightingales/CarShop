@@ -29,6 +29,8 @@ export class CarService {
 
     myClients: Array<User>;
 
+    myRepairs: Array<any>;
+
     joinDate: Date;
 
     isDeleted: boolean;
@@ -47,6 +49,7 @@ export class CarService {
         this.rating = 0;
         this.myMechanics = [];
         this.myClients = [];
+        this.myRepairs = [];
         this.role = 'service';
         this.joinDate = new Date();
         this.isDeleted = false;

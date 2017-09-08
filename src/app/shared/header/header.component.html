@@ -30,8 +30,22 @@
         </li>
       </ng-template>
       <ng-template #logout>
+        <!-- <li class="nav-item">
+          <img [src]="currentUser().photoURL" alt="_">
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="/users/dashboard">{{currentUser().email}}</a>
+          <div *ngIf="getUserRole()=='user'; then isUser"></div>
+          <ng-template #isUser>
+            <a class="nav-link" routerLink="/users/dashboard">{{currentUser().email}}</a>
+          </ng-template>
+          <div *ngIf="getUserRole()=='mechanic'; then isMechanic"></div>
+          <ng-template #isMechanic>
+            <a class="nav-link" routerLink="/mechanics/dashboard">{{currentUser().email}}</a>
+          </ng-template>
+          <div *ngIf="getUserRole()=='service'; then isService"></div>
+          <ng-template #isService>
+             <a class="nav-link" routerLink="/services/dashboard">{{currentUser().email}}</a> 
+          </ng-template>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="" (click)="logOut()">Logout</a>

@@ -1,19 +1,43 @@
-<div class="add-comment">
-	<form (ngSubmit)="createComment(f)" #f="ngForm">
+<div *ngIf="isSingIn; else isSingOut">
+	<div class="add-comment">
+		<form (ngSubmit)="createComment(f)" #f="ngForm">
 					<textarea class="form-control" name="comments" cols="10" rows="5"
 							  placeholder="Add a comment..." required ngModel></textarea>
-	<button class="btn btn-primary btn-circle pull-right btn-submit" type="submit">
-		<i class="fa fa-paper-plane" aria-hidden="true"> Send</i>
-	</button>
-	</form>
-</div>
-<div *ngFor="let comment of mechanic | async" class="comments-container">
-	<div class="media">
-		<img class="d-flex align-self-start mr-3" src="#" alt="Profile Image">
-		<div class="media-body">
-			<h5 class="mt-0">{{comment.author}}</h5>
-			<p class="text-justify">{{comment.content}}</p>
-		</div>
+			<button class="btn btn-primary btn-circle pull-right btn-submit" type="submit">
+				<i class="fa fa-paper-plane" aria-hidden="true"> Send</i>
+			</button>
+		</form>
 	</div>
-	<hr>
+
+	<div *ngFor="let comment of comments | async" class="comments-container">
+		<div class="media">
+			<img class="d-flex align-self-start mr-3 author-photo"
+				 src="https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/mercedes-benz-cls_1_0.jpg"
+				 alt="Profile Image">
+			<div class="media-body">
+				<p class="mt-0 author-name">{{comment.author}}</p>
+				<p class="text-justify">{{comment.content}}</p>
+				<p class="text-right time-pipe">posted {{comment.createdOn | timeAgo}}</p>
+			</div>
+		</div>
+		<hr>
+	</div>
 </div>
+
+<ng-template #isSingOut>
+	<div *ngFor="let comment of comments | async" class="comments-container">
+		<div class="media">
+			<img class="d-flex align-self-start mr-3 author-photo"
+				 src="https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/mercedes-benz-cls_1_0.jpg"
+				 alt="Profile Image">
+			<div class="media-body">
+				<p class="mt-0 author-name">{{comment.author}}</p>
+				<p class="text-justify">{{comment.content}}</p>
+				<p class="text-right time-pipe">posted {{comment.createdOn | timeAgo}}</p>
+			</div>
+		</div>
+		<hr>
+	</div>
+</ng-template>
+
+

@@ -13,7 +13,8 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class MechanicCommentsComponent implements OnInit {
 
-
+  isSingIn;
+  comments: FirebaseListObservable<any>;
 
   constructor(private MechanicService: MechanicService, private AuthService: AuthService,
   private ActivatedRoute: ActivatedRoute) {
@@ -21,7 +22,9 @@ export class MechanicCommentsComponent implements OnInit {
 
 
   ngOnInit() {
-
+    this.isSingIn = this.AuthService.currentUser();
+    const id = this.ActivatedRoute.snapshot.params['id'];
+    this.comments = this.MechanicService.listComments(id);
   }
 
   createComment(form: NgForm) {
@@ -30,7 +33,7 @@ export class MechanicCommentsComponent implements OnInit {
     const comment = {
       author: author,
       content: comments,
-      createdOn: new Date().toString()
+      createdOn: new Date().toString(),
     };
     const id = this.ActivatedRoute.snapshot.params['id'];
     this.MechanicService.addComment(comment, id);

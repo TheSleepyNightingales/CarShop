@@ -36,8 +36,8 @@ export class MechanicService {
     comments.push(comment);
   }
 
-  listComments() {
-    return this.comments;
+  listComments(id) {
+    return this.db.list('/users/' + id + '/comments')
   }
 
   getCurrentUser(id) {
