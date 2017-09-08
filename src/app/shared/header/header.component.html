@@ -30,9 +30,6 @@
         </li>
       </ng-template>
       <ng-template #logout>
-        <!-- <li class="nav-item">
-          <img [src]="currentUser().photoURL" alt="_">
-        </li> -->
         <li class="nav-item">
           <div *ngIf="getUserRole()=='user'; then isUser"></div>
           <ng-template #isUser>

@@ -36,16 +36,9 @@ export class UploadFormComponent implements OnInit {
   }
   setPhoto() {
     return this.upSvc.uploadTask.then(() => this.UserService.updatePhoto(this.upSvc.imgUrl));
-    // return this.UserService.updatePhoto(this.upSvc.imgUrl);
   }
   setCarPhoto() {
-
-
     return this.upSvc.uploadTask.then(() => this.UserService.updateCarPhoto(this.elementId, this.upSvc.imgUrl));
-    //console.log("tuk");
-    //console.log(this.upSvc.imgUrl);
-    //return this.UserService.updateCarPhoto(this.elementId, this.upSvc.imgUrl);
-
   }
   uploadSingle() {
     this.file = this.selectedFiles.item(0);
@@ -53,7 +46,5 @@ export class UploadFormComponent implements OnInit {
     this.upSvc.pushUpload(this.currentUpload);
   }
   ngOnInit() {
-
   }
 }
-

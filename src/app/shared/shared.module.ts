@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { SharedRoutingModule } from './shared-routing.module';
 import { DateFormatPipe } from './date-format/date-format.pipe';
 import {UploadFormComponent} from './upload/upload-form/upload-form.component';
-//import { TimeAgoPipe } from "time-ago-pipe";
 
 @NgModule({
   imports: [
