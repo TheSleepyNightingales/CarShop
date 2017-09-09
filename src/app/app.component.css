@@ -1,0 +1,18 @@
+.main{
+  width:97%;
+}
+.aside{
+  width:3%;
+}
+
+@media screen and (max-width: 720px) {
+  .aside{
+    width:60px;
+  }
+  .main{
+    position: absolute;
+    left: 60px; /* Header Height */
+    top: 56px; /* Footer Height */
+    width: 100%;
+  }
+}

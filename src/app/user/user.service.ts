@@ -10,6 +10,7 @@ export class UserService {
   user: FirebaseListObservable<any[]>;
   mechanics: FirebaseListObservable<any[]>;
   meme: FirebaseListObservable<any[]>;
+  cars: FirebaseListObservable<any[]>;
   userImg: FirebaseListObservable<any[]>;
   userByEmail: FirebaseListObservable<any[]>;
 
@@ -18,6 +19,7 @@ export class UserService {
     this.users = db.list('users');
     if (this.AuthService.currentUser()) {
       const currentUser = this.AuthService.currentUser().uid;
+      this.cars = db.list('/users/' + currentUser + '/mycars');
       this.meme = db.list('/users/' + currentUser + '/mycars');
       this.userImg = db.list('/users/' + currentUser);
       this.user = db.list('/users', {
@@ -39,10 +41,13 @@ export class UserService {
     this.users.set(user.id, user);
   }
   addCar(car: Car) {
-    this.meme.set(car.make, car);
+    this.meme.set(car.licensePlate, car);
   }
   updatePhoto(photoUrl: string) {
     this.userImg.set('photoUrl', photoUrl);
+  }
+  updateCarPhoto(car: string, photoUrl: string) {
+    this.cars.set(car + '/photoUrl', photoUrl);
   }
   listCars() {
     return this.meme;
@@ -51,6 +56,7 @@ export class UserService {
     this.user.forEach( element => {console.log(element); });
     return this.user;
   }
+
     getAll() {
       return this.users;
     }

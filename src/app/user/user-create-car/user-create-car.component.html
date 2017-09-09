@@ -22,10 +22,14 @@
             </div>
           </div>
           <div class="form-bottom">
-             <form (ngSubmit)="onSignUpS(f)" #f="ngForm">
+            <form (ngSubmit)="onSignUpS(f)" #f="ngForm">
               <div class="form-group">
-                <label class="sr-only" for="form-km">Email</label>
+                <label class="sr-only" for="form-km">KM</label>
                 <input type="number" id="km" name="km" required ngModel class="form-control" placeholder="KM..." class="form-km form-control" id="form-km">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-licensePlate">License Plate</label>
+                <input type="text" id="licensePlate" name="licensePlate" required ngModel class="form-control" placeholder="License Plate..." class="form-licensePlate form-control" id="form-licensePlate">
               </div>
               <div class="form-group">
                 <label class="sr-only" for="form-make">Make</label>
@@ -57,4 +61,3 @@
   </div>
   <br><br><br>
 </div>
-

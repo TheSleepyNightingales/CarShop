@@ -1,6 +1,8 @@
 export class Car {
   km: number;
 
+  licensePlate: string;
+
   make: string;
 
   model: string;
@@ -25,8 +27,9 @@ export class Car {
 
   isDeleted: boolean;
 
-  constructor(km: number, make: string, model: string, year: number, power: number, lastOilChange: Date ) {
+  constructor(km: number, licensePlate: string, make: string, model: string, year: number, power: number, lastOilChange: Date ) {
     this.km = km;
+    this.licensePlate = licensePlate;
     this.make = make;
     this.model = model;
     this.year = year;

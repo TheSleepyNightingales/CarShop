@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <label [for]="elementId" class="btn btn-success logo"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+  <input id={{elementId}} [name]="elementId" style="visibility:hidden;" type="file" (change)="detectFiles($event)">
+  <button id={{elementId+1}} class="btn btn-success logo"
+          [disabled]="!selectedFiles"
+          (click)="uploadSingle()">
+    <i class="fa fa-upload" aria-hidden="true"></i>
+  </button>
+</div>
+<div *ngIf="currentUpload">
+  <div class="progress">
+    <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+  </div>
+  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+  {{imgUrl(type)}}
+</div>

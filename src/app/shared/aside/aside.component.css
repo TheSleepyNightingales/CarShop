@@ -23,8 +23,8 @@
 .main-menu {
     background:#fbfbfb;
     border-right:1px solid #e5e5e5;
-    position:absolute;
-    top:8%;
+    top:56px;
+    position: fixed;
     bottom:0;
     height:100%;
     left:0;
@@ -126,4 +126,11 @@ nav ul,nav li {
     font-style: normal;
     font-weight: 300;
     src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+@media screen and (max-width: 720px) {
+  .main-menu:hover,nav.main-menu.expanded {
+    width:60px;
+    overflow:hidden;
+  }
+
 }
