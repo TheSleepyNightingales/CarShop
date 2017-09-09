@@ -1,3 +1,5 @@
+import { Mechanic } from './../models/Mechanic';
+import { User } from './../models/User';
 import { CarServiceService } from './../../car-service/car-service.service';
 import { CarService } from './../models/CarService';
 import { Component, OnInit, Input } from '@angular/core';
@@ -9,7 +11,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class StarRatingComponent implements OnInit {
 
-  @Input() detailedUser: CarService;
+  @Input() detailedUser: CarService | User | Mechanic;
   @Input() currentUid: string;
 
   public voteSuccess: boolean;

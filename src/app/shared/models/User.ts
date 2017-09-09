@@ -23,6 +23,8 @@ export class User {
 
     rating: number;
 
+    voters: Array<any>;
+
     myMechanics: Array<Mechanic>;
 
     myFriends: Array<User>;
@@ -44,6 +46,7 @@ export class User {
         this.reviews = [];
         this.comments = [];
         this.rating = 0;
+        this.voters = [];
         this.myMechanics = [];
         this.myFriends = [];
         this.myFollowers = [];
