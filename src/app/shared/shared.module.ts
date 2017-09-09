@@ -19,7 +19,7 @@ import {UploadFormComponent} from './upload/upload-form/upload-form.component';
     MainComponent,
     DateFormatPipe,
     StarRatingComponent,
-    UploadFormComponent
+    UploadFormComponent,
   ],
   exports: [
     CommonModule,
