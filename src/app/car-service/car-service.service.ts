@@ -1,5 +1,5 @@
 import { CarService } from './../shared/models/CarService';
-import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
+import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 
@@ -29,6 +29,10 @@ export class CarServiceService {
     return this.carServices;
   }
 
+  getUserDetails(id: string): FirebaseObjectObservable<CarService> {
+    return this.db.object('/users/' + id);
+  }
+
   getService(id: string) {
     return  this.db.list('/users', {
       query: {
@@ -38,4 +42,15 @@ export class CarServiceService {
     });
   }
 
+  updateVoters(id: string, voter: any) {
+    this.db.list('/users/' + id + '/voters').set(voter.id, voter.value);
+  }
+
+  // updateVoters(id: string, voters: Array<any>) {
+  //   this.db.list('/users/' + id).set('voters', voters);
+  // }
+
+  updateRating(id: string, rating: number) {
+    this.db.list('/users/' + id).set('rating', rating);
+  }
 }

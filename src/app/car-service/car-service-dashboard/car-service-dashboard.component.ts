@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./car-service-dashboard.component.css']
 })
 export class CarServiceDashboardComponent implements OnInit {
-
+  // private carService: CarService;
   carService: FirebaseListObservable<any>;
 
   constructor(private CarServiceService: CarServiceService, private AuthService: AuthService) {
@@ -21,6 +21,7 @@ export class CarServiceDashboardComponent implements OnInit {
   ngOnInit() {
     const uid = this.AuthService.currentUser().uid;
     this.carService = this.CarServiceService.getService(uid);
+    console.log(this.carService);
   }
 
 }

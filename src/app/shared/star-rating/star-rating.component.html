@@ -1,0 +1,31 @@
+<div class="row">
+    <fieldset class="rating">
+        <input type="radio" 
+            value="5" 
+            [checked]="detailedUser?.rating===5" />
+        <label title="Rocks!" (click)='rate(5)'>5 stars</label>
+
+        <input type="radio" 
+            value="4" 
+            [checked]="detailedUser?.rating===4" />
+        <label title="Pretty good" (click)='rate(4)'>4 stars</label>
+
+        <input type="radio" 
+            value="3" 
+            [checked]="detailedUser?.rating===3" />
+        <label title="Meh" (click)='rate(3)'>3 stars</label>
+
+        <input type="radio" 
+            value="2" 
+            [checked]="detailedUser?.rating===2" />
+        <label title="Kinda bad" (click)='rate(2)'>2 stars</label>
+
+        <input type="radio" 
+            value="1" 
+            [checked]="detailedUser?.rating===1" />
+        <label title="Sucks big time" (click)='rate(1)'>1 star</label>
+    </fieldset>
+    <div *ngIf="voteSuccess" class="alert alert-success">
+        <strong>Successfully</strong> voted for this user.
+    </div>
+</div>

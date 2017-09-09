@@ -25,6 +25,8 @@ export class CarService {
 
     rating: number;
 
+    voters: Array<any>;
+
     myMechanics: Array<Mechanic>;
 
     myClients: Array<User>;
@@ -47,6 +49,7 @@ export class CarService {
         this.reviews = [];
         this.comments = [];
         this.rating = 0;
+        this.voters = [];
         this.myMechanics = [];
         this.myClients = [];
         this.myRepairs = [];

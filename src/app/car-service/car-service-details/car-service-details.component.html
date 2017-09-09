@@ -1,0 +1,95 @@
+
+<div class="row service-details">
+  <div class="col-md-12 text-center ">
+    <div class="panel panel-default">
+      <div class="userprofile social ">
+        <div class="userpic"> <img [src]="detailedService?.photoUrl" alt="" class="userpicimg"> </div>
+        <h3 class="username">{{ detailedService?.name }}</h3>
+        <p>{{ detailedService?.address }}</p>
+      </div>
+      <div class="col-md-12 border-top border-bottom">
+        <ul class="nav nav-pills pull-left countlist" role="tablist">
+          <li role="presentation">
+            <h3>0<br>
+              <small>Follower</small> </h3>
+          </li>
+          <li role="presentation">
+            <h3>0<br>
+              <small>Following</small> </h3>
+          </li>
+          <li role="presentation">
+            <h3>{{ detailedService?.rating }}<br>
+              <small>Rating</small> </h3>
+          </li>
+            <li *ngIf="currentUser" role="presentation">
+              <app-star-rating [currentUid]="currentUid" [detailedUser]="detailedService"></app-star-rating>
+            </li>
+        </ul>
+        <button disabled class="btn btn-primary followbtn">Follow</button>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- /.col-md-12 -->
+  <div class="col-md-4 col-sm-12 pull-right">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="page-header small">Personal Details</h1>
+        <p class="page-subtitle small">Email: {{detailedService?.email}}</p>
+        <p class="page-subtitle small">Owner: {{detailedService?.owner}}</p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="page-header small">Friends</h1>
+        <p class="page-subtitle small"></p>
+      </div>
+      <div class="col-md-12">
+        <div class="memberblock"> <a href="" class="member"> <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="">
+          <div class="memmbername">Ajay Sriram</div>
+          </a> <a href="" class="member"> <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+          </a> </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="col-md-8 col-sm-12 pull-left posttimeline">
+    <div class="panel panel-default">
+      <div class="col-md-12 border-top">
+        <div *ngIf="currentUser" class="status-upload">
+          <form>
+            <label>Comment</label>
+            <textarea class="form-control" placeholder="Comment here"></textarea>
+            <br>
+            <ul class="nav nav-pills pull-left ">
+              <li><a title=""><i class="glyphicon glyphicon-bullhorn"></i></a></li>
+              <li><a title=""><i class=" glyphicon glyphicon-facetime-video"></i></a></li>
+              <li><a title=""><i class="glyphicon glyphicon-picture"></i></a></li>
+            </ul>
+            <button type="submit" class="btn btn-success pull-right"> Comment</button>
+          </form>
+        </div>
+        <!-- Status Upload  --> 
+        
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="col-md-12">
+        <div class="media">
+          <div class="media-left"> <a href="javascript:void(0)"> <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="media-object"> </a> </div>
+          <div class="media-body">
+            <h4 class="media-heading"> Lucky Sans<br>
+              <small><i class="fa fa-clock-o"></i> Yesterday, 2:00 am</small> </h4>
+            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio. </p>
+            <ul class="nav nav-pills pull-left ">
+              <li><a href="" title=""><i class="glyphicon glyphicon-thumbs-up"></i> 2015/</a></li>
+              <li><a href="" title=""><i class=" glyphicon glyphicon-comment"></i> 25/</a></li>
+              <li><a href="" title=""><i class="glyphicon glyphicon-share-alt"></i> 15</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

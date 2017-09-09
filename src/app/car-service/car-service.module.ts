@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarServicesListComponent } from './car-services-list/car-services-list.component';
 import { CarServiceDashboardComponent } from './car-service-dashboard/car-service-dashboard.component';
+import { CarServiceDetailsComponent } from './car-service-details/car-service-details.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { CarServiceDashboardComponent } from './car-service-dashboard/car-servic
     ReactiveFormsModule,
     CarServiceRoutingModule
   ],
-  declarations: [CarServiceSignupComponent, CarServicesListComponent, CarServiceDashboardComponent]
+  declarations: [CarServiceSignupComponent, CarServicesListComponent, CarServiceDashboardComponent, CarServiceDetailsComponent]
 })
 export class CarServiceModule { }

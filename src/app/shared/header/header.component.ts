@@ -12,6 +12,7 @@ import 'rxjs/Rx';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
   user: FirebaseObjectObservable<any>;
 
   constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
