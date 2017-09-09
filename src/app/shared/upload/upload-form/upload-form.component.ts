@@ -27,8 +27,10 @@ export class UploadFormComponent implements OnInit {
   imgUrl(type: string) {
     if (this.type === 'car') {
         this.setCarPhoto();
-    }else if (this.type === 'user') {
+    } else if (this.type === 'user') {
         this.setPhoto();
+    } else if (this.type === 'service') {
+        this.addServicePhoto();
     }
   }
   imgUrlCar() {
@@ -40,10 +42,16 @@ export class UploadFormComponent implements OnInit {
   setCarPhoto() {
     return this.upSvc.uploadTask.then(() => this.UserService.updateCarPhoto(this.elementId, this.upSvc.imgUrl));
   }
+
+  addServicePhoto() {
+    return this.upSvc.uploadTask.then(() => this.UserService.addToServiceGallery(this.elementId, this.upSvc.imgUrl));
+  }
+
   uploadSingle() {
     this.file = this.selectedFiles.item(0);
     this.currentUpload = new Upload(this.file);
     this.upSvc.pushUpload(this.currentUpload);
+    this.imgUrl(this.type);
   }
   ngOnInit() {
   }

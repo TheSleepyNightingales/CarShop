@@ -23,12 +23,17 @@
         <div class="row gallery-title">
           <span>Gallery</span>
           <span class="add-img-btn">
-            <a class="btn btn-success" routerLink="#"><i class="fa fa-plus" aria-hidden="true"></i> ADD IMAGE </a>
-          </span>
+            <div (click)="showUpload($event)" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> ADD IMAGE </div>
+          </span>          
+          <div *ngIf="isVisible">
+              <app-upload-form [elementId]='uid' [type]='type'></app-upload-form> 
+              <button class="btn btn-danger cancel" (click)="hideUpload($event)"> X </button> 
+          </div>
         </div>        
         <div class="row">
-          <!-- <div *ngFor="let m of images" class="col-xs-4">
-          </div> -->
+          <div *ngFor="let photoUrl of galleryImages" class="col-xs-4">
+            <img [src]="photoUrl" alt="">
+          </div> 
         </div>
       </div>
     </div>

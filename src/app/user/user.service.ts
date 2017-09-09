@@ -15,7 +15,7 @@ export class UserService {
   userByEmail: FirebaseListObservable<any[]>;
 
    // Private services only !
-  constructor(db: AngularFireDatabase, private AuthService: AuthService) {
+  constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
     this.users = db.list('users');
     if (this.AuthService.currentUser()) {
       const currentUser = this.AuthService.currentUser().uid;
@@ -55,6 +55,10 @@ export class UserService {
   listUser(email: string) {
     this.user.forEach( element => {console.log(element); });
     return this.user;
+  }
+
+  addToServiceGallery(id: string, photoUrl: string) {
+    this.db.list('/users/' + id + '/gallery').push(photoUrl);
   }
 
     getAll() {
