@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../auth.service';
@@ -12,7 +13,7 @@ export class SigninComponent implements OnInit {
   alert: IAlert;
   anAlert: boolean;
   email: string;
-  constructor(private AuthService: AuthService) { }
+  constructor(private AuthService: AuthService, private Router: Router) { }
     ngOnInit() {
       this.anAlert = false;
       this.alert = {
@@ -38,6 +39,8 @@ export class SigninComponent implements OnInit {
         }
         // console.log(error);
       });
+
+      this.Router.navigate(['/']);
     }
     public closeAlert(alert: IAlert) {
       alert.message = '';

@@ -11,19 +11,19 @@
         <ul class="nav nav-pills pull-left countlist" role="tablist">
           <li role="presentation">
             <h3>0<br>
-              <small>Follower</small> </h3>
+              <small>Mechanics</small> </h3>
           </li>
           <li role="presentation">
             <h3>0<br>
-              <small>Following</small> </h3>
+              <small>Repairs</small> </h3>
           </li>
           <li role="presentation">
             <h3>{{ detailedService?.rating }}<br>
               <small>Rating</small> </h3>
           </li>
-            <li *ngIf="currentUser" role="presentation">
-              <app-star-rating [currentUid]="currentUid" [detailedUser]="detailedService"></app-star-rating>
-            </li>
+          <li *ngIf="currentUser" role="presentation">
+            <app-star-rating [currentUid]="currentUid" [detailedUser]="detailedService"></app-star-rating>
+          </li>
         </ul>
         <button disabled class="btn btn-primary followbtn">Follow</button>
       </div>
@@ -37,6 +37,8 @@
         <h1 class="page-header small">Personal Details</h1>
         <p class="page-subtitle small">Email: {{detailedService?.email}}</p>
         <p class="page-subtitle small">Owner: {{detailedService?.owner}}</p>
+        <p class="page-subtitle small">License number: {{detailedService?.licenseNumber}}</p>
+        <p class="page-subtitle small">Activities: {{detailedService?.activities}}</p>
       </div>
       <div class="clearfix"></div>
     </div>

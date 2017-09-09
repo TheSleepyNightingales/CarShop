@@ -8,12 +8,15 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  items: FirebaseListObservable<any[]>;
   user: string;
+
+  isLogged: boolean;
   constructor(db: AngularFireDatabase, private AuthService: AuthService) {
-    this.items = db.list('/items');
-    this.user =  this.AuthService.currentUser().email;
+    const user = this.AuthService.currentUser();
+    if (user) {
+      this.user = user.email;
+      this.isLogged = true;
+    }
   }
 
   ngOnInit() {
