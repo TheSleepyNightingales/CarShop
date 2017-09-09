@@ -5,7 +5,8 @@
       <h4 class="card-title">{{ user.firstName }} {{ user.lastName }}</h4>
       <p class="card-text fa fa-envelope-o">{{ user.email }}</p>
       <p class="card-text">{{ user.shortIntro }}</p>
-      <a routerLink="#" class="btn btn-primary">View profile</a>
+
+      <a [routerLink]="['/users', user.id]" class="btn btn-primary">View profile</a>
     </div>
   </div>
 </div>

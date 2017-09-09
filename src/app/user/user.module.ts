@@ -9,6 +9,7 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
 import { UserCreateCarComponent } from './user-create-car/user-create-car.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserCarRepairsComponent } from './user-car-repairs/user-car-repairs.component';
+import { UserPublicComponent } from './user-public/user-public.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { UserCarRepairsComponent } from './user-car-repairs/user-car-repairs.com
   ],
 
   declarations: [UserDashboardComponent, UserCarComponent, UserCarRepairsComponent, UsersListComponent, UserCreateCarComponent,
-UserSignupComponent, UserCarRepairsComponent],
+UserSignupComponent, UserCarRepairsComponent, UserPublicComponent],
   providers: []
 })
 export class UserModule { }

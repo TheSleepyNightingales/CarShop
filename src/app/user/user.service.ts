@@ -52,7 +52,7 @@ export class UserService {
   listCars() {
     return this.meme;
   }
-  listUser(email: string) {
+  listUser() {
     this.user.forEach( element => {console.log(element); });
     return this.user;
   }
