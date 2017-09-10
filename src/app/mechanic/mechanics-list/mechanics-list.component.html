@@ -1,23 +1,16 @@
+
+
 <div class="row">
-	<div class="col col-left">
-		<ol class="breadcrumb" style="background-color: #039be5">
-			<li class="breadcrumb-item active" style="color: white">// All Mehanics</li>
-		</ol>
-	</div>
-</div>
-<div class="container">
-	<div class="row">
-		<div *ngFor="let mechanic of users | async" class="card col-xs-4" style="width: 20rem;">
-			<img class="img-mechanic" [src]="mechanic.photoUrl" alt="Card image cap">
-			<div class="card-block">
-				<h4 class="card-title">{{ mechanic.firstName }} {{ mechanic.lastName }}</h4>
-				<p class="card-text fa fa-envelope-o"> {{ mechanic.email }}</p>
-				<p class="card-text">{{ mechanic.rating }}</p>
-				<a [routerLink]="['/mechanics', mechanic.id]" class="btn btn-primary">View profile</a>
-			</div>
-			<div class="card-footer">
-				<small class="text-muted mechanic-date">Joined on: {{mechanic.joinDate | dateFormat}}</small>
-			</div>
-		</div>
-	</div>
+  <div *ngFor="let mechanic of users | async" class="card col-xs-4" style="width: 20rem;">
+    <img class="img-mechanic" [src]="mechanic.photoUrl" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">{{ mechanic.firstName }} {{ mechanic.lastName }}</h4>
+      <p class="card-text fa fa-envelope-o"> {{ mechanic.email }}</p>
+      <p class="card-text">{{ mechanic.rating }}</p>
+      <a [routerLink]="['/mechanics', mechanic.id]" class="btn btn-primary">View profile</a>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted mechanic-date">Joined on: {{mechanic.joinDate | dateFormat}}</small>
+    </div>
+  </div>
 </div>
