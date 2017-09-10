@@ -12,6 +12,7 @@ export class UserService {
   meme: FirebaseListObservable<any[]>;
   cars: FirebaseListObservable<any[]>;
   userImg: FirebaseListObservable<any[]>;
+  carReview: FirebaseListObservable<any[]>;
   userByEmail: FirebaseListObservable<any[]>;
 
    // Private services only !
@@ -57,6 +58,14 @@ export class UserService {
     return this.user;
   }
 
+  getCar(id: string) {
+    return  this.db.list('/users', {
+      query: {
+        orderByChild: 'id',
+        equalTo: id,
+      }
+    });
+  }
   addToServiceGallery(id: string, photoUrl: string) {
     this.db.list('/users/' + id + '/gallery').push(photoUrl);
   }

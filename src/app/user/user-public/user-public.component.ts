@@ -13,6 +13,8 @@ import {User} from '../../shared/models/User';
 export class UserPublicComponent implements OnInit {
   public detailedService: User;
   public currentUser: any;
+  elemtId: string;
+  hover: boolean;
 
 public currentUid: string;
   constructor(private UserPublicService: UserServicePubService,
@@ -24,6 +26,12 @@ public currentUid: string;
       return [Number(key), val[key]];
     });
     return result;
+  }
+  myEvent($event) {
+    this.hover = true;
+  }
+  myEventOut($event) {
+    this.hover = false;
   }
   ngOnInit() {
     const currentUser = this.authService.currentUser();
@@ -39,6 +47,7 @@ public currentUid: string;
     }
 
     this.activatedRoute.params.subscribe(params => {
+      this.elemtId = params['id'];
       const detailedUserId = params['id'];
       return this.UserPublicService.getUserDetails(detailedUserId)
         .subscribe(user => {
