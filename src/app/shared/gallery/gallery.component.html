@@ -1,7 +1,12 @@
 <div *ngIf="galleryImages" class="gallery">
-  <figure *ngFor="let photoUrl of galleryImages">
-    <img [src]="photoUrl" alt="" />
-  </figure>
+  <div class="col-md-12">
+    <div class="row">
+      <hr>
+      <div class="gal">
+        <img *ngFor="let photoUrl of galleryImages" [src]="photoUrl" alt="">
+      </div>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="!galleryImages">
