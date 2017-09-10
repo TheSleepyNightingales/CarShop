@@ -8,7 +8,11 @@
     <div class="rela-block container">
       <div class="rela-block profile-card">
         <div class="rela-block profile-name-container">
-          <img id="profile_pic" class="profile-pic" [src]="service.photoUrl" alt="Card image cap">
+          <img (click)="show($event)" id="profile_pic" class="profile-pic" [src]="service.photoUrl" alt="Card image cap">
+            <div *ngIf="isVisible">
+              <app-upload-form [elementId]='uid' [type]='profileType'></app-upload-form>
+              <button class="btn btn-danger" (click)="resetVisibility($event)"> X </button>
+            </div>
           <div class="rela-block service-name" id="service-name">{{ service?.name }}</div>
           <div class="rela-block service-owner" id="service-owner"><span class="title">Owner: </span>{{ service?.owner }}</div>
           <div class="rela-block service-license-number" id="service-license-number"><span class="title">License number: </span>{{ service?.licenseNumber }}</div>
@@ -51,7 +55,7 @@
             <div class="row mechanics">
               <div *ngFor="let topMechanic of topMechanics" class="col-md-4">
                 <div class="card" style="width: 17rem;">
-                  <img class="card-img-top" [src]="topMechanic._photoUrl" alt="Card image cap" height="210px">
+                  <img class="card-img-top" [src]="topMechanic.photoUrl" alt="Card image cap" height="210px">
                   <div class="card-block">
                     <h4 class="card-title">{{topMechanic?.firstName}} {{topMechanic?.lastName}}</h4>
                     <p class="card-text"><strong>Position: </strong>{{topMechanic?.position}}</p>

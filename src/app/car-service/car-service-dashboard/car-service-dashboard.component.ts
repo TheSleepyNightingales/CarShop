@@ -13,6 +13,8 @@ import { Component, OnInit } from '@angular/core';
 export class CarServiceDashboardComponent implements OnInit {
   uid: string;
 
+  profileType: string;
+
   type: string;
 
   carService: FirebaseListObservable<any>;
@@ -29,6 +31,7 @@ export class CarServiceDashboardComponent implements OnInit {
   ngOnInit() {
     this.uid = this.AuthService.currentUser().uid;
     this.type = 'service';
+    this.profileType = 'user';
     this.carService = this.CarServiceService.getService(this.uid);
     this.carService.subscribe(s => {
       this.galleryImages = Object.values(s[0].gallery);
@@ -40,11 +43,11 @@ export class CarServiceDashboardComponent implements OnInit {
       });
   }
 
-  showUpload($event) {
+  show($event) {
     this.isVisible = true;
   }
 
-  hideUpload($event) {
+  resetVisibility($event) {
     this.isVisible = false;
   }
 
