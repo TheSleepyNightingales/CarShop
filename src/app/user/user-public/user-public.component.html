@@ -50,7 +50,7 @@
         </div>
         </ng-template>
       <ng-template #noMechanics>
-        Ma boi you ain't got any mechanics !
+        {{ detailedService?.firstName }} {{ detailedService?.lastName }} hasn't got any Mechanics yet !
       </ng-template>
 
       <div class="clearfix"></div>
@@ -66,7 +66,7 @@
           <div class="rela-block profile-card">
             <img  class="profile-pic" [src]="car[1].photoUrl" alt="Card image cap">
 
-            <a [routerLink]="[car[1].licensePlate]" class="btn btn-primary">Edit this peace of shit</a>
+            <a [routerLink]="[car[1].licensePlate]" class="btn btn-primary">SELECT THIS CAR</a>
 
             <!-- <[elementId] = "car[1].licensePlate" [type] = "type"> -->
             <div class="rela-block profile-name-container">
@@ -82,7 +82,7 @@
         </div>
         </ng-template>
         <ng-template #carsNo>
-          This boi you ain't got any cars ! He's so poor that his mama opens a gmail account just so she could eat the SPAM !
+          {{ detailedService?.firstName }} {{ detailedService?.lastName }} hasn't listed any cars yet.
         </ng-template>
       </div>
     </div>
