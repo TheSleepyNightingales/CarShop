@@ -11,7 +11,7 @@ import { MechanicPubService } from "../mechanic-pub.service";
 })
 export class MechanicDashboardComponent implements OnInit {
 
-  mechanic: FirebaseListObservable<any>;
+  mechanic: FirebaseListObservable<any[]>;
   type: string;
   hover: boolean;
   elementId: string;
@@ -31,6 +31,11 @@ export class MechanicDashboardComponent implements OnInit {
   }
   myEventOut($event) {
     this.hover = false;
+  }
+
+  showUpload(val) {
+    this.isVisible = val;
+    return this.isVisible;
   }
 
   ngOnInit() {

@@ -3,6 +3,7 @@ import { UploadService } from '../upload.service';
 import { Upload } from '../upload';
 import { UserService } from '../../../user/user.service';
 import {createUrlResolverWithoutPackagePrefix} from '@angular/compiler';
+import { MechanicService } from "../../../mechanic/mechanic.service";
 
 @Component({
   selector: 'app-upload-form',
@@ -19,7 +20,8 @@ export class UploadFormComponent implements OnInit {
   file: File;
   Type: string;
   currentUpload: Upload;
-  constructor(private upSvc: UploadService, private UserService: UserService) {
+  constructor(private upSvc: UploadService, private UserService: UserService,
+  private MechanicService: MechanicService) {
   }
   detectFiles(event) {
     this.selectedFiles = event.target.files;
@@ -31,6 +33,8 @@ export class UploadFormComponent implements OnInit {
         this.setPhoto();
     } else if (this.type === 'service') {
         this.addServicePhoto();
+    } else if (this.type === 'mechanic') {
+      this.setMechanicPhoto();
     }
   }
   imgUrlCar() {
@@ -38,6 +42,10 @@ export class UploadFormComponent implements OnInit {
   }
   setPhoto() {
     return this.upSvc.uploadTask.then(() => this.UserService.updatePhoto(this.upSvc.imgUrl));
+  }
+
+  setMechanicPhoto() {
+    return this.upSvc.uploadTask.then(() => this.MechanicService.updatePhoto(this.upSvc.imgUrl));
   }
   setCarPhoto() {
     return this.upSvc.uploadTask.then(() => this.UserService.updateCarPhoto(this.elementId, this.upSvc.imgUrl));

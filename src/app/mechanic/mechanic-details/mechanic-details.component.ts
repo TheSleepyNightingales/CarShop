@@ -13,10 +13,8 @@ import { AuthService } from "../../auth/auth.service";
 })
 export class MechanicDetailsComponent implements OnInit {
 
-  users: FirebaseListObservable<any>;
   public detailedService: Mechanic;
   public currentUser: any;
-  elementId: string;
   public currentUid: string;
 
   constructor(private MechanicPubService: MechanicPubService,
@@ -36,15 +34,12 @@ export class MechanicDetailsComponent implements OnInit {
     } else {
       console.log('no mechanic');
     }
-    // const id = this.ActivatedRoute.snapshot.params['id'];
-    // this.users = this.MechanicService.getById(id);
+
     this.ActivatedRoute.params.subscribe(params => {
-      this.elementId = params['id'];
       const detailedUserId = params['id'];
       return this.MechanicPubService.getMechanicDetails(detailedUserId)
         .subscribe(mechanic => {
           this.detailedService = mechanic;
-          console.log(this.detailedService);
         });
     });
   }

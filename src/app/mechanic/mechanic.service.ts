@@ -8,11 +8,13 @@ export class MechanicService {
   users: FirebaseListObservable<any[]>;
   mechanic: FirebaseListObservable<any[]>;
   comments: FirebaseListObservable<any[]>;
+  mechanicImg: FirebaseListObservable<any[]>;
 
   constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
     this.users = db.list('users');
     if (this.AuthService.currentUser()) {
       const currentUser = this.AuthService.currentUser().uid;
+      this.mechanicImg = db.list('/users/' + currentUser);
       this.mechanic = db.list('/users', {
         query: {
           orderByChild: 'id',
@@ -46,6 +48,10 @@ export class MechanicService {
         equalTo: email
       }
     });
+  }
+
+  updatePhoto(photoUrl: string) {
+    this.mechanicImg.set('photoUrl', photoUrl);
   }
 
   getCurrentUser(id) {
