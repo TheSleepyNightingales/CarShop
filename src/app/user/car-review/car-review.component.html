@@ -1,38 +1,40 @@
+ye
+{{elementId}}
+{{userId}}
 <div *ngFor="let car of users | async" >
   <div *ngIf="car.repairs;then carCost else noRepair"></div>
   <ng-template #carCost>
-  <div class="rela-block profile-card">
-    <img  class="profile-pic" [src]="car.photoUrl" alt="Card image cap">
-    <div class="rela-block profile-name-container">
-      <div class="rela-block user-name" id="user_name">{{ car.make }} {{ car.model }}</div>
-      <div class="rela-block user-desc" id="user_description">{{ car.year }}</div>
-      <br>
-      <div class="rela-block user-desc" >TOTAL REPAIR COST : {{repairsCost(car)}} BGN</div>
-    </div>
-    <div >
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>Mechanic</th>
-          <th>Description</th>
-          <th>Type</th>
-          <th>Date</th>
-          <th>Price</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="rela-block profile-card">
+      <img  class="profile-pic" [src]="car.photoUrl" alt="Card image cap">
+      <div class="rela-block profile-name-container">
+        <div class="rela-block user-name" id="user_name">{{ car.make }} {{ car.model }}</div>
+        <div class="rela-block user-desc" id="user_description">{{ car.year }}</div>
+        <br>
+      </div>
+      <div >
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Mechanic</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Price</th>
+          </tr>
+          </thead>
+          <tbody>
 
-        <tr *ngFor="let fuck of hack(car.repairs)">
-          <td>{{fuck[1].mechanic}}</td>
-          <td style="width: 50%">{{fuck[1].description}}</td>
-          <td>{{fuck[1].type}}</td>
-          <td>{{fuck[1].date}}</td>
-          <td >{{fuck[1].price}} BGN</td>
-        </tr>
-        </tbody>
-      </table>
+          <tr *ngFor="let fuck of hack(car.repairs)">
+            <td>{{fuck[1].mechanic}}</td>
+            <td style="width: 50%">{{fuck[1].description}}</td>
+            <td>{{fuck[1].type}}</td>
+            <td>{{fuck[1].date}}</td>
+            <td >{{fuck[1].price}} BGN</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
   </ng-template>
   <ng-template #noRepair>
     <div class="rela-block profile-card">
@@ -68,4 +70,6 @@
       </div>
     </div>
   </ng-template>
+
 </div>
+<a [routerLink]="['repair']" class="btn btn-primary">Add another expensive repair to this shit</a>

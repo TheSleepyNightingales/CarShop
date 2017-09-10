@@ -3,6 +3,7 @@ import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/databa
 import { AuthService } from '../auth/auth.service';
 import { User } from '../shared/models/User';
 import { Car } from '../shared/models/Car';
+import {Repair} from '../shared/models/Repair';
 
 @Injectable()
 export class UserService {
@@ -11,7 +12,9 @@ export class UserService {
   mechanics: FirebaseListObservable<any[]>;
   meme: FirebaseListObservable<any[]>;
   cars: FirebaseListObservable<any[]>;
+  repair: FirebaseListObservable<any[]>;
   userImg: FirebaseListObservable<any[]>;
+  carReview: FirebaseListObservable<any[]>;
   userByEmail: FirebaseListObservable<any[]>;
 
    // Private services only !
@@ -20,6 +23,7 @@ export class UserService {
     if (this.AuthService.currentUser()) {
       const currentUser = this.AuthService.currentUser().uid;
       this.cars = db.list('/users/' + currentUser + '/mycars');
+      this.repair = db.list('/users/');
       this.meme = db.list('/users/' + currentUser + '/mycars');
       this.userImg = db.list('/users/' + currentUser);
       this.user = db.list('/users', {
@@ -43,6 +47,12 @@ export class UserService {
   addCar(car: Car) {
     this.meme.set(car.licensePlate, car);
   }
+  addRepair(repair: Repair, elementId: string, userId: string) {
+    console.log(repair);
+    console.log(elementId);
+    console.log(userId);
+    this.repair.set(userId + '/mycars/' + elementId + '/repairs/' + repair.date, repair);
+  }
   updatePhoto(photoUrl: string) {
     this.userImg.set('photoUrl', photoUrl);
   }
@@ -57,6 +67,14 @@ export class UserService {
     return this.user;
   }
 
+  getCar(id: string, elementId: string) {
+    return  this.db.list('/users/' + id + '/mycars/', {
+      query: {
+        orderByChild: 'licensePlate',
+        equalTo: elementId,
+      }
+    });
+  }
   addToServiceGallery(id: string, photoUrl: string) {
     this.db.list('/users/' + id + '/gallery').push(photoUrl);
   }
