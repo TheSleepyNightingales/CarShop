@@ -2,10 +2,10 @@ import { MechanicSignupComponent } from './mechanic-signup/mechanic-signup.compo
 import { MechanicsListComponent } from './mechanics-list/mechanics-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MechanicDashboardComponent } from "./mechanic-dashboard/mechanic-dashboard.component";
-import { AuthGuard } from "../auth/auth-guard.service";
-import { MechanicDetailsComponent } from "./mechanic-details/mechanic-details.component";
-import { MechanicCommentsComponent } from "./mechanic-comments/mechanic-comments.component";
+import { MechanicDashboardComponent } from './mechanic-dashboard/mechanic-dashboard.component';
+import { AuthGuard } from '../auth/auth-guard.service';
+import { MechanicDetailsComponent } from './mechanic-details/mechanic-details.component';
+import { MechanicCommentsComponent } from './mechanic-comments/mechanic-comments.component';
 
 const routes: Routes = [
   {

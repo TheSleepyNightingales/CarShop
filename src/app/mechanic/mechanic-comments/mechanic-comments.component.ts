@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MechanicService } from '../mechanic.service';
 import { NgForm } from '@angular/forms';
-import { AuthService } from "../../auth/auth.service";
-import { FirebaseListObservable } from "angularfire2/database";
-import { ActivatedRoute } from "@angular/router";
+import { AuthService } from '../../auth/auth.service';
+import { FirebaseListObservable } from 'angularfire2/database';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mechanic-comments',
@@ -13,7 +13,7 @@ import { ActivatedRoute } from "@angular/router";
 export class MechanicCommentsComponent implements OnInit {
 
   isSingIn;
-  itsMe: boolean = false;
+  itsMe = false;
   comments: FirebaseListObservable<any>;
   mechanic: FirebaseListObservable<any>;
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MechanicPubService } from "../mechanic-pub.service";
-import { FirebaseListObservable } from "angularfire2/database";
-import { ActivatedRoute } from "@angular/router";
-import { Mechanic } from "../../shared/models/Mechanic";
-import { AuthService } from "../../auth/auth.service";
+import { MechanicPubService } from '../mechanic-pub.service';
+import { FirebaseListObservable } from 'angularfire2/database';
+import { ActivatedRoute } from '@angular/router';
+import { Mechanic } from '../../shared/models/Mechanic';
+import { AuthService } from '../../auth/auth.service';
 
 
 @Component({

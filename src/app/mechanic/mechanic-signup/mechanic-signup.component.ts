@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MechanicPubService } from "../mechanic-pub.service";
-import { Router } from "@angular/router";
-import { NgForm } from "@angular/forms";
-import { Mechanic } from "../../shared/models/Mechanic";
-import { IAlert } from "../../shared/models/IAlert";
+import { MechanicPubService } from '../mechanic-pub.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { Mechanic } from '../../shared/models/Mechanic';
+import { IAlert } from '../../shared/models/IAlert';
 
 @Component({
   selector: 'app-mechanic-signup',

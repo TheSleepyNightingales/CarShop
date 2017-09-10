@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseListObservable } from "angularfire2/database";
-import { MechanicService } from "../mechanic.service";
-import { AuthService } from "../../auth/auth.service";
-import { MechanicPubService } from "../mechanic-pub.service";
+import { FirebaseListObservable } from 'angularfire2/database';
+import { MechanicService } from '../mechanic.service';
+import { AuthService } from '../../auth/auth.service';
+import { MechanicPubService } from '../mechanic-pub.service';
 
 @Component({
   selector: 'app-mechanic-dashboard',

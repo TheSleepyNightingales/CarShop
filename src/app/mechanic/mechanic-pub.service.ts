@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from "angularfire2/database";
-import { AuthService } from "../auth/auth.service";
-import { Mechanic } from "../shared/models/Mechanic";
+import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { AuthService } from '../auth/auth.service';
+import { Mechanic } from '../shared/models/Mechanic';
 
 @Injectable()
 export class MechanicPubService {
