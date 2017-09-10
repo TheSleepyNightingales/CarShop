@@ -17,13 +17,7 @@
             <h3>0<br>
               <small>Repairs</small> </h3>
           </li>
-          <li role="presentation">
-            <h3>{{ detailedService?.rating }}<br>
-              <small>Rating</small> </h3>
-          </li>
-          <li *ngIf="currentUser" role="presentation">
-            <app-star-rating [currentUid]="currentUid" [detailedUser]="detailedService"></app-star-rating>
-          </li>
+
         </ul>
         <button disabled class="btn btn-primary followbtn">Follow</button>
       </div>
@@ -44,16 +38,21 @@
         <h1 class="page-header small">Mechanics</h1>
         <p class="page-subtitle small"></p>
       </div>
-      <div *ngFor="let mechanic of hack(detailedService.myMechanics) " >
+      <div *ngIf="detailedService.myMechanics;then mechanics else noMechanics"></div>
+      <ng-template #mechanics>
+      <div *ngFor="let mechanic of hack(detailedService.myMechanics)" >
           <div class="col-md-12">
-            <div class="memberblock"> <a href="{{mechanic[1].toString()}}" class="member"> <img src="{{mechanic[1].photoUrl}}" alt="">
+            <div class="memberblock"> <a href="mechanics/{{mechanic[1].id}}" class="member"> <img src="{{mechanic[1].photoUrl}}" alt="">
               <div class="memmbername"> {{mechanic[1].firstName}} {{mechanic[1].lastName}}</div>
             </a>
 
             </div>
             </div>
         </div>
-
+        </ng-template>
+      <ng-template #noMechanics>
+        Ma boi you ain't got any mechanics !
+      </ng-template>
 
       <div class="clearfix"></div>
     </div>
@@ -62,38 +61,27 @@
   <div class="col-md-8 col-sm-12 pull-left posttimeline">
     <div class="panel panel-default">
       <div class="col-md-12 border-top">
-        <app-user-car-repairs></app-user-car-repairs>
-          <form>
-            <label>Comment</label>
-            <textarea class="form-control" placeholder="Comment here"></textarea>
-            <br>
-            <ul class="nav nav-pills pull-left ">
-              <li><a title=""><i class="glyphicon glyphicon-bullhorn"></i></a></li>
-              <li><a title=""><i class=" glyphicon glyphicon-facetime-video"></i></a></li>
-              <li><a title=""><i class="glyphicon glyphicon-picture"></i></a></li>
-            </ul>
-            <button type="submit" class="btn btn-success pull-right"> Comment</button>
-          </form>
-
-        <!-- Status Upload  -->
-
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="col-md-12">
-        <div class="media">
-          <div class="media-left"> <a href="javascript:void(0)"> <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="media-object"> </a> </div>
-          <div class="media-body">
-            <h4 class="media-heading"> Lucky Sans<br>
-              <small><i class="fa fa-clock-o"></i> Yesterday, 2:00 am</small> </h4>
-            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio. </p>
-            <ul class="nav nav-pills pull-left ">
-              <li><a href="" title=""><i class="glyphicon glyphicon-thumbs-up"></i> 2015/</a></li>
-              <li><a href="" title=""><i class=" glyphicon glyphicon-comment"></i> 25/</a></li>
-              <li><a href="" title=""><i class="glyphicon glyphicon-share-alt"></i> 15</a></li>
-            </ul>
+        <div *ngIf="detailedService.mycars;then carsYes else carsNo"></div>
+        <ng-template #carsYes>
+        <div *ngFor="let car of hack(detailedService.mycars)" >
+          <div class="rela-block profile-card">
+            <img  class="profile-pic" [src]="car[1].photoUrl" alt="Card image cap">
+            <!-- <[elementId] = "car[1].licensePlate" [type] = "type"> -->
+            <div class="rela-block profile-name-container">
+              <div class="rela-block user-name" id="user_name">{{ car[1].model }} {{ car[1].make }}</div>
+              <div class="rela-block user-desc" id="user_description">{{ car[1].year }}</div>
+            </div>
+            <div class="rela-block profile-card-stats">
+              <div class="floated profile-stat works" id="num_works">{{car[1].power}} bhp<br></div>
+              <div class="floated profile-stat followers" id="num_followers">{{car[1].km}}<br></div>
+              <div class="floated profile-stat following" id="num_following">14.1s<br></div>
+            </div>
           </div>
         </div>
+        </ng-template>
+        <ng-template #carsNo>
+          This boi you ain't got any cars ! He's so poor that his mama opens a gmail account just so she could eat the SPAM !
+        </ng-template>
       </div>
     </div>
   </div>

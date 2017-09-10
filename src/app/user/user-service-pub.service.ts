@@ -17,12 +17,7 @@ export class UserServicePubService {
         equalTo: 'user',
       }
     });
-    this.user = db.list('/users', {
-      query: {
-        orderByChild: 'id',
-        equalTo: this.AuthService.currentUser().uid,
-      }
-    });
+
     this.mechanics = db.list('/mechanics');
   }
 
@@ -33,12 +28,6 @@ export class UserServicePubService {
   addCarService(service: User) {
     this.user.set(service.id, service);
   }
-
-  getAll() {
-    const uid = this.AuthService.currentUser().uid;
-    return this.db.list('/users/' + uid);
-  }
-
   getUserDetails(id: string): FirebaseObjectObservable<User> {
     return this.db.object('/users/' + id);
   }
@@ -68,9 +57,6 @@ export class UserServicePubService {
   getAllUsers() {
     return this.users;
   }
-  listUser() {
-    this.user.forEach( element => {console.log(element); });
-    return this.user;
-  }
+
 }
 
