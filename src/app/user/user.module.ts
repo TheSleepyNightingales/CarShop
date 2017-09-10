@@ -14,6 +14,7 @@ import { CarReviewComponent } from './car-review/car-review.component';
 import { AddRepairComponent } from './add-repair/add-repair.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import { CarEditComponent } from './car-edit/car-edit.component';
+import {UserOffersComponent} from './user-offers/user-offers.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,7 @@ import { CarEditComponent } from './car-edit/car-edit.component';
 
   declarations: [UserDashboardComponent, UserCarComponent, UserCarRepairsComponent, UsersListComponent, UserCreateCarComponent,
 UserSignupComponent, UserCarRepairsComponent, UserPublicComponent, CarReviewComponent, AddRepairComponent, UserUpdateComponent,
-CarEditComponent],
+CarEditComponent, UserOffersComponent],
   providers: []
 })
 export class UserModule { }
