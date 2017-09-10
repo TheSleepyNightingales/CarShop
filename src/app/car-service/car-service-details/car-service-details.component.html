@@ -24,7 +24,12 @@
             <app-star-rating [currentUid]="currentUid" [detailedUser]="detailedService"></app-star-rating>
           </li>
         </ul>
-        <button disabled class="btn btn-primary followbtn">Follow</button>
+        <div *ngIf="isLogged&&isClient&&!hasSubscribed">
+          <button class="btn btn-danger followbtn" (click)="subscribe(detailedService?.id)"><i class="fa fa-bell-o" aria-hidden="true"></i> Subscribe</button>
+        </div>
+        <div *ngIf="!isLogged||!isClient||hasSubscribed">
+          <button disabled class="btn btn-danger followbtn" (click)="subscribe(detailedService?.id)"><i class="fa fa-bell-o" aria-hidden="true"></i> Subscribe</button>
+        </div>
       </div>
       <div class="clearfix"></div>
     </div>

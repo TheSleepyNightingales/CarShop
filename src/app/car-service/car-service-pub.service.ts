@@ -34,4 +34,8 @@ export class CarServicePubService {
     return this.db.object('/users/' + id);
   }
 
+  subscribe(serviceId: string, subscriberId: string) {
+    this.db.list('/users/' + serviceId + '/myClients').push(subscriberId);
+  }
+
 }
