@@ -9,7 +9,7 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
 import {UploadFormComponent} from './upload/upload-form/upload-form.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { IterablePipe } from './iterable/iterable.pipe';
-import { TimeAgoPipe } from "time-ago-pipe";
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 @NgModule({
   imports: [
