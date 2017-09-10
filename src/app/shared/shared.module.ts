@@ -7,6 +7,8 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { DateFormatPipe } from './date-format/date-format.pipe';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import {UploadFormComponent} from './upload/upload-form/upload-form.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { IterablePipe } from './iterable/iterable.pipe';
 import { TimeAgoPipe } from "time-ago-pipe";
 
 @NgModule({
@@ -21,7 +23,9 @@ import { TimeAgoPipe } from "time-ago-pipe";
     DateFormatPipe,
     StarRatingComponent,
     UploadFormComponent,
-    TimeAgoPipe,
+    GalleryComponent,
+    IterablePipe,
+    TimeAgoPipe
   ],
   exports: [
     CommonModule,
@@ -31,6 +35,8 @@ import { TimeAgoPipe } from "time-ago-pipe";
     DateFormatPipe,
     StarRatingComponent,
     UploadFormComponent,
+    GalleryComponent,
+    IterablePipe,
     TimeAgoPipe
   ]
 })
