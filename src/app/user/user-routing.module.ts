@@ -9,6 +9,7 @@ import {UserCarRepairsComponent} from './user-car-repairs/user-car-repairs.compo
 import {UserPublicComponent} from './user-public/user-public.component';
 import {CarReviewComponent} from './car-review/car-review.component';
 import {AddRepairComponent} from './add-repair/add-repair.component';
+import {AuthGuardMechanic} from '../auth/auth-guard-mechanic/auth-guard-mechanic.component';
 
 
 const routes: Routes = [
@@ -20,8 +21,8 @@ const routes: Routes = [
   { path: 'dashboard/register-car', component:  UserCreateCarComponent, canActivate: [AuthGuard]},
   { path: 'all', component: UsersListComponent},
   { path: ':id', component: UserPublicComponent},
-  { path: ':id/:licensePlate', component: CarReviewComponent, canActivate: [AuthGuard]},
-  { path: ':id/:licensePlate/repair', component: AddRepairComponent, canActivate: [AuthGuard]},
+  { path: ':id/:licensePlate', component: CarReviewComponent, canActivate: [AuthGuardMechanic]},
+  { path: ':id/:licensePlate/repair', component: AddRepairComponent, canActivate: [AuthGuardMechanic]},
 ];
 
 @NgModule({
