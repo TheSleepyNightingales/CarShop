@@ -5,7 +5,6 @@ import { Mechanic } from '../shared/models/Mechanic';
 
 @Injectable()
 export class MechanicService {
-
   users: FirebaseListObservable<any[]>;
   mechanic: FirebaseListObservable<any[]>;
   comments: FirebaseListObservable<any[]>;
@@ -40,12 +39,21 @@ export class MechanicService {
     return this.db.list('/users/' + id + '/comments');
   }
 
+  searchMechanicByEmail(email: string) {
+    return this.db.list('/users', {
+      query: {
+        orderByChild: 'email',
+        equalTo: email
+      }
+    });
+  }
+
   getCurrentUser(id) {
     return this.db.list('users', {
       query: {
         orderByChild: 'id',
         equalTo: id,
       }
-    })
+    });
   }
 }

@@ -1,5 +1,5 @@
 <div *ngFor="let car of users | async" >
-  <div *ngIf="car.repair;then carCost else noRepair"></div>
+  <div *ngIf="car.repairs;then carCost else noRepair"></div>
   <ng-template #carCost>
   <div class="rela-block profile-card">
     <img  class="profile-pic" [src]="car.photoUrl" alt="Card image cap">
@@ -22,8 +22,8 @@
         </thead>
         <tbody>
 
-        <tr *ngFor="let fuck of hack(car.repair)">
-          <td>{{fuck[1].mechanicName}}</td>
+        <tr *ngFor="let fuck of hack(car.repairs)">
+          <td>{{fuck[1].mechanic}}</td>
           <td style="width: 50%">{{fuck[1].description}}</td>
           <td>{{fuck[1].type}}</td>
           <td>{{fuck[1].date}}</td>

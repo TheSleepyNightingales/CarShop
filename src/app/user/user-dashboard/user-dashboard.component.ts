@@ -32,6 +32,6 @@ export class UserDashboardComponent implements OnInit {
     return this.isVisible;
   }
   ngOnInit() {
-    this.users = this.UserService.listUser('meninblack@gmail.com');
+    this.users = this.UserService.listUser();
   }
 }

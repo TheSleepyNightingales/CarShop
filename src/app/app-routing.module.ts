@@ -10,6 +10,13 @@ import { UploadFormComponent } from './shared/upload/upload-form/upload-form.com
 
 const routes: Routes = [
   {
+    path: '', redirectTo: 'home', pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
     path: 'mechanics',
     loadChildren: './mechanic/mechanic.module#MechanicModule'
   },
@@ -21,10 +28,6 @@ const routes: Routes = [
   {
     path: 'services',
     loadChildren: './car-service/car-service.module#CarServiceModule'
-  },
-  {
-    path: '',
-    component: HomeComponent, canActivate: [AuthGuard]
   },
   {
     path: 'signin',

@@ -1,13 +1,5 @@
-<h1>Dashboard</h1>
+<div *ngIf="isLogged">
+  <h3>Welcome, {{user}}</h3>
+</div>
 
-<p>
-
-</p>
-
-<h3>Welcome {{user}}</h3>
-
-<ul>
-  <li class="text" *ngFor="let item of items | async">
-    {{item.name}}
-  </li>
-</ul>
+<p>Home works</p>

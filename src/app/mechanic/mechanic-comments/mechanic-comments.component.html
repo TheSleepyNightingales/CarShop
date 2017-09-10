@@ -17,7 +17,7 @@
 			<div class="media-body">
 				<p *ngFor="let commentAuthor of hack(comment.author)" class="mt-0 author-name">{{commentAuthor[1].firstName}}</p>
 				<p class="text-justify">{{comment.content}}</p>
-				<p class="text-right time-pipe">posted {{comment.createdOn | timeAgo}}</p>
+				<p class="text-right time-pipe">posted {{comment.createdOn}}</p>
 			</div>
 		</div>
 		<hr>
@@ -33,7 +33,7 @@
 			<div class="media-body">
 				<p *ngFor="let commentAuthor of hack(comment.author)" class="mt-0 author-name">{{commentAuthor[1].firstName}}</p>
 				<p class="text-justify">{{comment.content}}</p>
-				<p class="text-right time-pipe">posted {{comment.createdOn | timeAgo}}</p>
+				<p class="text-right time-pipe">posted {{comment.createdOn}}</p>
 			</div>
 		</div>
 		<hr>

@@ -33,6 +33,8 @@ export class CarService {
 
     myRepairs: Array<any>;
 
+    gallery: Array<any>;
+
     joinDate: Date;
 
     isDeleted: boolean;
@@ -53,6 +55,7 @@ export class CarService {
         this.myMechanics = [];
         this.myClients = [];
         this.myRepairs = [];
+        this.gallery = [];
         this.role = 'service';
         this.joinDate = new Date();
         this.isDeleted = false;

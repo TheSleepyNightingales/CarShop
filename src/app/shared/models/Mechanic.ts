@@ -13,6 +13,7 @@ export class Mechanic {
   workExperience: number;
   clients: Array<User>;
   rating: number;
+  voters: Array<any>;
   comments: Array<any>;
   reviews: Array<any>;
   role: string;
@@ -32,6 +33,7 @@ export class Mechanic {
     this.workExperience = workExperience;
     this.clients = [];
     this.rating = 0;
+    this.voters = [];
     this.comments = [];
     this.reviews = [];
     this.role = 'mechanic';
