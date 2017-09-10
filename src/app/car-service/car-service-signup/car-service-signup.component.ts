@@ -1,3 +1,4 @@
+import { CarServicePubService } from './../car-service-pub.service';
 import { CarService } from './../../shared/models/CarService';
 import { Component, OnInit } from '@angular/core';
 import { UserServicePubService } from '../../user/user-service-pub.service';
@@ -16,7 +17,7 @@ export class CarServiceSignupComponent implements OnInit {
   alert: IAlert;
   anAlert: boolean;
 
-  constructor(private CarServiceService: CarServiceService, private Router: Router) { }
+  constructor(private CarServiceService: CarServicePubService, private Router: Router) { }
     ngOnInit() {
       this.anAlert = false;
       this.alert = {

@@ -29,22 +29,6 @@ export class CarServiceService {
     });
   }
 
-  createCarService(email: string, password: string) {
-    return this.AuthService.createUserWithEmailAndPassword(email, password);
-  }
-
-  addCarService(service: CarService) {
-    this.carServices.set(service.id, service);
-  }
-
-  getAll() {
-    return this.carServices;
-  }
-
-  getUserDetails(id: string): FirebaseObjectObservable<CarService> {
-    return this.db.object('/users/' + id);
-  }
-
   getMechanics(id: string): FirebaseListObservable<Mechanic[]> {
     // this.myMechanics = this.db.list('/users/' + id + '/myMechanics');
     return this.myMechanics;

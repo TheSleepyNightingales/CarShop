@@ -1,5 +1,4 @@
 import { Offer } from './../../shared/models/Offer';
-import { MechanicPubService } from './../../mechanic/mechanic-pub.service';
 import { MechanicService } from './../../mechanic/mechanic.service';
 import { AuthService } from './../../auth/auth.service';
 import { CarServiceService } from './../car-service.service';
