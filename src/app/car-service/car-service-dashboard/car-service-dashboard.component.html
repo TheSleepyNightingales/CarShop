@@ -16,17 +16,17 @@
           <div class="rela-block service-activities" id="service-activities"><span class="title">Activities: </span>{{ service?.activities }}</div>
           <div class="rela-block service-address" id="service-address"><span class="title">Address: </span>{{ service?.address }}</div>
           <div class="rela-block service-rating" id="service-rating"><span class="title">Rating: </span>{{ service?.rating }} <i class="fa fa-star" style="color:yellow;"></i></div>      
+          <div class="rela-block service-rating" id="btn-edit">
+            <button class="btn btn-lg btn-warning" data-toggle="modal" data-target="#editModal">Edit</button>
+            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true" data-backdrop="false">
+                  <app-car-service-edit [carService]="carService"></app-car-service-edit>
+            </div>
+          </div>                
         </div>
-        <!-- <button type="button" class="btn btn-warning btn-edit" data-toggle="modal" data-target=".bd-example-modal-lg"> <i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            ...
-          </div>
-        </div>  -->
       </div>
     <br>
     </div>
+
       <div class="rela-block container">
         <div class="rela-block profile-card">
           <div class="rela-block profile-name-container">

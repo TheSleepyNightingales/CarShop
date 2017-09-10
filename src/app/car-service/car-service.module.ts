@@ -9,6 +9,7 @@ import { CarServicesListComponent } from './car-services-list/car-services-list.
 import { CarServiceDashboardComponent } from './car-service-dashboard/car-service-dashboard.component';
 import { CarServiceDetailsComponent } from './car-service-details/car-service-details.component';
 import { CarServiceMechanicsComponent } from './car-service-mechanics/car-service-mechanics.component';
+import { CarServiceEditComponent } from './car-service-edit/car-service-edit.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { CarServiceMechanicsComponent } from './car-service-mechanics/car-servic
     ReactiveFormsModule,
     CarServiceRoutingModule
   ],
-  declarations: [CarServiceSignupComponent, CarServicesListComponent, CarServiceDashboardComponent, CarServiceDetailsComponent, CarServiceMechanicsComponent]
+  declarations: [CarServiceSignupComponent, CarServicesListComponent, CarServiceDashboardComponent, CarServiceDetailsComponent, CarServiceMechanicsComponent, CarServiceEditComponent]
 })
 export class CarServiceModule { }

@@ -69,6 +69,13 @@ export class CarServiceService {
     this.db.list('/users/' + id).set('rating', rating);
   }
 
+  updateCarService(carService: CarService) {
+    this.db.object('/users/' + carService.id + '/name').set(carService.name);
+    this.db.object('/users/' + carService.id + '/owner').set(carService.owner);
+    this.db.object('/users/' + carService.id + '/address').set(carService.address);
+    this.db.object('/users/' + carService.id + '/activities').set(carService.activities);
+  }
+
   addMechanic(serviceId: string, mechanicId: string, mechanic: any) {
     console.log(mechanic);
     return this.db.list('/users/' + serviceId + '/myMechanics').set(mechanicId, mechanic);
