@@ -7,6 +7,7 @@
   <div *ngFor="let service of carService | async">
     <div class="rela-block container">
       <div class="rela-block profile-card">
+        <a class="btn" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit float-right" aria-hidden="true"></i></a>
         <div class="rela-block profile-name-container">
           <img (click)="show($event)" id="profile_pic" class="profile-pic" [src]="service.photoUrl" alt="Card image cap">
             <div *ngIf="isVisible">
@@ -20,12 +21,9 @@
           <div class="rela-block service-activities" id="service-activities"><span class="title">Activities: </span>{{ service?.activities }}</div>
           <div class="rela-block service-address" id="service-address"><span class="title">Address: </span>{{ service?.address }}</div>
           <div class="rela-block service-rating" id="service-rating"><span class="title">Rating: </span>{{ service?.rating }} <i class="fa fa-star" style="color:yellow;"></i></div>      
-          <div class="rela-block service-rating" id="btn-edit">
-            <button class="btn btn-lg btn-warning" data-toggle="modal" data-target="#editModal">Edit</button>
             <!-- <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
                    <app-car-service-edit [carService]="carService"></app-car-service-edit> 
             </div> -->
-          </div>                
         </div>
       </div>
     <br>
