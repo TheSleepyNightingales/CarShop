@@ -31,7 +31,7 @@ export class CarReviewComponent implements OnInit {
     return result;
   }
   getCar() {
-    this.UserService.getCar(this.elementId);
+    this.UserService.getCar(this.userId, this.elementId);
   }
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
@@ -40,7 +40,7 @@ export class CarReviewComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.userId = params['id'];
     });
-    this.users = this.UserService.getCar(this.userId);
+    this.users = this.UserService.getCar(this.userId, this.elementId);
     console.log(this.users.$ref.toString());
   }
 }

@@ -67,11 +67,11 @@ export class UserService {
     return this.user;
   }
 
-  getCar(id: string) {
-    return  this.db.list('/users', {
+  getCar(id: string, elementId: string) {
+    return  this.db.list('/users/' + id + '/mycars/', {
       query: {
-        orderByChild: 'id',
-        equalTo: id,
+        orderByChild: 'licensePlate',
+        equalTo: elementId,
       }
     });
   }
