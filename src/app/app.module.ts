@@ -22,6 +22,7 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
+import { AuthGuardMechanic } from './auth/auth-guard-mechanic/auth-guard-mechanic.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { UserModule } from './user/user.module';
     CoreModule,
     UserModule
   ],
-  providers: [AngularFireAuth, AuthService, AuthGuard],
+  providers: [AngularFireAuth, AuthService, AuthGuard, AuthGuardMechanic],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

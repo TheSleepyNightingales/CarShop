@@ -78,6 +78,10 @@ export class UserService {
   addToServiceGallery(id: string, photoUrl: string) {
     this.db.list('/users/' + id + '/gallery').push(photoUrl);
   }
+  isMechanic(id: string) {
+    const role = this.db.object('/users/' + id + '/role').toString();
+    return role;
+  }
 
     getAll() {
       return this.users;

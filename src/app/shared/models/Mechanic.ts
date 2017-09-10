@@ -7,7 +7,7 @@ export class Mechanic {
   firstName: string;
   lastName: string;
   password: string;
-  _photoUrl: string;
+  photoUrl: string;
   position: string;
   workPlace: string;
   workExperience: number;
@@ -21,13 +21,13 @@ export class Mechanic {
   isBanned: boolean;
 
 
-  constructor(id: string, email: string, firstName: string, lastName: string, photoUrl: string,
+  constructor(id: string, email: string, firstName: string, lastName: string,
               position: string, workPlace: string, workExperience: number) {
     this.id = id;
     this.email = email;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.photoUrl = photoUrl;
+    this.photoUrl = 'https://www.timeshighereducation.com/sites/default/files/byline_photos/default-avatar.png';
     this.position = position;
     this.workPlace = workPlace;
     this.workExperience = workExperience;
@@ -39,17 +39,5 @@ export class Mechanic {
     this.role = 'mechanic';
     this.joinDate = new Date().toString();
     this.isBanned = false;
-  }
-
-  set photoUrl(val) {
-    if (val) {
-      this._photoUrl = val;
-    } else {
-      this._photoUrl = 'https://www.timeshighereducation.com/sites/default/files/byline_photos/default-avatar.png';
-    }
-  }
-
-  get photoUrl() {
-    return this._photoUrl
   }
 }
