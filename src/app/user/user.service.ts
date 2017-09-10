@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
+import {FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable} from 'angularfire2/database';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../shared/models/User';
 import { Car } from '../shared/models/Car';
@@ -16,11 +16,14 @@ export class UserService {
   userImg: FirebaseListObservable<any[]>;
   carReview: FirebaseListObservable<any[]>;
   userByEmail: FirebaseListObservable<any[]>;
+  userId: string;
 
    // Private services only !
   constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
     this.users = db.list('users');
+
     if (this.AuthService.currentUser()) {
+      this.userId = this.AuthService.currentUser().uid;
       const currentUser = this.AuthService.currentUser().uid;
       this.cars = db.list('/users/' + currentUser + '/mycars');
       this.repair = db.list('/users/');
@@ -43,6 +46,9 @@ export class UserService {
 
   addUser(user: User) {
     this.users.set(user.id, user);
+  }
+  updateUser(user: User) {
+    this.users.update(user.id, user);
   }
   addCar(car: Car) {
     this.meme.set(car.licensePlate, car);
