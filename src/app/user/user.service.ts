@@ -17,6 +17,7 @@ export class UserService {
   carReview: FirebaseListObservable<any[]>;
   userByEmail: FirebaseListObservable<any[]>;
   userId: string;
+  useroffers: FirebaseListObservable<any[]>;
 
    // Private services only !
   constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
@@ -28,6 +29,7 @@ export class UserService {
       this.cars = db.list('/users/' + currentUser + '/mycars');
       this.repair = db.list('/users/');
       this.meme = db.list('/users/' + currentUser + '/mycars');
+      this.useroffers = db.list('/users/' + currentUser + '/offers');
       this.userImg = db.list('/users/' + currentUser);
       this.user = db.list('/users', {
         query: {
@@ -76,6 +78,10 @@ export class UserService {
     return this.user;
   }
 
+  listOffers() {
+
+    return this.useroffers;
+  }
   getCar(id: string, elementId: string) {
     return  this.db.list('/users/' + id + '/mycars/', {
       query: {

@@ -12,6 +12,7 @@ import {AddRepairComponent} from './add-repair/add-repair.component';
 import {AuthGuardMechanic} from '../auth/auth-guard-mechanic/auth-guard-mechanic.component';
 import {UserUpdateComponent} from './user-update/user-update.component';
 import {CarEditComponent} from './car-edit/car-edit.component';
+import {UserOffersComponent} from './user-offers/user-offers.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'dashboard/edit-user', component:  UserUpdateComponent, canActivate: [AuthGuard]} ,
   { path: 'dashboard/edit-user/:licensePlate', component:  CarEditComponent, canActivate: [AuthGuard]} ,
   { path: 'repairs', component:  UserCarRepairsComponent, canActivate: [AuthGuard]} ,
+  { path: 'myOffers', component:  UserOffersComponent, canActivate: [AuthGuard]} ,
   { path: 'dashboard/register-car', component:  UserCreateCarComponent, canActivate: [AuthGuard]},
   { path: 'all', component: UsersListComponent},
   { path: ':id', component: UserPublicComponent},

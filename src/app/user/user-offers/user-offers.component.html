@@ -1,3 +1,12 @@
-<p>
-  user-offers works!
-</p>
+<div class="row">
+  <div *ngFor="let user of users | async" class="card col-xs-4" style="width: 20rem;">
+    <img class="card-img-top" src="https://cdn.studentloanhero.com/wp-content/uploads/how-to-buy-a-used-car-640x300.jpg" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">{{ user.authorEmail }} </h4>
+      <p class="card-text">Type : {{ user.category }}</p>
+      <p class="card-text">{{ user.text }}</p>
+      <p class="card-text"><i class="fa fa-star"></i>{{ user.endDate }}</p>
+      <a [routerLink]="['/services', user.id]" class="btn btn-success">View profile</a>
+    </div>
+  </div>
+</div>
