@@ -5,6 +5,7 @@ import { CarService } from './../shared/models/CarService';
 import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { User } from '../shared/models/User';
 
 @Injectable()
 export class CarServiceService {
@@ -17,10 +18,13 @@ export class CarServiceService {
 
   myOffers: FirebaseListObservable<any>;
 
+  myClients: FirebaseListObservable<any>;
+
   constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
     this.uid = this.AuthService.currentUser().uid;
     this.myMechanics = this.db.list('/users/' + this.uid + '/myMechanics');
     this.myOffers = this.db.list('/users/' + this.uid + '/myOffers');
+    this.myClients = this.db.list('/users' + this.uid + '/myClients');
     this.carServices = db.list('/users', {
       query: {
         orderByChild: 'role',
@@ -36,6 +40,14 @@ export class CarServiceService {
 
   getOffers(id: string): FirebaseListObservable<Offer[]> {
     return this.myOffers;
+  }
+
+  getClients(id: string): FirebaseListObservable<User[]> {
+    return this.myClients;
+  }
+
+  getOffer(serviceId: string, offerId: string) {
+    return this.db.object('/users/' + serviceId + '/myOffers/' + offerId);
   }
 
   getMyTopMechanics(): Observable<any[]> {

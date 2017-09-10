@@ -12,7 +12,9 @@
       <div *ngIf="myOffers.length!==0; then hasOffers else noOffers"></div> 
       <ng-template #hasOffers>
         <div *ngFor="let offer of myOffers" class="card">
-          <h3 class="card-header">{{offer?.category}}</h3>
+          <h3 class="card-header">{{offer?.category}}
+            <span class="btn btn-default" (click)="sendOffer(offer.$key)"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+          </h3>
           <div class="card-block">
             <h4 class="card-title">{{offer?.title}}</h4>
             <p class="card-text">{{offer?.text}}</p>
