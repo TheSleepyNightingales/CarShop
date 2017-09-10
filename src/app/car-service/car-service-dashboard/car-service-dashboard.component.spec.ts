@@ -1,20 +1,19 @@
+import { CarServiceDashboardComponent } from './car-service-dashboard.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ServiceDashboardComponent } from './service-dashboard.component';
-
 describe('ServiceDashboardComponent', () => {
-  let component: ServiceDashboardComponent;
-  let fixture: ComponentFixture<ServiceDashboardComponent>;
+  let component: CarServiceDashboardComponent;
+  let fixture: ComponentFixture<CarServiceDashboardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ServiceDashboardComponent ]
+      declarations: [ CarServiceDashboardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ServiceDashboardComponent);
+    fixture = TestBed.createComponent(CarServiceDashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

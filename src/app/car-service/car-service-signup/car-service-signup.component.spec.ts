@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CarServiceSignupComponent } from './service-signup.component';
+import { CarServiceSignupComponent } from './car-service-signup.component';
 
 describe('CarServiceSignupComponent', () => {
   let component: CarServiceSignupComponent;
