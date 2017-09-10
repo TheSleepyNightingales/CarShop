@@ -24,7 +24,7 @@ export class CarServiceService {
     this.uid = this.AuthService.currentUser().uid;
     this.myMechanics = this.db.list('/users/' + this.uid + '/myMechanics');
     this.myOffers = this.db.list('/users/' + this.uid + '/myOffers');
-    this.myClients = this.db.list('/users' + this.uid + '/myClients');
+    this.myClients = this.db.list('/users/' + this.uid + '/myClients');
     this.carServices = db.list('/users', {
       query: {
         orderByChild: 'role',
@@ -87,5 +87,9 @@ export class CarServiceService {
 
   addOffer(serviceId: string, offer: Offer) {
     return this.db.list('/users/' + serviceId + '/myOffers').push(offer);
+  }
+
+  sendOffer(id: string, offer: any) {
+    this.db.list('/users/' + id + '/offers').push(offer);
   }
 }

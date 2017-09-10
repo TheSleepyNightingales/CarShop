@@ -1,43 +1,59 @@
 <div *ngIf="isSingIn && !itsMe; else isSingOut">
-	<div class="add-comment">
-		<form (ngSubmit)="createComment(f)" #f="ngForm">
-					<textarea class="form-control" name="comments" cols="10" rows="5"
-							  placeholder="Add a comment..." required ngModel></textarea>
-			<button class="btn btn-primary btn-circle pull-right btn-submit" type="submit">
-				<i class="fa fa-paper-plane" aria-hidden="true"> Send</i>
-			</button>
-		</form>
-	</div>
-
-	<div *ngFor="let comment of comments | async"  class="comments-container">
-		<div class="media">
-			<img *ngFor="let commentAuthor of hack(comment.author)" class="d-flex align-self-start mr-3 author-photo"
-				 [src]="commentAuthor[1]._photoUrl"
-				 alt="Profile Image">
-			<div class="media-body">
-				<p *ngFor="let commentAuthor of hack(comment.author)" class="mt-0 author-name">{{commentAuthor[1].firstName}}</p>
-				<p class="text-justify">{{comment.content}}</p>
-				<p class="text-right time-pipe">posted {{comment.createdOn}}</p>
+	<div class="panel panel-default">
+		<div class="col-md-12 border-top">
+			<div class="status-upload">
+				<form (ngSubmit)="createComment(f)" #f="ngForm">
+					<label>Comment</label>
+					<textarea class="form-control" placeholder="Comment here" name="comments" required
+							  ngModel></textarea>
+					<br>
+					<ul class="nav nav-pills pull-left ">
+						<li><a title=""><i class="glyphicon glyphicon-bullhorn"></i></a></li>
+						<li><a title=""><i class=" glyphicon glyphicon-facetime-video"></i></a></li>
+						<li><a title=""><i class="glyphicon glyphicon-picture"></i></a></li>
+					</ul>
+					<button type="submit" class="btn btn-success pull-right"> Comment</button>
+				</form>
 			</div>
 		</div>
-		<hr>
+	</div>
+	<div *ngFor="let comment of comments | async" class="comments-container">
+		<div class="panel panel-default">
+			<div class="col-md-12">
+				<div class="media">
+					<div class="media-left"><a href="javascript:void(0)">
+						<img *ngFor="let commentAuthor of hack(comment.author)" [src]="commentAuthor[1].photoUrl" alt="" class="media-object"> </a>
+					</div>
+					<div class="media-body">
+						<h4 *ngFor="let commentAuthor of hack(comment.author)" class="media-heading"> {{commentAuthor[1].firstName}} {{commentAuthor[1].firstName}}<br>
+							<small><i class="fa fa-clock-o"></i> {{comment.createdOn | timeAgo}}</small>
+						</h4>
+						<p>{{comment.content}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
 <ng-template #isSingOut>
 	<div *ngFor="let comment of comments | async" class="comments-container">
-		<div class="media">
-			<img *ngFor="let commentAuthor of hack(comment.author)" class="d-flex align-self-start mr-3 author-photo"
-				 [src]="commentAuthor[1]._photoUrl"
-				 alt="Profile Image">
-			<div class="media-body">
-				<p *ngFor="let commentAuthor of hack(comment.author)" class="mt-0 author-name">{{commentAuthor[1].firstName}}</p>
-				<p class="text-justify">{{comment.content}}</p>
-				<p class="text-right time-pipe">posted {{comment.createdOn}}</p>
+		<div class="panel panel-default">
+			<div class="col-md-12">
+				<div class="media">
+					<div class="media-left"><a href="javascript:void(0)">
+						<img *ngFor="let commentAuthor of hack(comment.author)" alt="" class="media-object"> </a>
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading"> Lucky Sans<br>
+							<small><i class="fa fa-clock-o"></i> {{comment.createdOn | timeAgo}}</small>
+						</h4>
+						<p>{{comment.content}}</p>
+						<ul class="nav nav-pills pull-left ">
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
-		<hr>
 	</div>
 </ng-template>
-
-

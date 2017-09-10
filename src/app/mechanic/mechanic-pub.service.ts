@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
+import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from "angularfire2/database";
 import { AuthService } from "../auth/auth.service";
 import { Mechanic } from "../shared/models/Mechanic";
 
@@ -37,5 +37,8 @@ export class MechanicPubService {
         equalTo: id,
       }
     });
+  }
+  getMechanicDetails(id: string): FirebaseObjectObservable<Mechanic> {
+    return this.db.object('/users/' + id);
   }
 }

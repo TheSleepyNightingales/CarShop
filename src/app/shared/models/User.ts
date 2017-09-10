@@ -1,5 +1,6 @@
 import { Car } from './Car';
 import { Mechanic } from './Mechanic';
+import { Offer } from "./Offer";
 
 export class User {
     id: string;
@@ -31,6 +32,8 @@ export class User {
 
     myFollowers: Array<User>;
 
+    offers: Array<Offer>;
+
     joinDate: Date;
 
     isBanned: boolean;
@@ -50,6 +53,7 @@ export class User {
         this.myMechanics = [];
         this.myFriends = [];
         this.myFollowers = [];
+        this.offers = [];
         this.role = 'user';
         this.joinDate = new Date();
         this.isBanned = false;

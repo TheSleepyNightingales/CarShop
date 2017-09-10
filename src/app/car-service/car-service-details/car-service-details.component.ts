@@ -1,8 +1,8 @@
+import { CarServiceService } from './../car-service.service';
 import { CarServicePubService } from './../car-service-pub.service';
 import { CarService } from './../../shared/models/CarService';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { CarServiceService } from '../car-service.service';
 import { AuthService } from '../../auth/auth.service';
 
 @Component({
@@ -20,6 +20,12 @@ export class CarServiceDetailsComponent implements OnInit {
 
   public repairsCount: number;
 
+  public isLogged: boolean;
+
+  public isClient: boolean;
+
+  public hasSubscribed: boolean;
+
   constructor(private CarServiceService: CarServicePubService,
     private authService: AuthService,
     private activatedRoute: ActivatedRoute) {
@@ -28,14 +34,20 @@ export class CarServiceDetailsComponent implements OnInit {
 
   ngOnInit() {
     const currentUser = this.authService.currentUser();
+    console.log(currentUser);
     if (currentUser) {
       this.currentUid = currentUser.uid;
       this.CarServiceService.getUserDetails(this.currentUid)
         .subscribe(user => {
           this.currentUser = user;
+          this.isLogged = true;
+          if (this.currentUser.role === 'user') {
+            this.isClient = true;
+          }
         });
     } else {
       console.log('no user');
+      this.isLogged = false;
     }
 
     this.activatedRoute.params.subscribe(params => {
@@ -54,8 +66,17 @@ export class CarServiceDetailsComponent implements OnInit {
           } else {
             this.repairsCount = 0;
           }
+
+          if (this.detailedService.myClients && Object.values(this.detailedService.myClients).includes(this.currentUid)) {
+            this.hasSubscribed = true;
+          }
         });
     });
+  }
+
+  subscribe(serviceId: string) {
+    const subscriberId = this.currentUid;
+    this.CarServiceService.subscribe(serviceId, subscriberId);
   }
 
 }
