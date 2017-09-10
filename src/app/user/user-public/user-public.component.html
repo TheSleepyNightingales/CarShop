@@ -1,0 +1,88 @@
+
+<div class="row service-details">
+  <div class="col-md-12 text-center ">
+    <div class="panel panel-default">
+      <div class="userprofile social ">
+        <div class="userpic"> <img [src]="detailedService?.photoUrl" alt="" class="userpicimg"> </div>
+        <h3 class="username">{{ detailedService?.firstName }} {{ detailedService?.lastName }}</h3>
+        <p>{{ detailedService?.shortIntro }}</p>
+      </div>
+      <div class="col-md-12 border-top border-bottom">
+        <ul class="nav nav-pills pull-left countlist" role="tablist">
+          <li role="presentation">
+            <h3>0<br>
+              <small>Mechanics</small> </h3>
+          </li>
+          <li role="presentation">
+            <h3>0<br>
+              <small>Repairs</small> </h3>
+          </li>
+
+        </ul>
+        <button disabled class="btn btn-primary followbtn">Follow</button>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- /.col-md-12 -->
+  <div class="col-md-4 col-sm-12 pull-right">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="page-header small">Personal Details</h1>
+        <p class="page-subtitle small">Email: {{detailedService?.email}}</p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="page-header small">Mechanics</h1>
+        <p class="page-subtitle small"></p>
+      </div>
+      <div *ngIf="detailedService.myMechanics;then mechanics else noMechanics"></div>
+      <ng-template #mechanics>
+      <div *ngFor="let mechanic of hack(detailedService.myMechanics)" >
+          <div class="col-md-12">
+            <div class="memberblock"> <a href="mechanics/{{mechanic[1].id}}" class="member"> <img src="{{mechanic[1].photoUrl}}" alt="">
+              <div class="memmbername"> {{mechanic[1].firstName}} {{mechanic[1].lastName}}</div>
+            </a>
+
+            </div>
+            </div>
+        </div>
+        </ng-template>
+      <ng-template #noMechanics>
+        Ma boi you ain't got any mechanics !
+      </ng-template>
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+  <div class="col-md-8 col-sm-12 pull-left posttimeline">
+    <div class="panel panel-default">
+      <div class="col-md-12 border-top">
+        <div *ngIf="detailedService.mycars;then carsYes else carsNo"></div>
+        <ng-template #carsYes>
+        <div *ngFor="let car of hack(detailedService.mycars)" >
+          <div class="rela-block profile-card">
+            <img  class="profile-pic" [src]="car[1].photoUrl" alt="Card image cap">
+            <!-- <[elementId] = "car[1].licensePlate" [type] = "type"> -->
+            <div class="rela-block profile-name-container">
+              <div class="rela-block user-name" id="user_name">{{ car[1].model }} {{ car[1].make }}</div>
+              <div class="rela-block user-desc" id="user_description">{{ car[1].year }}</div>
+            </div>
+            <div class="rela-block profile-card-stats">
+              <div class="floated profile-stat works" id="num_works">{{car[1].power}} bhp<br></div>
+              <div class="floated profile-stat followers" id="num_followers">{{car[1].km}}<br></div>
+              <div class="floated profile-stat following" id="num_following">14.1s<br></div>
+            </div>
+          </div>
+        </div>
+        </ng-template>
+        <ng-template #carsNo>
+          This boi you ain't got any cars ! He's so poor that his mama opens a gmail account just so she could eat the SPAM !
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

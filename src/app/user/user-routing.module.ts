@@ -6,6 +6,7 @@ import { AuthGuard } from '.././auth/auth-guard.service';
 import { UserSignupComponent } from './user-signup/user-signup.component';
 import {UserCreateCarComponent} from './user-create-car/user-create-car.component';
 import {UserCarRepairsComponent} from './user-car-repairs/user-car-repairs.component';
+import {UserPublicComponent} from './user-public/user-public.component';
 
 
 const routes: Routes = [
@@ -14,8 +15,9 @@ const routes: Routes = [
   { path: 'signup', component: UserSignupComponent},
   { path: 'dashboard', component:  UserDashboardComponent, canActivate: [AuthGuard]} ,
   { path: 'repairs', component:  UserCarRepairsComponent, canActivate: [AuthGuard]} ,
-  { path: 'dashboard/register-car', component:  UserCreateCarComponent, canActivate: [AuthGuard]} ,
-  { path: 'all', component: UsersListComponent}
+  { path: 'dashboard/register-car', component:  UserCreateCarComponent, canActivate: [AuthGuard]},
+  { path: 'all', component: UsersListComponent},
+  { path: ':id', component: UserPublicComponent},
 ];
 
 @NgModule({
