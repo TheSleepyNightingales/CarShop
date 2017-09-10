@@ -31,9 +31,10 @@
           </div>
         </div>        
         <div class="row">
-          <div *ngFor="let photoUrl of galleryImages" class="col-xs-4">
+          <app-gallery [galleryImages]="galleryImages"></app-gallery>
+          <!-- <div *ngFor="let photoUrl of galleryImages" class="col-xs-4">
             <img [src]="photoUrl" alt="">
-          </div> 
+          </div>  -->
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { DateFormatPipe } from './date-format/date-format.pipe';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import {UploadFormComponent} from './upload/upload-form/upload-form.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import {UploadFormComponent} from './upload/upload-form/upload-form.component';
     DateFormatPipe,
     StarRatingComponent,
     UploadFormComponent,
+    GalleryComponent,
   ],
   exports: [
     CommonModule,
@@ -28,7 +30,8 @@ import {UploadFormComponent} from './upload/upload-form/upload-form.component';
     MainComponent,
     DateFormatPipe,
     StarRatingComponent,
-    UploadFormComponent
+    UploadFormComponent,
+    GalleryComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,9 @@
+<div *ngIf="galleryImages" class="gallery">
+  <figure *ngFor="let photoUrl of galleryImages">
+    <img [src]="photoUrl" alt="" />
+  </figure>
+</div>
+
+<div *ngIf="!galleryImages">
+  <div class="message-inner">No images in the gallery yet</div>
+</div>
