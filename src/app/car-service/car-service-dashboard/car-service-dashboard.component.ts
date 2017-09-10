@@ -31,14 +31,12 @@ export class CarServiceDashboardComponent implements OnInit {
     this.type = 'service';
     this.carService = this.CarServiceService.getService(this.uid);
     this.carService.subscribe(s => {
-      console.log(s[0]);
       this.galleryImages = Object.values(s[0].gallery);
     });
 
     this.CarServiceService.getMyTopMechanics()
       .subscribe((mechanics) => {
         this.topMechanics = mechanics;
-        // console.log(this.topMechanics);
       });
   }
 

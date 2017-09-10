@@ -34,7 +34,6 @@ export class CarServiceDetailsComponent implements OnInit {
         .subscribe(user => {
           this.currentUser = user;
         });
-      console.log('has user');
     } else {
       console.log('no user');
     }
@@ -44,10 +43,8 @@ export class CarServiceDetailsComponent implements OnInit {
       return this.CarServiceService.getUserDetails(detailedUserId)
         .subscribe(user => {
           this.detailedService = user;
-          console.log(this.detailedService);
           if (this.detailedService.myMechanics) {
             this.mechanicsCount = Object.keys(this.detailedService.myMechanics).length;
-            console.log(this.detailedService.myMechanics);
           } else {
             this.mechanicsCount = 0;
           }
