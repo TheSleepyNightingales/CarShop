@@ -1,0 +1,44 @@
+<div class="mechanics">
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active">Mechanics</li>
+    </ol>
+  </div>
+  <div class="row add-mechanics">
+    <label class="col-xs-3" for="new-mechanic-email">Type mechanic email</label>
+    <input class="col-xs-4" type="text" id="new-mechanic-email" name="new-mechanic-email" value="" #newMechanic>
+    <button (click)="addMechanic(newMechanic.value)" class="btn btn-success col-md-1"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+
+    <div *ngIf="isAlertVisible">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <button (click)="resetVisibility($event)" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Oooops!</strong> Mechanic with this email is either non-existant or already added.
+      </div>
+    </div>
+
+  </div>
+  <div class="row list-mechanics">
+    <div class="container-fluid">
+    <div *ngIf="myMechanics.length!==0; then hasMechanics else noMechanics"></div>
+    <ng-template #hasMechanics>
+      <div *ngFor="let mechanic of myMechanics" class="rela-block profile-card">
+        <a [routerLink]="['/mechanics', mechanic.id]"><img  class="profile-pic" [src]="mechanic?._photoUrl" alt="Card image cap"></a>
+        <div class="rela-block profile-name-container">
+          <div class="rela-block mechanic-name" id="mechanic-name">{{ mechanic?.firstName }} {{ mechanic?.lastName }}</div>
+          <div class="rela-block mechanic-email" id="mechanic-email"><span>Email: </span>{{ mechanic?.email }}</div>
+          <div class="rela-block mechanic-position" id="mechanic-position"><span>Position: </span>{{ mechanic?.position }}</div>
+          <div class="rela-block mechanic-exp" id="mechanic-exp"><span>Work experience: </span>{{ mechanic?.workExperience }}</div>
+          <div class="rela-block mechanic-exp" id="mechanic-rating"><span>Rating: </span>{{ mechanic?.rating }} <i class="fa fa-star" style="color:yellow;"></i></div>          
+        </div>
+      </div> 
+    </ng-template>
+    <ng-template #noMechanics>
+      <div>
+        You have no hired mechanics yet.
+      </div>
+    </ng-template>
+    </div>
+  </div>
+</div>

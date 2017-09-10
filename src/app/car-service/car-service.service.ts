@@ -1,3 +1,4 @@
+import { Mechanic } from './../shared/models/Mechanic';
 import { CarService } from './../shared/models/CarService';
 import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
@@ -7,6 +8,8 @@ import { AuthService } from '../auth/auth.service';
 export class CarServiceService {
 
   carServices: FirebaseListObservable<any[]>;
+
+  myMechanics: FirebaseListObservable<any>;
 
   constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
     this.carServices = db.list('/users', {
@@ -33,6 +36,10 @@ export class CarServiceService {
     return this.db.object('/users/' + id);
   }
 
+  getMechanics(id: string): FirebaseListObservable<Mechanic[]> {
+    return this.db.list('/users/' + id + '/myMechanics');
+  }
+
   getService(id: string) {
     return  this.db.list('/users', {
       query: {
@@ -46,11 +53,12 @@ export class CarServiceService {
     this.db.list('/users/' + id + '/voters').set(voter.id, voter.value);
   }
 
-  // updateVoters(id: string, voters: Array<any>) {
-  //   this.db.list('/users/' + id).set('voters', voters);
-  // }
-
   updateRating(id: string, rating: number) {
     this.db.list('/users/' + id).set('rating', rating);
+  }
+
+  addMechanic(serviceId: string, mechanicId: string, mechanic: any) {
+    console.log(mechanic);
+    return this.db.list('/users/' + serviceId + '/myMechanics').set(mechanicId, mechanic);
   }
 }

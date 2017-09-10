@@ -28,7 +28,7 @@
     "firebase": "^4.3.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
-    "popper.js": "^1.12.3",
+    "popper.js": "^1.12.5",
     "rxjs": "^5.4.2",
     "time-ago-pipe": "^1.2.1",
     "zone.js": "^0.8.14"
