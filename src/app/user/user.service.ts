@@ -53,6 +53,9 @@ export class UserService {
   addCar(car: Car) {
     this.meme.set(car.licensePlate, car);
   }
+  updateCar(car: Car, license: string) {
+    this.meme.update(license, car);
+  }
   addRepair(repair: Repair, elementId: string, userId: string) {
     console.log(repair);
     console.log(elementId);

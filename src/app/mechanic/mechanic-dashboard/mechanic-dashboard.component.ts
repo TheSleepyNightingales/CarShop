@@ -12,8 +12,26 @@ import { MechanicPubService } from "../mechanic-pub.service";
 export class MechanicDashboardComponent implements OnInit {
 
   mechanic: FirebaseListObservable<any>;
+  type: string;
+  hover: boolean;
+  elementId: string;
+  isVisible: false;
 
-  constructor(private MechanicService: MechanicService, private AuthService: AuthService) { }
+  constructor(private MechanicService: MechanicService, private AuthService: AuthService) {
+    this.elementId = this.currentUser().uid;
+    this.type = 'mechanic';
+  }
+
+  currentUser() {
+    return this.AuthService.currentUser();
+  }
+
+  myEvent($event) {
+    this.hover = true;
+  }
+  myEventOut($event) {
+    this.hover = false;
+  }
 
   ngOnInit() {
     const id = this.AuthService.currentUser().uid;

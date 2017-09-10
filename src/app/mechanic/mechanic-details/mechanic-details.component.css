@@ -2,8 +2,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     background-color: #f0f3f5;
-    margin-top:40px;
-    margin-right: 80px;
+    margin: 3%;
 }
 /*==============================*/
 /*====== siderbar user profile =====*/
@@ -139,17 +138,18 @@
     margin: 22px;
 }
 .userprofile.social {
-    background: url(http://gdj.graphicdesignjunction.com/wp-content/uploads/2012/08/minimal-background-pattern-wordpress-14.jpg) no-repeat top center;
+    background: url(http://cdn.wallpapersafari.com/17/48/pumcZf.jpg) no-repeat top center;
     background-size: 100%;
     padding: 10px 0;
     margin: 0
 }
 .userprofile.social .username {
-    color: #ffffff
+    color: #ffffff;
+    font-weight: bold;
 }
 .userprofile.social .username+p {
     color: #ffffff;
-    opacity: 0.8
+    font-weight: bold;
 }
 .postbtn {
     position: absolute;

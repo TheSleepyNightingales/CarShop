@@ -1,23 +1,23 @@
-<div *ngFor="let mechanic of users | async" class="row service-details">
+<div class="row service-details">
 	<div class="col-md-12 text-center ">
 		<div class="panel panel-default">
 			<div class="userprofile social ">
-				<div class="userpic"> <img [src]="mechanic.photoUrl" alt="" class="userpicimg"> </div>
-				<h3 class="username">{{ mechanic.firstName }} {{mechanic.lastName}}</h3>
-				<p>{{ mechanic.workPlace }}</p>
+				<div class="userpic"> <img [src]="detailedService?.photoUrl" alt="" class="userpicimg"> </div>
+				<h3 class="username">{{ detailedService?.firstName }} {{detailedService?.lastName}}</h3>
+				<p>{{ detailedService?.workPlace }}</p>
 			</div>
 			<div class="col-md-12 border-top border-bottom">
 				<ul class="nav nav-pills pull-left countlist" role="tablist">
 					<li role="presentation">
 						<h3>0<br>
-							<small>Follower</small> </h3>
+							<small>Clients</small> </h3>
 					</li>
 					<li role="presentation">
 						<h3>0<br>
-							<small>Following</small> </h3>
+							<small>Repairs</small> </h3>
 					</li>
 					<li role="presentation">
-						<h3>{{ mechanic.rating }}<br>
+						<h3>{{ mechanic?.rating }}<br>
 							<small>Rating</small> </h3>
 					</li>
 					<li *ngIf="currentUser" role="presentation">
@@ -34,9 +34,9 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h1 class="page-header small">Personal Details</h1>
-				<p class="page-subtitle small">Email: {{mechanic.email}}</p>
-				<p class="page-subtitle small">Postition: {{mechanic.position}}</p>
-				<p class="page-subtitle small">Work Experience: {{mechanic.workExperience}} years</p>
+				<p class="page-subtitle small">Email: {{detailedService?.email}}</p>
+				<p class="page-subtitle small">Postition: {{detailedService?.position}}</p>
+				<p class="page-subtitle small">Work Experience: {{detailedService?.workExperience}} years</p>
 			</div>
 			<div class="clearfix"></div>
 		</div>
@@ -54,5 +54,7 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<app-mechanic-comments></app-mechanic-comments>
+	<div class="col-md-8 col-sm-12 pull-left posttimeline">
+		<app-mechanic-comments></app-mechanic-comments>
+	</div>
 </div>
