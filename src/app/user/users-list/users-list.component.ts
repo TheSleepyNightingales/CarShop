@@ -11,8 +11,8 @@ export class UsersListComponent implements OnInit {
   users: FirebaseListObservable<any>;
 
   constructor(private UserService: UserServicePubService) { }
-
   ngOnInit() {
     this.users = this.UserService.getAllUsers();
+    console.log(this.users);
   }
 }
