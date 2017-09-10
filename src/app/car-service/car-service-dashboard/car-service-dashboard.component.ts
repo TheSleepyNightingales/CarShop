@@ -1,9 +1,8 @@
 import { CarServiceService } from './../car-service.service';
 import { Observable } from 'rxjs/Observable';
-import { FirebaseObjectObservable } from 'angularfire2/database';
+import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
 import { AuthService } from './../../auth/auth.service';
 import { CarService } from './../../shared/models/CarService';
-import { FirebaseListObservable } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -22,6 +21,8 @@ export class CarServiceDashboardComponent implements OnInit {
 
   galleryImages: Array<any>;
 
+  topMechanics: any[];
+
   constructor(private CarServiceService: CarServiceService, private AuthService: AuthService) {
   }
 
@@ -32,8 +33,13 @@ export class CarServiceDashboardComponent implements OnInit {
     this.carService.subscribe(s => {
       console.log(s[0]);
       this.galleryImages = Object.values(s[0].gallery);
-      console.log(this.galleryImages);
     });
+
+    this.CarServiceService.getMyTopMechanics()
+      .subscribe((mechanics) => {
+        this.topMechanics = mechanics;
+        // console.log(this.topMechanics);
+      });
   }
 
   showUpload($event) {

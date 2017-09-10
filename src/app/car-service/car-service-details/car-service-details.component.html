@@ -1,4 +1,3 @@
-
 <div class="row service-details">
   <div class="col-md-12 text-center ">
     <div class="panel panel-default">
@@ -10,11 +9,11 @@
       <div class="col-md-12 border-top border-bottom">
         <ul class="nav nav-pills pull-left countlist" role="tablist">
           <li role="presentation">
-            <h3>0<br>
+            <h3>{{mechanicsCount}}<br>
               <small>Mechanics</small> </h3>
           </li>
           <li role="presentation">
-            <h3>0<br>
+            <h3>{{repairsCount}}<br>
               <small>Repairs</small> </h3>
           </li>
           <li role="presentation">
@@ -39,19 +38,22 @@
         <p class="page-subtitle small">Owner: {{detailedService?.owner}}</p>
         <p class="page-subtitle small">License number: {{detailedService?.licenseNumber}}</p>
         <p class="page-subtitle small">Activities: {{detailedService?.activities}}</p>
+        <p class="page-subtitle small">Address: {{detailedService?.address}}</p>        
       </div>
       <div class="clearfix"></div>
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h1 class="page-header small">Friends</h1>
+        <h1 class="page-header small">Mechanics</h1>
         <p class="page-subtitle small"></p>
       </div>
       <div class="col-md-12">
-        <div class="memberblock"> <a href="" class="member"> <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="">
-          <div class="memmbername">Ajay Sriram</div>
-          </a> <a href="" class="member"> <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-          </a> </div>
+        <div class="memberblock"> 
+          <a *ngFor="let mechanic of detailedService?.myMechanics | iterable" [routerLink]="['/mechanics', mechanic?.key]" class="member"> 
+            <img [src]="mechanic?.val._photoUrl" alt="">
+            <div class="memmbername">{{mechanic?.val.firstName}} {{mechanic?.val.lastName}}</div>
+          </a> 
+        </div>
       </div>
       <div class="clearfix"></div>
     </div>

@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { Mechanic } from './../shared/models/Mechanic';
 import { CarService } from './../shared/models/CarService';
 import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
@@ -7,11 +8,15 @@ import { AuthService } from '../auth/auth.service';
 @Injectable()
 export class CarServiceService {
 
+  uid: string;
+
   carServices: FirebaseListObservable<any[]>;
 
   myMechanics: FirebaseListObservable<any>;
 
   constructor(private db: AngularFireDatabase, private AuthService: AuthService) {
+    this.uid = this.AuthService.currentUser().uid;
+    this.myMechanics = this.db.list('/users/' + this.uid + '/myMechanics');
     this.carServices = db.list('/users', {
       query: {
         orderByChild: 'role',
@@ -37,7 +42,14 @@ export class CarServiceService {
   }
 
   getMechanics(id: string): FirebaseListObservable<Mechanic[]> {
-    return this.db.list('/users/' + id + '/myMechanics');
+    // this.myMechanics = this.db.list('/users/' + id + '/myMechanics');
+    return this.myMechanics;
+  }
+
+  getMyTopMechanics(): Observable<any[]> {
+    return this.myMechanics
+      .map((mechanics) => mechanics.sort((a, b) => a.rating - b.rating))
+      .map((mechanics) => mechanics.splice(0, 3));
   }
 
   getService(id: string) {

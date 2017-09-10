@@ -1,3 +1,23 @@
+.dashboard {
+    margin: 5% 5%;
+}
+
+li.breadcrumb-item.active {
+  font-size: 25px;
+}
+
+.btn-edit {
+  float: right;
+}
+
+.mechanics {
+  padding: 5% ;
+}
+
+.card-block {
+  padding: 3%;
+}
+
 * {
   box-sizing: border-box;
   -webkit-transition: 0.3s cubic-bezier(0.75, 0, 0.2, 1), color 0.3s ease;
@@ -18,8 +38,6 @@
 .floated {
   display: inline-block;
   position: relative;
-
-  float: left;
 }
 .floated.right {
   float: right;
@@ -392,10 +410,17 @@ body {
   line-height: 30px;
   margin-bottom: 12px;
 }
-.service-owner, .service-desc {
+.service-owner, .service-license-number, .service-email, .service-activities, .service-address, .service-rating {
   letter-spacing: 1px;
   color: #999;
 }
+
+.service-owner > .title, .service-license-number > .title,
+.service-email > .title, .service-activities > .title,
+.service-address > .title, .service-rating > .title {
+  font-weight: bolder;
+}
+
 .profile-card-stats {
   height: 75px;
   padding: 10px 0px;
@@ -411,9 +436,6 @@ body {
 }
 .rating::after {
   content: "rating";
-}
-.mechanics::after {
-  content: "mechanics";
 }
 
 .mechanics-title, .gallery-title, .comments-title {

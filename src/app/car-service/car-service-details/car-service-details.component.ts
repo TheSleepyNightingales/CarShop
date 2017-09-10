@@ -14,6 +14,11 @@ export class CarServiceDetailsComponent implements OnInit {
   public currentUser: any;
 
   public currentUid: string;
+
+  public mechanicsCount: number;
+
+  public repairsCount: number;
+
   constructor(private CarServiceService: CarServiceService,
     private authService: AuthService,
     private activatedRoute: ActivatedRoute) {
@@ -38,6 +43,19 @@ export class CarServiceDetailsComponent implements OnInit {
       return this.CarServiceService.getUserDetails(detailedUserId)
         .subscribe(user => {
           this.detailedService = user;
+          console.log(this.detailedService);
+          if (this.detailedService.myMechanics) {
+            this.mechanicsCount = Object.keys(this.detailedService.myMechanics).length;
+            console.log(this.detailedService.myMechanics);
+          } else {
+            this.mechanicsCount = 0;
+          }
+
+          if (this.detailedService.myRepairs) {
+            this.repairsCount = Object.keys(this.detailedService.myRepairs).length;
+          } else {
+            this.repairsCount = 0;
+          }
         });
     });
   }

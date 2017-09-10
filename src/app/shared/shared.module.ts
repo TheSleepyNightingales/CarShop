@@ -8,6 +8,7 @@ import { DateFormatPipe } from './date-format/date-format.pipe';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import {UploadFormComponent} from './upload/upload-form/upload-form.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { IterablePipe } from './iterable/iterable.pipe';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { GalleryComponent } from './gallery/gallery.component';
     StarRatingComponent,
     UploadFormComponent,
     GalleryComponent,
+    IterablePipe,
   ],
   exports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     DateFormatPipe,
     StarRatingComponent,
     UploadFormComponent,
-    GalleryComponent
+    GalleryComponent,
+    IterablePipe
   ]
 })
 export class SharedModule { }
