@@ -31,14 +31,13 @@ export class MechanicSignupComponent implements OnInit {
     const password = form.value.password;
     const firstName = form.value.firstName;
     const lastName = form.value.lastName;
-    const photoUrl = form.value.photoUrl;
     const position = form.value.position;
     const workPlace = form.value.workPlace;
     const workExperience = form.value.workExperience;
 
     this.MechanicPubService.createMechanic(email, password)
       .then((createdMechanic) => {
-        const mechanic = new Mechanic(createdMechanic.uid, email, firstName, lastName, photoUrl,
+        const mechanic = new Mechanic(createdMechanic.uid, email, firstName, lastName,
           position, workPlace, workExperience);
         this.MechanicPubService.addMechanic(mechanic);
 

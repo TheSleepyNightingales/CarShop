@@ -1,33 +1,58 @@
-<div class="row">
-	<div class="col col-left">
-		<ol class="breadcrumb" style="background-color: #039be5">
-			<li class="breadcrumb-item active" style="color: white">// Mechanic / Details</li>
-		</ol>
-	</div>
-</div>
-<div *ngFor="let mechanic of users | async">
-	<div class="container no-margin">
-		<div class="row">
-			<div class="rela-block container">
-				<div class="rela-block profile-card">
-					<div class="rela-block profile-name-container">
-						<div class="container-fluid">
-							<img id="profile_pic" class="profile-pic" [src]="mechanic._photoUrl" alt="Card image cap">
-						</div>
-						<div class="rela-block user-name" id="user_name">{{mechanic.firstName}} {{mechanic.lastName}}
-						</div>
-						<div class="rela-block user-desc" id="user_description">{{mechanic.position}}</div>
-					</div>
-					<div class="rela-block profile-card-stats">
-						<div class="floated profile-stat works" id="num_works">{{mechanic.rating}}<br></div>
-						<div class="floated profile-stat followers" id="num_followers">{{mechanic.workPlace}}<br></div>
-						<div class="floated profile-stat following" id="num_following">{{mechanic.workExperience}}
-							yars<br></div>
-					</div>
-				</div>
-				<br>
-				<app-mechanic-comments></app-mechanic-comments>
+<div *ngFor="let mechanic of users | async" class="row service-details">
+	<div class="col-md-12 text-center ">
+		<div class="panel panel-default">
+			<div class="userprofile social ">
+				<div class="userpic"> <img [src]="mechanic.photoUrl" alt="" class="userpicimg"> </div>
+				<h3 class="username">{{ mechanic.firstName }} {{mechanic.lastName}}</h3>
+				<p>{{ mechanic.workPlace }}</p>
 			</div>
+			<div class="col-md-12 border-top border-bottom">
+				<ul class="nav nav-pills pull-left countlist" role="tablist">
+					<li role="presentation">
+						<h3>0<br>
+							<small>Follower</small> </h3>
+					</li>
+					<li role="presentation">
+						<h3>0<br>
+							<small>Following</small> </h3>
+					</li>
+					<li role="presentation">
+						<h3>{{ mechanic.rating }}<br>
+							<small>Rating</small> </h3>
+					</li>
+					<li *ngIf="currentUser" role="presentation">
+						<app-star-rating [currentUid]="currentUid" [detailedUser]="detailedService"></app-star-rating>
+					</li>
+				</ul>
+				<button disabled class="btn btn-primary followbtn">Follow</button>
+			</div>
+			<div class="clearfix"></div>
 		</div>
 	</div>
+	<!-- /.col-md-12 -->
+	<div class="col-md-4 col-sm-12 pull-right">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h1 class="page-header small">Personal Details</h1>
+				<p class="page-subtitle small">Email: {{mechanic.email}}</p>
+				<p class="page-subtitle small">Postition: {{mechanic.position}}</p>
+				<p class="page-subtitle small">Work Experience: {{mechanic.workExperience}} years</p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h1 class="page-header small">Clients</h1>
+				<p class="page-subtitle small"></p>
+			</div>
+			<div class="col-md-12">
+				<div class="memberblock"> <a href="" class="member"> <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="">
+					<div class="memmbername">Ajay Sriram</div>
+				</a> <a href="" class="member"> <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+				</a> </div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<app-mechanic-comments></app-mechanic-comments>
 </div>
