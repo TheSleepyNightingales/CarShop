@@ -20,8 +20,8 @@ const routes: Routes = [
   { path: 'dashboard/register-car', component:  UserCreateCarComponent, canActivate: [AuthGuard]},
   { path: 'all', component: UsersListComponent},
   { path: ':id', component: UserPublicComponent},
-  { path: ':id/:licensePlate', component: CarReviewComponent},
-  { path: ':id/:licensePlate/repair', component: AddRepairComponent},
+  { path: ':id/:licensePlate', component: CarReviewComponent, canActivate: [AuthGuard]},
+  { path: ':id/:licensePlate/repair', component: AddRepairComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
