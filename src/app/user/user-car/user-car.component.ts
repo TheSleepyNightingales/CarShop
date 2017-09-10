@@ -9,6 +9,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
   styleUrls: ['./user-car.component.css']
 })
 export class UserCarComponent implements OnInit {
+  car: FirebaseListObservable<any>;
   users: FirebaseListObservable<any[]>;
   elemtId: string;
   type: string;

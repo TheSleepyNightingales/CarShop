@@ -415,7 +415,7 @@ body {
   content: "odometer";
 }
 .following::after {
-  content: "1/4 mile";
+  content: "owner since";
 }
 .image {
   width: 240px;
