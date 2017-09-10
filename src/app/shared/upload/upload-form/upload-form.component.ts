@@ -2,8 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import { UploadService } from '../upload.service';
 import { Upload } from '../upload';
 import { UserService } from '../../../user/user.service';
-import {createUrlResolverWithoutPackagePrefix} from '@angular/compiler';
-import { MechanicService } from "../../../mechanic/mechanic.service";
+import { MechanicService } from '../../../mechanic/mechanic.service';
 
 @Component({
   selector: 'app-upload-form',

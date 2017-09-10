@@ -1,6 +1,6 @@
 import { User } from './User';
 import { Mechanic } from './Mechanic';
-import { Offer } from "./Offer";
+import { Offer } from './Offer';
 
 export class CarService {
     id: string;

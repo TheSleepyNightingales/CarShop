@@ -10,6 +10,7 @@ import {UploadFormComponent} from './upload/upload-form/upload-form.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { IterablePipe } from './iterable/iterable.pipe';
 import { TimeAgoPipe } from 'time-ago-pipe';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { TimeAgoPipe } from 'time-ago-pipe';
     UploadFormComponent,
     GalleryComponent,
     IterablePipe,
-    TimeAgoPipe
+    TimeAgoPipe,
+    CommentsComponent
   ],
   exports: [
     CommonModule,

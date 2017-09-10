@@ -11,7 +11,7 @@ export class MechanicsListComponent implements OnInit {
 
   users: FirebaseListObservable<any>;
 
-  constructor(private MechanicService : MechanicPubService) {
+  constructor(private MechanicService: MechanicPubService) {
     // this.currentDate = new Date().getTime();
   }
 

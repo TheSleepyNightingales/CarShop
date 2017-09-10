@@ -20,6 +20,7 @@ import { CarServiceOffersComponent } from './car-service-offers/car-service-offe
     ReactiveFormsModule,
     CarServiceRoutingModule
   ],
-  declarations: [CarServiceSignupComponent, CarServicesListComponent, CarServiceDashboardComponent, CarServiceDetailsComponent, CarServiceMechanicsComponent, CarServiceEditComponent, CarServiceOffersComponent]
+  declarations: [CarServiceSignupComponent, CarServicesListComponent,
+CarServiceDashboardComponent, CarServiceDetailsComponent, CarServiceMechanicsComponent, CarServiceEditComponent, CarServiceOffersComponent]
 })
 export class CarServiceModule { }
