@@ -1,0 +1,84 @@
+<div class="offers">
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active">Offers</li>
+    </ol>
+  </div>
+  <div class="row add-offers">
+    <button class="btn btn-lg btn-success" data-toggle="modal" data-target="#addOfferModal"><i class="fa fa-plus" aria-hidden="true"></i>Add offer</button>
+  </div>
+  <div class="row list-offers">
+    <div class="container-fluid">
+      <div *ngIf="myOffers.length!==0; then hasOffers else noOffers"></div> 
+      <ng-template #hasOffers>
+        <div *ngFor="let offer of myOffers" class="card">
+          <h3 class="card-header">{{offer?.category}}</h3>
+          <div class="card-block">
+            <h4 class="card-title">{{offer?.title}}</h4>
+            <p class="card-text">{{offer?.text}}</p>
+            <p class="card-date"><i class="fa fa-calendar" aria-hidden="true"></i>{{offer?.startDate}} - <i class="fa fa-calendar" aria-hidden="true"></i>{{offer?.endDate}}</p>
+          </div>
+        </div>
+      </ng-template> 
+      <ng-template #noOffers>
+        <div>
+          You have no hired mechanics yet.
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="addOfferModal" tabindex="-1" role="dialog" aria-labelledby="addOfferModal" aria-hidden="true"> 
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add new offer</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>    
+      </div>
+      <div class="modal-body">
+        
+        <form class="form-horizontal col-md-12">
+          <fieldset>
+            <div class="form-group">
+              <label class="col-xs-3 control-label" for="title">Offer title</label>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" value="" id="title" name="title" #title>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-xs-3 control-label" for="category">Category(service)</label>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" value="" id="category" name="category" #category>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-xs-3 control-label" for="endDate">Choose due date</label>
+              <div class="col-xs-6">
+                <input type="date" class="form-control" value="" id="endDate" name="endDate" #endDate>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-xs-3 control-label" for="text">Content</label>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" value="" id="text" name="text" #text>
+              </div>
+            </div>
+
+          </fieldset>
+          
+          <input type="reset" class="btn" value="Reset">
+          <input class="btn btn-success" type='submit' value='Add' data-dismiss="modal" name='add' (click)="addOffer(title.value, category.value, endDate.value, text.value)"/>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>

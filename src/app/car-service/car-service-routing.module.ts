@@ -1,3 +1,4 @@
+import { CarServiceOffersComponent } from './car-service-offers/car-service-offers.component';
 import { AuthGuard } from './../auth/auth-guard.service';
 import { CarServiceMechanicsComponent } from './car-service-mechanics/car-service-mechanics.component';
 import { CarServiceDetailsComponent } from './car-service-details/car-service-details.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'signup', component: CarServiceSignupComponent},
   { path: 'dashboard', component:  CarServiceDashboardComponent, canActivate: [AuthGuard] },
   { path: 'mechanics', component: CarServiceMechanicsComponent, canActivate: [AuthGuard] },
+  { path: 'offers', component: CarServiceOffersComponent, canActivate: [AuthGuard] },
   { path: 'all', component: CarServicesListComponent},
   { path: ':id', component: CarServiceDetailsComponent}
 ];

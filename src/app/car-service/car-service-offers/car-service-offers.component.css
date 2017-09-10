@@ -1,0 +1,28 @@
+.offers {
+    margin: 5% 5%;
+    font-size: 25px;
+}
+
+.add-offers {
+    margin-left: 7px;
+}
+
+.list-offers {
+    margin-top: 9%;
+}
+
+.card {
+    margin-top: 2%;
+}
+
+.card-header {
+    background-color: #ffe34c;
+}
+
+.card-title {
+    font-weight: bolder;
+}
+
+.card-block {
+    padding: 20px 20px;
+}

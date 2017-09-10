@@ -1,3 +1,4 @@
+import { CarServicePubService } from './../car-service-pub.service';
 import { CarService } from './../../shared/models/CarService';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +20,7 @@ export class CarServiceDetailsComponent implements OnInit {
 
   public repairsCount: number;
 
-  constructor(private CarServiceService: CarServiceService,
+  constructor(private CarServiceService: CarServicePubService,
     private authService: AuthService,
     private activatedRoute: ActivatedRoute) {
 

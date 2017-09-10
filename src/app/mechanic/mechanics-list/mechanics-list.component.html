@@ -8,7 +8,7 @@
 <div class="container">
 	<div class="row">
 		<div *ngFor="let mechanic of users | async" class="card col-xs-4" style="width: 20rem;">
-			<img class="img-mechanic" [src]="mechanic._photoUrl" alt="Card image cap">
+			<img class="img-mechanic" [src]="mechanic.photoUrl" alt="Card image cap">
 			<div class="card-block">
 				<h4 class="card-title">{{ mechanic.firstName }} {{ mechanic.lastName }}</h4>
 				<p class="card-text fa fa-envelope-o"> {{ mechanic.email }}</p>

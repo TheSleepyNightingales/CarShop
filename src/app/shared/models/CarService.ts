@@ -1,5 +1,6 @@
 import { User } from './User';
 import { Mechanic } from './Mechanic';
+import { Offer } from "./Offer";
 
 export class CarService {
     id: string;
@@ -35,6 +36,7 @@ export class CarService {
 
     gallery: Array<any>;
 
+    myOffers: Array<Offer>;
     joinDate: Date;
 
     isDeleted: boolean;

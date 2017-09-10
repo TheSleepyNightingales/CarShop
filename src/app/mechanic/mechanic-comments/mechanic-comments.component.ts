@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MechanicService } from '../mechanic.service';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from "../../auth/auth.service";
 import { FirebaseListObservable } from "angularfire2/database";
 import { ActivatedRoute } from "@angular/router";

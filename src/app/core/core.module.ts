@@ -1,3 +1,4 @@
+import { CarServicePubService } from './../car-service/car-service-pub.service';
 import { CarServiceService } from '../car-service/car-service.service';
 import { MechanicService } from '../mechanic/mechanic.service';
 import { UserService } from '../user/user.service';
@@ -8,8 +9,9 @@ import { UploadService } from '../shared/upload/upload.service';
 
 @NgModule({
   providers: [UserService, UserServicePubService, MechanicService,
-    UploadService, CarServiceService, MechanicPubService]
+    UploadService, CarServiceService, MechanicPubService, CarServicePubService]
 })
+
 export class CoreModule {
 
   constructor(@Optional() @SkipSelf() parent: CoreModule) {

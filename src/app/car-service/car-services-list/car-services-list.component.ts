@@ -1,3 +1,4 @@
+import { CarServicePubService } from './../car-service-pub.service';
 import { element } from 'protractor';
 import { AuthService } from './../../auth/auth.service';
 import { CarService } from './../../shared/models/CarService';
@@ -13,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 export class CarServicesListComponent implements OnInit {
   carServices: FirebaseListObservable<any>;
 
-  constructor(private CarServiceService: CarServiceService, private authService: AuthService) { }
+  constructor(private CarServiceService: CarServicePubService) { }
 
   ngOnInit() {
     this.carServices = this.CarServiceService.getAll();
