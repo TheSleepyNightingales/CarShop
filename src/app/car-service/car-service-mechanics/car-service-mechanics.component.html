@@ -24,7 +24,7 @@
     <div *ngIf="myMechanics.length!==0; then hasMechanics else noMechanics"></div>
     <ng-template #hasMechanics>
       <div *ngFor="let mechanic of myMechanics" class="rela-block profile-card">
-        <a [routerLink]="['/mechanics', mechanic.id]"><img  class="profile-pic" [src]="mechanic?._photoUrl" alt="Card image cap"></a>
+        <a [routerLink]="['/mechanics', mechanic.id]"><img  class="profile-pic" [src]="mechanic?.photoUrl" alt="Card image cap"></a>
         <div class="rela-block profile-name-container">
           <div class="rela-block mechanic-name" id="mechanic-name">{{ mechanic?.firstName }} {{ mechanic?.lastName }}</div>
           <div class="rela-block mechanic-email" id="mechanic-email"><span>Email: </span>{{ mechanic?.email }}</div>

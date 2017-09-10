@@ -55,7 +55,7 @@
       <div class="col-md-12">
         <div class="memberblock"> 
           <a *ngFor="let mechanic of detailedService?.myMechanics | iterable" [routerLink]="['/mechanics', mechanic?.key]" class="member"> 
-            <img [src]="mechanic?.val._photoUrl" alt="">
+            <img [src]="mechanic?.val.photoUrl" alt="">
             <div class="memmbername">{{mechanic?.val.firstName}} {{mechanic?.val.lastName}}</div>
           </a> 
         </div>

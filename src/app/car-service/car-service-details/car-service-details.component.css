@@ -208,6 +208,7 @@
 }
 .member img {
 	width: 100%;
+	height: 100px;
 	transition: 0.5s ease all;
 }
 .member:hover img {

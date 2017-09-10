@@ -53,7 +53,7 @@ export class CarServiceMechanicsComponent implements OnInit {
               lastName: res.lastName,
               position: res.position,
               workExperience: res.workExperience,
-              _photoUrl: res._photoUrl,
+              photoUrl: res.photoUrl,
               rating: res.rating
             };
             this.service.addMechanic(this.uid, res.id, mechanic);

@@ -1,5 +1,69 @@
-<div *ngIf="isLogged">
+<!-- <div *ngIf="isLogged">
   <h3>Welcome, {{user}}</h3>
 </div>
 
-<p>Home works</p>
+<p>Home works</p> -->
+
+<div class="homepage">
+  <section class="about" id="about">
+      <div class="container text-center">
+        <h2>
+          About us
+        </h2>
+
+        <p>
+          Car Shop is the place for every car owner, mechanic or service owner.
+        </p>
+
+        <div class="row stats-row">
+          <div class="stats-col text-center col-md-4 col-sm-8">
+            <div class="circle">
+              <span class="stats-no" data-toggle="counter-up">{{usersCount}}</span> <span>Satisfied car owners</span>
+            </div>
+          </div>
+
+          <div class="stats-col text-center col-md-4 col-sm-8">
+            <div class="circle">
+              <span class="stats-no" data-toggle="counter-up">{{carServicesCount}}</span> <span>Verified car services</span>
+            </div>
+          </div>
+
+          <div class="stats-col text-center col-md-4 col-sm-8">
+            <div class="circle">
+              <span class="stats-no" data-toggle="counter-up">{{mechanicsCount}}</span> <span>Qualified mechanics</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="team" id="team">
+      <div class="container">
+        <h2 class="text-center">
+          See our top rated services
+        </h2>
+
+        <div class="row">
+          <div *ngFor="let service of topServices" class="col-sm-3 col-xs-6">
+            <div class="card card-block">
+              <a [routerLink]="['/services', service?.id]"><img alt="" class="team-img" [src]="service?.photoUrl">
+                <div class="card-title-wrap">
+                  <span class="card-title">{{service?.name}}</span> <span class="card-text">{{service?.address}}</span>
+                </div>
+
+                <div class="team-over">
+                  <h4 class="hidden-md-down">
+                    See more
+                  </h4>
+                  <p>
+                    {{service?.activities}}
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</div>

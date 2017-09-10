@@ -11,6 +11,10 @@
     margin-top: 9%;
 }
 
+label {
+    margin-left: 3%;
+}
+
 .rela-block {
   display: block;
   position: relative;

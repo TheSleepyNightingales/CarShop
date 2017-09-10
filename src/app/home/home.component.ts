@@ -1,3 +1,7 @@
+import { CarService } from './../shared/models/CarService';
+import { UserServicePubService } from './../user/user-service-pub.service';
+import { CarServicePubService } from './../car-service/car-service-pub.service';
+import { MechanicPubService } from './../mechanic/mechanic-pub.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../auth/auth.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -8,10 +12,15 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  user: string;
 
+  public mechanicsCount: number;
+  public carServicesCount: number;
+  public usersCount: number;
+  public topServices: CarService[];
+  user: string;
   isLogged: boolean;
-  constructor(db: AngularFireDatabase, private AuthService: AuthService) {
+  constructor(db: AngularFireDatabase, private AuthService: AuthService, private mechanicsPub: MechanicPubService,
+              private carServicesPub: CarServicePubService, private usersPub: UserServicePubService) {
     const user = this.AuthService.currentUser();
     if (user) {
       this.user = user.email;
@@ -20,6 +29,24 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
+    this.mechanicsPub.getAll()
+      .subscribe((mechanics) => {
+        this.mechanicsCount = mechanics.length;
+      });
 
+    this.carServicesPub.getAll()
+      .subscribe((carServices) => {
+        this.carServicesCount = carServices.length;
+      });
+
+    this.usersPub.getAllUsers()
+      .subscribe((users) => {
+        this.usersCount = users.length;
+      });
+
+    this.carServicesPub.getTopServices()
+      .subscribe((topServices) => {
+        this.topServices = topServices;
+      });
+  }
 }

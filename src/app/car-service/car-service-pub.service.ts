@@ -30,6 +30,12 @@ export class CarServicePubService {
     return this.carServices;
   }
 
+  getTopServices() {
+    return this.carServices
+      .map((carServices) => carServices.sort((a, b) => b.rating - a.rating))
+      .map((carServices) => carServices.splice(0, 4));
+  }
+
   getUserDetails(id: string): FirebaseObjectObservable<CarService> {
     return this.db.object('/users/' + id);
   }
@@ -37,5 +43,4 @@ export class CarServicePubService {
   subscribe(serviceId: string, subscriberId: string) {
     this.db.list('/users/' + serviceId + '/myClients').push(subscriberId);
   }
-
 }
