@@ -2,7 +2,7 @@
   float:left;
 }
 .container-fluid{
-  /* position: absolute;  */
+  position: absolute;  
   width: 0px;
   z-index: 2;
 }

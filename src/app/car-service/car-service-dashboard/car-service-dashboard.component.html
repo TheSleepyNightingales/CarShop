@@ -33,12 +33,13 @@
             <div class="row gallery-title">
               <span>Gallery</span>
               <span class="add-img-btn">
-                <div (click)="showUpload($event)" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> ADD IMAGE </div>
+                <!-- <div (click)="showUpload($event)" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> ADD IMAGE </div> -->
+                <button class="btn btn-lg btn-success" data-toggle="modal" data-target="#addGalleryModal"><i class="fa fa-plus" aria-hidden="true"></i>Add image</button>                
               </span>          
-              <div *ngIf="isVisible">
+              <!-- <div *ngIf="isVisible">
                   <app-upload-form [elementId]='uid' [type]='type'></app-upload-form> 
                   <button class="btn btn-danger cancel" (click)="hideUpload($event)"> X </button> 
-              </div>
+              </div> -->
             </div>        
             <div class="row">
               <app-gallery [galleryImages]="galleryImages"></app-gallery>
@@ -79,6 +80,20 @@
         </div>
       </div>
     </div>
+</div>
+
+<div class="modal fade" id="addGalleryModal" tabindex="-1" role="dialog" aria-labelledby="addGalleryModal" aria-hidden="true"> 
+  <div class="modal-dialog">
+    <div class="modal-content gallery-modal">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add new image to gallery</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>    
+      </div>
+      <div class="modal-body">
+        <app-upload-form [elementId]='uid' [type]='type'></app-upload-form> 
+      </div>
+    </div>
+  </div>
 </div>
 
 <app-car-service-edit [carService]="carService"></app-car-service-edit> 

@@ -2,6 +2,10 @@
     margin: 5% 5%;
 }
 
+.gallery-modal {
+  height: 200px;
+}
+
 li.breadcrumb-item.active {
   font-size: 25px;
 }
