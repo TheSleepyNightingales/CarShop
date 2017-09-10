@@ -65,6 +65,12 @@
   </div>
   <div class="col-md-8 col-sm-12 pull-left posttimeline">
     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="page-header small">Gallery</h1>        
+      </div>
+      <app-gallery [galleryImages]="galleryImages"></app-gallery>
+    </div>
+    <!-- <div class="panel panel-default">
       <div class="col-md-12 border-top">
         <div *ngIf="currentUser" class="status-upload">
           <form>
@@ -78,12 +84,10 @@
             </ul>
             <button type="submit" class="btn btn-success pull-right"> Comment</button>
           </form>
-        </div>
-        <!-- Status Upload  --> 
-        
+        </div>        
       </div>
-    </div>
-    <div class="panel panel-default">
+    </div> -->
+    <!-- <div class="panel panel-default">
       <div class="col-md-12">
         <div class="media">
           <div class="media-left"> <a href="javascript:void(0)"> <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="media-object"> </a> </div>
@@ -99,6 +103,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
