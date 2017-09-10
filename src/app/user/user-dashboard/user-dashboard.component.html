@@ -1,6 +1,7 @@
 <div *ngFor="let user of users | async" >
 <div  class="rela-block container">
   <div class="rela-block profile-card">
+    <a class="btn" routerLink="edit-user"><i class="fa fa-edit float-right" aria-hidden="true"></i></a>
     <div class="rela-block profile-name-container">
       <div class="container-fluid">
       <img (click)="myEvent($event)"  id="profile_pic" class="profile-pic" [src]="user.photoUrl" alt="Card image cap" >
@@ -14,8 +15,8 @@
     </div>
     <div class="rela-block profile-card-stats">
       <div class="floated profile-stat works" id="num_works">{{user.rating}}<br></div>
-      <div class="floated profile-stat followers" id="num_followers">{{user.myMechanics}}<br></div>
-      <div class="floated profile-stat following" id="num_following">{{user.myFriends}}<br></div>
+      <div class="floated profile-stat following" id="num_followers">{{user.myMechanics ? user.myMechanics  : '0'}}<br></div>
+      <div class="floated profile-stat followers" id="num_following">{{user.myCars ? user.myCars.count().toString()  : '0'}}<br></div>
     </div>
   </div>
 <br>

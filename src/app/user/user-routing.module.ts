@@ -10,6 +10,7 @@ import {UserPublicComponent} from './user-public/user-public.component';
 import {CarReviewComponent} from './car-review/car-review.component';
 import {AddRepairComponent} from './add-repair/add-repair.component';
 import {AuthGuardMechanic} from '../auth/auth-guard-mechanic/auth-guard-mechanic.component';
+import {UserUpdateComponent} from './user-update/user-update.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'all', pathMatch: 'full' },
   { path: 'signup', component: UserSignupComponent},
   { path: 'dashboard', component:  UserDashboardComponent, canActivate: [AuthGuard]} ,
+  { path: 'dashboard/edit-user', component:  UserUpdateComponent, canActivate: [AuthGuard]} ,
   { path: 'repairs', component:  UserCarRepairsComponent, canActivate: [AuthGuard]} ,
   { path: 'dashboard/register-car', component:  UserCreateCarComponent, canActivate: [AuthGuard]},
   { path: 'all', component: UsersListComponent},
