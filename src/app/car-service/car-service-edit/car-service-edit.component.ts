@@ -12,6 +12,8 @@ export class CarServiceEditComponent implements OnInit {
 
   @Input() carService: FirebaseListObservable<any>;
 
+  isAlertVisible: boolean;
+
   constructor(private service: CarServiceService) { }
 
   ngOnInit() {
@@ -26,7 +28,15 @@ export class CarServiceEditComponent implements OnInit {
       newService.address = address;
       newService.activities = activities;
       this.service.updateCarService(newService);
+      this.isAlertVisible = true;
+      setTimeout(x => {
+        this.resetVisibility();
+      }, 2000);
     });
+  }
+
+  resetVisibility() {
+    this.isAlertVisible = false;
   }
 
 }
