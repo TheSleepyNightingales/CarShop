@@ -1,0 +1,55 @@
+<div class="top-content">
+  <div class="inner-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-sm-offset-8 text">
+          <h1><strong>Hey there !</strong> Add the repair !</h1>
+          <div class="description">
+            <p>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 form-box">
+          <div class="form-top">
+            <div class="form-top-left">
+              <h3>Register in our System</h3>
+              <p>Enter info about your car</p>
+            </div>
+            <div class="form-top-right">
+              <i class="fa fa-key"></i>
+            </div>
+          </div>
+          <div class="form-bottom">
+            <form (ngSubmit)="onSignUpS(f)" #f="ngForm">
+              <div class="form-group">
+                <label class="sr-only" for="form-mechanic">Mechanic</label>
+                <input type="text" id="mechanic" name="mechanic" required ngModel class="form-control" placeholder="mechanic..." class="form-km form-control" id="form-mechanic">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-description">Description</label>
+                <input type="text" id="description" name="description" required ngModel class="form-control" placeholder="description..." class="form-description form-control" id="form-description">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-type">Type</label>
+                <input type="text" id="type" name="type" required ngModel class="form-control" placeholder="Type ..." class="form-type  form-control" id="form-type">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-date">Date</label>
+                <input type="date" id="date" name="date" required ngModel class="form-control" placeholder="Date..." class="form-date form-control" id="form-date">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="form-price">Price</label>
+                <input type="number" id="price" name="price" required ngModel class="form-control" placeholder="Price..." class="form-price form-control" id="form-price">
+              </div>
+              <button type="submit" class="btn" ng-click="submit()">Add new Repair</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+</div>

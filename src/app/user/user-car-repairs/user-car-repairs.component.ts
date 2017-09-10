@@ -23,8 +23,8 @@ export class UserCarRepairsComponent implements OnInit {
     return result;
   }
   repairsCost(val) {
-    const result = Object.keys(val.repair).map(function(key) {
-      return [Number(key), val.repair[key]];
+    const result = Object.keys(val.repairs).map(function(key) {
+      return [Number(key), val.repairs[key]];
     });
     let totalPrice = 0;
     result.forEach( element => {totalPrice = totalPrice + element[1].price; } );
