@@ -25,7 +25,7 @@
 						<img *ngFor="let commentAuthor of hack(comment.author)" [src]="commentAuthor[1].photoUrl" alt="" class="media-object"> </a>
 					</div>
 					<div class="media-body">
-						<h4 *ngFor="let commentAuthor of hack(comment.author)" class="media-heading"> {{commentAuthor[1].firstName}} {{commentAuthor[1].firstName}}<br>
+						<h4 *ngFor="let commentAuthor of hack(comment.author)" class="media-heading"> {{commentAuthor[1].firstName}} {{commentAuthor[1].lastName}}<br>
 							<small><i class="fa fa-clock-o"></i> {{comment.createdOn | timeAgo}}</small>
 						</h4>
 						<p>{{comment.content}}</p>
@@ -45,7 +45,7 @@
 						<img *ngFor="let commentAuthor of hack(comment.author)" alt="" class="media-object"> </a>
 					</div>
 					<div class="media-body">
-						<h4 class="media-heading"> Lucky Sans<br>
+						<h4 *ngFor="let commentAuthor of hack(comment.author)" class="media-heading"> {{commentAuthor[1].firstName}} {{commentAuthor[1].lastName}}<br>
 							<small><i class="fa fa-clock-o"></i> {{comment.createdOn | timeAgo}}</small>
 						</h4>
 						<p>{{comment.content}}</p>

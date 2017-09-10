@@ -26,6 +26,8 @@ export class CarServiceDetailsComponent implements OnInit {
 
   public hasSubscribed: boolean;
 
+  public galleryImages: any[];
+
   constructor(private CarServiceService: CarServicePubService,
     private authService: AuthService,
     private activatedRoute: ActivatedRoute) {
@@ -69,6 +71,10 @@ export class CarServiceDetailsComponent implements OnInit {
 
           if (this.detailedService.myClients && Object.values(this.detailedService.myClients).includes(this.currentUid)) {
             this.hasSubscribed = true;
+          }
+
+          if (this.detailedService.gallery) {
+            this.galleryImages = Object.values(this.detailedService.gallery);
           }
         });
     });
