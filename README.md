@@ -5,7 +5,7 @@
 <h2> FUNCTIONALITY </h2>
 
 ## Public-Functionality
--View home - description / top Mechananics
+- View home - description / top Mechananics
 - Sign up as User / Mechanic / Car Service
 - Sing in
 - View All Users
@@ -41,7 +41,7 @@ Mechanics can :
 - Receive comments
 - Rate Car Services
 
-Users can :
+Car Services can :
 - Sign up
 - Sing in
 - Update profile info
