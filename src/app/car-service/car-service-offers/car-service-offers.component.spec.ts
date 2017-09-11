@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import 'rxjs/add/operator/map';
 import { AngularFireModule } from 'angularfire2';
 import { Offer } from './../../shared/models/Offer';
@@ -28,7 +29,8 @@ describe('CarServiceOffers component', () => {
 
     const serviceMock = {
         getOffers(id) {
-            return Observable.of([new Offer('offer12', 'repair', date, date, 'sample')]);
+            return Observable.of([new Offer('offer12', 'repair', date, date, 'sample'),
+             new Offer('offer66', 'repair', date, date, 'sample')]);
         },
         getClients(id) {
             return Observable.of([]);
@@ -51,17 +53,7 @@ describe('CarServiceOffers component', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(CarServiceOffersComponent);
         component = fixture.componentInstance;
-        component.myClients = [];
-        component.myOffers = [];
-        component.myClients.push(new User('1', 'test@mail.com', 'Jane', 'Doe', 'sample'));
-        component.myOffers.push(new Offer('offer12', 'repair', date, date, 'sample'));
-        component.myOffers.push(new Offer('offer34', 'repair', date, date, 'sample'));
         fixture.detectChanges();
-    });
-
-    afterEach(() => {
-        component.myClients = [];
-        component.myOffers = [];
     });
 
     it('should create', () => {
@@ -69,12 +61,9 @@ describe('CarServiceOffers component', () => {
     });
 
     it('should list all offers of car service correctly', () => {
-        console.log(fixture.debugElement.query(By.css('.card')));
-        debugElement = fixture.debugElement.query(By.css('.card'));
+        debugElement = fixture.debugElement.query(By.css('.offer'));
         element = debugElement.nativeElement;
-        console.log(element.classList);
-        console.log(component.myOffers);
-        expect(element.classList.length).toEqual(component.myOffers.length);
+        expect(element.children.length).toEqual(2);
     });
 
 
