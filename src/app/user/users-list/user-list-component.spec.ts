@@ -72,5 +72,27 @@ describe('UserList component', () => {
     console.log(component.users.count());
   });
 
+  it('should list name of user correctly', () => {
+    debugElement = fixture.debugElement.query(By.css('.card'));
+    element = debugElement.nativeElement;
+    expect(element.textContent).toContain('Gosho');
+  });
 
+  it('should list lastName of user correctly', () => {
+    debugElement = fixture.debugElement.query(By.css('.card'));
+    element = debugElement.nativeElement;
+    expect(element.textContent).toContain('Penev');
+  });
+
+  it('should list shortInfo of user correctly', () => {
+    debugElement = fixture.debugElement.query(By.css('.card'));
+    element = debugElement.nativeElement;
+    expect(element.textContent).toContain('ludiq');
+  });
+
+  it('should list Email of user correctly', () => {
+    debugElement = fixture.debugElement.query(By.css('.card'));
+    element = debugElement.nativeElement;
+    expect(element.textContent).toContain('g@gmail.com');
+  });
 });
