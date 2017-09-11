@@ -29,8 +29,7 @@ describe('CarServiceOffers component', () => {
 
     const serviceMock = {
         getOffers(id) {
-            return Observable.of([new Offer('offer12', 'repair', date, date, 'sample'),
-             new Offer('offer66', 'repair', date, date, 'sample')]);
+            return Observable.of([new Offer('new offer', 'repair', date, date, 'sample content')]);
         },
         getClients(id) {
             return Observable.of([]);
@@ -63,8 +62,37 @@ describe('CarServiceOffers component', () => {
     it('should list all offers of car service correctly', () => {
         debugElement = fixture.debugElement.query(By.css('.offer'));
         element = debugElement.nativeElement;
-        expect(element.children.length).toEqual(2);
+        expect(element.children.length).toEqual(1);
     });
 
+    it('should list name of offer correctly', () => {
+        debugElement = fixture.debugElement.query(By.css('.card'));
+        element = debugElement.nativeElement;
+        expect(element.textContent).toContain('new offer');
+    });
 
+    it('should list category of offer correctly', () => {
+        debugElement = fixture.debugElement.query(By.css('.card'));
+        element = debugElement.nativeElement;
+        expect(element.textContent).toContain('repair');
+    });
+
+    it('should list startDate and endDate of offer correctly', () => {
+        debugElement = fixture.debugElement.query(By.css('.card'));
+        element = debugElement.nativeElement;
+        expect(element.textContent).toContain('11');
+        expect(element.textContent).toContain('Sep');
+        expect(element.textContent).toContain('2017');
+    });
+
+    it('should list content of offer correctly', () => {
+        debugElement = fixture.debugElement.query(By.css('.card'));
+        element = debugElement.nativeElement;
+        expect(element.textContent).toContain('sample content');
+    });
+
+    // it('should expect service getOffers() to be called at least once', () => {
+    //     spyOn(serviceMock, 'getOffers');
+    //     expect(serviceMock.getOffers).toHaveBeenCalled();
+    // });
 });
