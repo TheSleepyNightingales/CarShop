@@ -6,7 +6,7 @@
       <p class="card-text">Type : {{ user.category }}</p>
       <p class="card-text">{{ user.text }}</p>
       <p class="card-text"><i class="fa fa-star"></i>{{ user.endDate }}</p>
-      <a [routerLink]="['/services', user.id]" class="btn btn-success">View profile</a>
+      <a [routerLink]="['/services', user.authorId]" class="btn btn-success">View profile</a>
     </div>
   </div>
 </div>

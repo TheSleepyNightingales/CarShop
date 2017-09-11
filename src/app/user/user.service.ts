@@ -94,7 +94,11 @@ export class UserService {
     this.db.list('/users/' + id + '/gallery').push(photoUrl);
   }
   isMechanic(id: string) {
-    const role = this.db.object('/users/' + id + '/role').toString();
+    let role;
+    this.db.object('/users/' + id + '/role')
+      .subscribe((ob) => {
+        role = ob.$value;
+      });
     return role;
   }
 

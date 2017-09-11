@@ -14,6 +14,7 @@ export class AuthGuardMechanic implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> | Observable<boolean> | boolean {
     if (this.authService.currentUser()) {
       const id = this.authService.currentUser().uid;
+      // console.log(this.UserService.isMechanic(id));
       if (this.UserService.isMechanic(id) === 'mechanic') {
         console.log('Mechanic');
         return true;
