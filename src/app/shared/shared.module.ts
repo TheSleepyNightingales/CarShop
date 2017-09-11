@@ -11,6 +11,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { IterablePipe } from './iterable/iterable.pipe';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { CommentsComponent } from './comments/comments.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { CommentsComponent } from './comments/comments.component';
     GalleryComponent,
     IterablePipe,
     TimeAgoPipe,
-    CommentsComponent
+    CommentsComponent,
+    NotFoundComponent
   ],
   exports: [
     CommonModule,

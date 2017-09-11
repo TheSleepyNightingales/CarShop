@@ -6,6 +6,7 @@ import { MechanicDashboardComponent } from './mechanic-dashboard/mechanic-dashbo
 import { AuthGuard } from '../auth/auth-guard.service';
 import { MechanicDetailsComponent } from './mechanic-details/mechanic-details.component';
 import { MechanicCommentsComponent } from './mechanic-comments/mechanic-comments.component';
+import { NotFoundComponent } from '../shared/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
   },
   {
     path: ':id', component: MechanicDetailsComponent
-  }
+  },
+    { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

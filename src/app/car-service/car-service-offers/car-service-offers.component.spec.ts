@@ -17,6 +17,7 @@ describe('CarServiceOffers component', () => {
     let fixture: ComponentFixture<CarServiceOffersComponent>;
     let debugElement: DebugElement;
     let element: HTMLElement;
+    let spy;
 
     const authServiceMock = {
         currentUser() {
@@ -90,9 +91,4 @@ describe('CarServiceOffers component', () => {
         element = debugElement.nativeElement;
         expect(element.textContent).toContain('sample content');
     });
-
-    // it('should expect service getOffers() to be called at least once', () => {
-    //     spyOn(serviceMock, 'getOffers');
-    //     expect(serviceMock.getOffers).toHaveBeenCalled();
-    // });
 });

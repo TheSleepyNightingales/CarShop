@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './auth/auth-guard.service';
@@ -37,6 +38,9 @@ const routes: Routes = [
     path: 'signup',
     component: SignupComponent
   },
+  {
+    path: '**', component: NotFoundComponent
+  }
 ];
 
 @NgModule({

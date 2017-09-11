@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './../shared/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: ':id/:licensePlate', component: CarReviewComponent, canActivate: [AuthGuardMechanic]},
   { path: 'dashboard/edit-car/:licensePlate', component:  CarEditComponent, canActivate: [AuthGuard]} ,
   { path: ':id/:licensePlate/repair', component: AddRepairComponent, canActivate: [AuthGuardMechanic]},
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
