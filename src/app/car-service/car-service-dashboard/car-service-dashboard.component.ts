@@ -34,7 +34,10 @@ export class CarServiceDashboardComponent implements OnInit {
     this.profileType = 'user';
     this.carService = this.CarServiceService.getService(this.uid);
     this.carService.subscribe(s => {
-      this.galleryImages = Object.values(s[0].gallery);
+      if (s[0].gallery) {
+        console.log('has images');
+        this.galleryImages = Object.values(s[0].gallery);
+      }
     });
 
     this.CarServiceService.getMyTopMechanics()
